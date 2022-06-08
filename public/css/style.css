@@ -1,0 +1,94 @@
+*{
+    background-color: #dbcccc;
+}
+
+header{
+    text-align: center;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #dbcccc;
+}
+   
+  .nav ul {
+    list-style: none;
+    background-color: #ebc19b;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .nav li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #ebc19b;
+  }
+   
+  .nav a {
+    text-decoration: none;
+    color: rgb(223, 130, 130);
+    display: block;
+    transition: .3s background-color;
+  }
+   
+  .nav a:hover {
+    background-color: #ffffff;
+  }
+   
+  .nav a.active {
+    background-color: #fff;
+    color: #444;
+    cursor: default;
+  }
+   
+@media screen and (min-width: 600px) {
+ .nav li {
+      width: 120px;
+      border-bottom: none;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.4em;
+}
+   
+/* Option 1 - Display Inline */
+.nav li {
+      display: inline-block;
+      margin-right: -4px;
+}
+
+.slide{
+    padding: 1%;
+}
+
+.novedades{
+    width: 100%;
+}
+
+  div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 23%;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .titulos{
+      text-align: center;
+  }

@@ -1,13 +1,11 @@
-const express = require("express")
+const express = require("express");
+const app = express();
+const path = require("path");
+app.listen(3030, () => console.log("Trabajando en puerto 3030"));
 
-const path = require("path")
+app.use("/public", express.static(__dirname + '/public'));
 
-const app = express()
-
-app.use ("/static", express.static("/public"))
-
-app.listen (3001, ()=>{console.log("servidor escuchando puerto 3001")})
-
-app.get ("/", (req,res) =>{
-    res.sendFile (__dirname + "/views/index.html")
+app.get("/", (req, res) => {
+    let htmlInfo = path.resolve(__dirname, "./views/index.html");
+    res.sendFile(htmlInfo);
 })
