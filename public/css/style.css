@@ -66,13 +66,14 @@ body{
 
 .novedades{
     width: 100%;
+    display: flex;
 }
 
   div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
-    float: left;
-    width: 23%;
+    flex: 25%;
+    padding: 5px;
   }
   
   div.gallery:hover {
