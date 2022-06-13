@@ -81,8 +81,8 @@ main{
 }
 
   div.gallery {
-    width: 20%;
-    flex:auto;
+    width: 0;
+    flex: auto;
     margin: 5px;
     border: 1px solid #ccc;
     padding: 5px;
@@ -98,10 +98,20 @@ main{
   }
   
   div.desc {
-    padding: 15px;
-    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
   }
 
   .titulos{
       text-align: center;
   }
+
+
+
+.botonesSlide{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  
+}
