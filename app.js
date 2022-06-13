@@ -8,4 +8,4 @@ app.use("/public", express.static(__dirname + '/public'));
 app.get("/", (req, res) => {
     let htmlInfo = path.resolve(__dirname, "./views/index.html");
     res.sendFile(htmlInfo);
-})
+}) 
