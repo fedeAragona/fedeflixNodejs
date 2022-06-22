@@ -8,34 +8,64 @@
     <script src="https://kit.fontawesome.com/c3d638413c.js" crossorigin="anonymous"></script>
     
     <title>sayi</title>
-
-
-
 </head>
 <body>
-    <header class="header">
-        <img class="logo" src="public\images\logo.jpg" alt="logo" width="9%">
-        
-        <div class="login">
-          <div class="navn">
-               <li type="none"><a href="/">REGISTRARSE / LOGEARSE</a></li>
-          </div>
+  <header class="header">
+    <div class="headerMain">
+        <div class="headerLogoYBuscador">
+            <a href="/">
+                <img src="" alt="sayi" width="5%">
+            </a>
+            <div class="headerBuscador">
+                <form action="">
+                    <input type="search" name="busqueda" placeholder="Buscar productos, marcas..." class="buscador">
+                    <div class="botonBuscar">
+                        <i class="fas fa-search header-brand-search-icon"></i>
+                    </div>
+                </form>
+            </div>
         </div>
-        
-        <div class="nav">
-            <ul>
-              <li><a href="/">HOME</a></li>
-              <li><a href="/">PRODUCTOS</a></li>
-              <li><a href="/">DESCUENTOS</a></li>
-              <li><a href="/">NOSOTROS</a></li>
-              <li><a href="/">CONTACTO</a></li>
+        <div class="headerNavLogin">
+          <ul type="none">
+            <li>
+                <a href="/login">Ingresar 
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    Carrito 
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </a>
+            </li>
+           </ul>
+        </div>
+    </div>
+    <nav class="headerNav">
+        <div class="headerNavItems">
+            <ul type="none">
+                <li>
+                    <a href="/">HOME</a>
+                </li>
+                <li>
+                    <a href="javascript:alert('En construcción');">PRODUCTOS</a>
+                </li>
+                <li>
+                    <a href="javascript:alert('En construcción');">DESCUENTOS</a>
+                </li>
+                <li>
+                    <a href="javascript:alert('En construcción');">QUIENES SOMOS</a>
+                </li>
+                <li>
+                  <a href="javascript:alert('En construcción');">CONTACTO</a>
+              </li>
             </ul>
-          </div>
-
-    </header>
+        </div>
+    </nav>
+</header>
     <main>
         <div>
-          <div class="w3-content w3-display-container">
+          <div class="w3-content w3-display-container" style="margin-top: 10px;">
             <img class="mySlides" src="public\images\slideHome.jpg" style="width: 100%" height= 100%>
             <img class="mySlides" src="public\images\slideHome2.jpg" style="width: 100%" height= 100%>
             <div class="botonesSlide">
@@ -64,7 +94,7 @@
             }
             x[slideIndex-1].style.display = "block";  
           }
-          </script>
+        </script>
 
         
 

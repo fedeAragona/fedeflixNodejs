@@ -1,50 +1,152 @@
 *{
-    background-color: #dbcccc;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-    text-align: center;
+.header{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background-color: rgb(212, 193, 158);
+  width: 95%;
+  margin: 0 auto;
+}
+
+.headerMain{
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 361px){
+  .headerMain {
+      flex-direction: row;
+  }
+  }
+  
+  .headerLogoYBuscador{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+
+  @media (min-width: 361px){
+    .headerLogoYBuscador{
+        flex-basis: 67%;
+    }
+    }
+    
+    .headerBuscador{
+        flex-basis: 50%;
+        position: relative;
+    }
+
+    .headerNavLogin{
+      align-items:flex-end;
+  }
+
+  .buscador{
+    background-color: #ebebeb;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 22px;
+    width: 100%;
+    outline: 0;
+}
+
+.botonBuscar{
+    color: #666;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+
+  @media (min-width: 361px){
+    .headerLeyenda {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-basis: 33%;
+        text-align: end;
+    }
+    }
+
+
+nav{
+    display: block;
+}
+
+li{
+  display: list-item;
+}
+
+.headerNav .headerNavItems{
+  display: none;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+@media (min-width: 361px){
+.headerNav .headerNavItems {
+  display: flex;
+  justify-content: center;
+}
+}
+
+.headerNav .headerNavItems li{
+  padding: 1px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3em;
+  margin-right: 10px;
+}
+
+.headerNav .headerNavItems a{
+  color: black;
+  text-decoration: none;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 5%;
+  transform: background-color 200ms;
+}
+
+
+
+a{
+  text-decoration: none;
+}
+
+a:visited{
+  color: black;
 }
 
 body{
+    font-family: 'Oswald', sans-serif;
     margin: 0;
     padding: 0;
-    background: #dbcccc;
+    background: #f1f1f1;
     box-sizing: border-box;
 }
  
-  .nav ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    background-color: #ebc19b;
-    text-align: center;
-    padding: 40px;
-    margin: 40px;
-    margin-bottom: 40px;
-  }
-  .nav li {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2em;
-    line-height: 40px;
-    height: 40px;
-    border-bottom: 1px solid #ee9c9c;
-    
-    
-  }
-   
-  .nav a {
-    text-decoration: none;
-    color: #080808;
-    display: flex;
-    font-size: 15px;
-    justify-content: center;
-    align-items: center;
-    transition: .3s background-color;
-  }
-   
-  .nav a:hover {
+.nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  background-color: #ebc19b;
+  text-align: center;
+  padding: 10px;
+  margin-left: 23px;
+  margin-right: 23px;
+  margin-bottom: 23px;
+}
+
+
+
+  .headerNav .headerNavItems a:hover {
     background-color: #ffffff;
   }
    
@@ -55,13 +157,13 @@ body{
   }
    
 @media screen and (min-width: 600px) {
- .nav li {
-      width: 120px;
-      border-bottom: none;
-      height: 50px;
-      line-height: 50px;
-      font-size: 1.4em;
- }
+ .headerNav .headerNavItems ul {
+      margin-top: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
 
 /* Option 1 - Display Inline */
 .nav li {
@@ -73,7 +175,7 @@ body{
 main{
     width: 95%;
     margin: 0 auto;
-    padding-bottom: var(--spacing-sm);
+    padding-bottom: 10px;
 }
 
 .slide{
@@ -84,7 +186,6 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin: 0 calc(var(--spacing-sm) * -1);
 }
 
   div.gallery {
@@ -111,14 +212,14 @@ main{
   }
 
   .titulos{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
       text-align: center;
+      margin: 10px;
   }
-
-
 
 .botonesSlide{
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  
 }
