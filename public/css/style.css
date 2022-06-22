@@ -1,6 +1,6 @@
 *{
     background-color: #dbcccc;
-    bor
+    box-sizing: border-box;
 }
 
 header{
@@ -13,27 +13,34 @@ body{
     background: #dbcccc;
     box-sizing: border-box;
 }
-   
+ 
   .nav ul {
+    display: flex;
+    justify-content: space-around;
     list-style: none;
     background-color: #ebc19b;
     text-align: center;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 10px;
+    padding: 40px;
+    margin: 40px;
+    margin-bottom: 40px;
   }
   .nav li {
     font-family: 'Oswald', sans-serif;
     font-size: 1.2em;
     line-height: 40px;
     height: 40px;
-    border-bottom: 1px solid #ebc19b;
+    border-bottom: 1px solid #ee9c9c;
+    
+    
   }
    
   .nav a {
     text-decoration: none;
-    color: rgb(223, 130, 130);
-    display: block;
+    color: #080808;
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
     transition: .3s background-color;
   }
    

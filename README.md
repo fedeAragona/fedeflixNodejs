@@ -19,3 +19,7 @@ https://www.jardinorganico.com.ar/
 https://www.thefreshmarket.com.ar/
 https://www.agrojusto.com.ar/
 https://holaveggie.com.ar/
+
+Sprint "2": tablero trello
+
+link: https://trello.com/invite/b/10UFueup/eb8fa1495ec9da90a8a3d4d2517df486/sayi
