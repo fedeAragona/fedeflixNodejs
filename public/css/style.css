@@ -30,21 +30,41 @@
       align-items: center;
   }
 
+  .header .headerMain .headerLogoYBuscador a{
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
+  @media (min-width: 761px){
+    .header .headerMain .headerLogoYBuscador a{
+      margin-left: 15%;
+      margin-right: 5%;
+      position: relative;
+      top: 20%;
+    }
+  }
+
 
   @media (min-width: 361px){
     .headerLogoYBuscador{
-        flex-basis: 67%;
+        flex-basis: 66%;
     }
-    }
+  }
     
     .headerBuscador{
         flex-basis: 50%;
         position: relative;
     }
 
-    .headerNavLogin{
-      align-items:flex-end;
-  }
+  @media (min-width: 361px){
+    .headerNavLogin {
+        display: flex;
+        justify-content: flex-end;
+        flex-basis: 33%;
+        text-align: end;
+        font-size: 1.2em;
+    }
+    }
 
   .buscador{
     background-color: #ebebeb;
@@ -59,19 +79,11 @@
 .botonBuscar{
     color: #666;
     position: absolute;
-    top: 12px;
+    top: 5px;
     right: 10px;
 }
 
-  @media (min-width: 361px){
-    .headerLeyenda {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        flex-basis: 33%;
-        text-align: end;
-    }
-    }
+
 
 
 nav{
@@ -219,7 +231,29 @@ main{
   }
 
 .botonesSlide{
-  padding: 10px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
+}
+
+.botonesSlide button{
+  width: 5%;
+  background-color: rgb(212, 193, 158);
+  border-radius: 10%;
+}
+
+.footer{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.footerContenido{
+  width: 95%;
+  background-color: rgb(212, 193, 158);
+  display: flex;
+  align-items:flex-end;
+  justify-content: center;
+  padding: 10px;
 }
