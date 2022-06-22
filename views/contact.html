@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>register</title> 
-	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
-	<link rel="stylesheet" href="public\css\register.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public\css\register.css">
     <link rel="stylesheet" href="public\css\style.css">
     <script src="https://kit.fontawesome.com/c3d638413c.js" crossorigin="anonymous"></script>
-</head>  
-
+    <title>contact</title>
+</head>
 <body>
-
     <header class="header">
         <div class="headerMain">
             <div class="headerLogoYBuscador">
@@ -66,44 +64,43 @@
         </nav>
     </header>
 
-<main>
+    <main>
 
-	<a href="https://wa.me/1169790502?text=Me%20gustaría%20saber%20el%20precio%20del%20producto" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+        <a href="https://wa.me/1169790502?text=Me%20gustaría%20saber%20el%20precio%20del%20producto" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 
-  <form class="formulario">
+        <form class="formulario">
     
-    <h1>Registrate</h1>
+            <h1>Envianos tu mensaje</h1>
+        
+             <div class="contenedor">
+                <div class="input-contenedor">
+                     <input type="text" placeholder="Nombre Completo">
+                </div>
+                 
+                <div class="input-contenedor">
+                    <input type="text" placeholder="Correo Electronico">
+                </div>
+                 
+                <div class="input-contenedor">
+                    <input type="text" placeholder="Asunto">
+                </div>
 
-     <div class="contenedor">
-        <div class="input-contenedor">
-             <i class="fas fa-user icon"></i>
-             <input type="text" placeholder="Nombre Completo">
-         
+                <div class="input-contenedor">
+                    <textarea name="your-message" placeholder="Tu mensaje..." cols="60" rows="9" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></textarea>
+                </div>
+
+                 <input type="submit" value="Enviar" class="button">
+                 <p style="font-size: small; margin: 2%;">Envianos tu mensaje y nos pondremos en contacto con vos a la brevedad.</p>
+             </div>
+            </form>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footerContenido">
+              <p>2022 © SAYI | Todos los derechos reservados | Creado por Grupo 4</p>
+            </div>
         </div>
-         
-        <div class="input-contenedor">
-            <i class="fas fa-envelope icon"></i>
-            <input type="text" placeholder="Correo Electronico">
-         
-        </div>
-         
-        <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>
-            <input type="password" placeholder="Contraseña">
-         
-        </div>
-         <input type="submit" value="Registrate" class="button">
-         <p style="font-size: small; margin: 2%;">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿Ya tienes una cuenta?<a class="link" href="/login"> Iniciar Sesion</a></p>
-     </div>
-    </form>
-</main>
-<footer>
-    <div class="footer">
-        <div class="footerContenido">
-          <p>2022 © SAYI | Todos los derechos reservados | Creado por Grupo 4</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>

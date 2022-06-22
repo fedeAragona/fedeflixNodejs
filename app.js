@@ -18,4 +18,9 @@ app.get("/login", (req, res) => {
 app.get("/register", (req, res) => {
     let htmlInfo = path.resolve(__dirname, "./views/register.html");
     res.sendFile(htmlInfo);
-}) 
+})
+
+app.get("/contact", (req, res) => {
+    let htmlInfo = path.resolve(__dirname, "./views/contact.html");
+    res.sendFile(htmlInfo);
+})
