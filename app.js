@@ -6,7 +6,7 @@ app.listen(3030, () => console.log("Trabajando en puerto 3030"));
 app.use("/public", express.static(__dirname + '/public'));
 
 app.get("/", (req, res) => {
-    let htmlInfo = path.resolve(__dirname, "./views/index.html");
+    let htmlInfo = path.resolve(__dirname, "./views/intro.html");
     res.sendFile(htmlInfo);
 })
 
@@ -22,5 +22,10 @@ app.get("/register", (req, res) => {
 
 app.get("/contact", (req, res) => {
     let htmlInfo = path.resolve(__dirname, "./views/contact.html");
+    res.sendFile(htmlInfo);
+})
+
+app.get("/home", (req, res) => {
+    let htmlInfo = path.resolve(__dirname, "./views/home.html");
     res.sendFile(htmlInfo);
 })
