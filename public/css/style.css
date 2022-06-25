@@ -55,8 +55,7 @@
         flex-basis: 50%;
         position: relative;
     }
-
-  @media (min-width: 361px){
+  
     .headerNavLogin {
         display: flex;
         flex-direction: row;
@@ -64,7 +63,7 @@
         flex-basis: 33%;
         font-size: 1.2em;
     }
-    }
+
 
   .buscador{
     background-color: #ebebeb;
@@ -254,7 +253,7 @@ main{
   display: flex;
   align-items:flex-end;
   justify-content: center;
-  padding: 10px;
+  padding: 2px;
 }
 
 .footerContenido p{
@@ -286,3 +285,31 @@ main{
     color: white;
     font-size: 35px;
   }
+
+.sliderAuto{
+  margin-top: 10px;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.sliderAuto ul{
+  display: flex;
+  animation: cambio 30s infinite alternate linear;
+  width: 200%;
+}
+
+.sliderAuto li{
+  width: 100%;
+  list-style: none;
+}
+
+.sliderAuto img{
+   width: 100%;
+   height: 100%;
+}
+
+@keyframes cambio{
+  0%{margin-left: 0;}
+  100%{margin-left: -100%;}
+}

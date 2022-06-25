@@ -29,3 +29,8 @@ app.get("/home", (req, res) => {
     let htmlInfo = path.resolve(__dirname, "./views/home.html");
     res.sendFile(htmlInfo);
 })
+
+app.get("/prueba", (req, res) => {
+    let htmlInfo = path.resolve(__dirname, "./views/prueba.html");
+    res.sendFile(htmlInfo);
+})
