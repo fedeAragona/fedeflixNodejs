@@ -191,19 +191,27 @@ main{
 }
 
 .novedades{
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
-  div.gallery {
+ .gallery {
     width: 0;
-    flex: auto;
-    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 24.5%;
+    justify-content: center;
+    margin: 4px;
     border: 1px solid #ccc;
     padding: 5px;
   }
+
+  @media (max-width: 769px){
+.gallery {
+    flex-basis: 48%;
+}
+}
   
   div.gallery:hover {
     border: 1px solid #777;
@@ -213,11 +221,23 @@ main{
     width: 100%;
     height: auto;
   }
-  
-  div.desc {
+
+
+.desc {
     padding: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+  }
+
+  .desc p{
+    word-break:break-all;
+  }
+
+  .desc h3{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7px;
   }
 
   .titulos{
@@ -289,8 +309,8 @@ main{
 .sliderAuto{
   margin-top: 10px;
   width: 100%;
-  height: 500px;
-  overflow: hidden;
+  height: auto;
+  overflow:hidden;
 }
 
 .sliderAuto ul{
