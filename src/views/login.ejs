@@ -1,0 +1,83 @@
+<%- include("./partials/head.ejs")%>
+<body>
+    <header class="header">
+        <div class="headerMain">
+            <div class="headerLogoYBuscador">
+                <a href="/home">
+                    <img src="\images\logo.png" alt="sayi" width="100%">
+                </a>
+                <div class="headerBuscador">
+                    <form action="">
+                        <input type="search" name="busqueda" placeholder="Buscar productos, marcas..." class="buscador">
+                        <div class="botonBuscar">
+                            <i class="fas fa-search header-brand-search-icon"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="headerNavLogin">
+                <ul type="none">
+                  <li>
+                      <a href="/login">Ingresar 
+                        <i class="fa-solid fa-user"></i>
+                      </a>
+                  </li>
+                 </ul>
+                 <li type="none" style="margin-left: 5%;">
+                  <a href="javascript:alert('En construcción');" style="color: black;">
+                      Carrito 
+                      <i class="fa-solid fa-cart-shopping"></i>
+                  </a>
+                 </li>
+              </div>
+        </div>
+        <nav class="headerNav">
+            <div class="headerNavItems">
+                <ul type="none">
+                    <li>
+                        <a href="/home">HOME</a>
+                    </li>
+                    <li>
+                        <a href="javascript:alert('En construcción');">PRODUCTOS</a>
+                    </li>
+                    <li>
+                        <a href="javascript:alert('En construcción');">DESCUENTOS</a>
+                    </li>
+                    <li>
+                        <a href="javascript:alert('En construcción');">QUIENES SOMOS</a>
+                    </li>
+                    <li>
+                      <a href="/contact">CONTACTO</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+<main>
+
+	<a href="https://wa.me/1169790502?text=Me%20gustaría%20saber%20el%20precio%20del%20producto" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+
+    <form class="formulario">
+        <h1>Iniciar sesión</h1>
+
+        <div class="contenedor">
+          <div class="input-contenedor">
+            <i class="fas fa-envelope icon"></i>
+            <input type="text" placeholder="Correo Electronico">
+         
+          </div>
+         
+         <div class="input-contenedor">
+             <i class="fas fa-key icon"></i>
+             <input type="password" placeholder="Contraseña">
+         </div>
+             <input type="submit" value="Ingresar" class="button">
+             <p style="font-size: small; margin: 2%;">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+             <p>¿No tienes una cuenta? <a class="link" href="/register">Registrate </a></p>
+        </div>
+    </form>
+</main>
+<%- include("./partials/footer.ejs")%>
+</body>
+</html>

@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public\css\style.css">
-    <script src="https://kit.fontawesome.com/c3d638413c.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="public\images\logo.png">
-    <title>sayi</title>
-</head>
+<%- include("./partials/head.ejs")%>
 <body>
   <header class="header">
     <div class="headerMain">
         <div class="headerLogoYBuscador">
             <a href="/home">
-                <img src="public\images\logo.png" alt="sayi" width="100%">
+                <img src="\images\logo.png" alt="sayi" width="100%">
             </a>
             <div class="headerBuscador">
                 <form action="">
@@ -69,10 +59,10 @@
            <div class="sliderAuto">
                <ul>
                    <li>
-                      <img src="public\images\slideHome.jpg" width="100%" alt="">
+                      <img src="\images\slideHome.jpg" width="100%" alt="">
                    </li>
                    <li>
-                      <img src="public\images\slideHome2.jpg" width="100%" alt="">
+                      <img src="\images\slideHome2.jpg" width="100%" alt="">
                    </li>
                </ul>
            </div>
@@ -105,7 +95,7 @@
         <div class="novedades">
           <div class="gallery">
             <a target="" href="">
-              <img src="public\images\Granola-Cashem.jpg" alt="Cinque Terre" width="60%" height="40%">
+              <img src="\images\Granola-Cashem.jpg" alt="Cinque Terre" width="60%" height="40%">
             </a>
             <div class="desc">
               <h3>
@@ -119,32 +109,26 @@
           
           <div class="gallery">
             <a target="" href="">
-              <img src="public\images\almendras.jpg" alt="Forest" width="60%" height="40%">
+              <img src="\images\almendras.jpg" alt="Forest" width="60%" height="40%">
             </a>
             <div class="desc">Descripcionn</div>
           </div>
           
           <div class="gallery">
             <a target="" href="">
-              <img src="public\images\girasol.jpg" alt="Northern Lights" width="60%" height="40%">
+              <img src="\images\girasol.jpg" alt="Northern Lights" width="60%" height="40%">
             </a>
             <div class="desc">Descripcionn</div>
           </div>
           
           <div class="gallery">
             <a target="" href="">
-              <img src="public\images\mantequillademani.jpg" alt="Mountains" width="60%" height="40%">
+              <img src="\images\mantequillademani.jpg" alt="Mountains" width="60%" height="40%">
             </a>
             <div class="desc">Descripcionn</div>
           </div>
         </div>
     </main>
-    <footer>
-        <div class="footer">
-            <div class="footerContenido">
-              <p>2022 © SAYI | Todos los derechos reservados | Creado por Grupo 4</p>
-            </div>
-        </div>
-    </footer>
+    <%- include("./partials/footer.ejs")%>
 </body>
 </html>

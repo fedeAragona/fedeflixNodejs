@@ -21,7 +21,7 @@ const controller = {
     },
 
     login: (req,res) => {
-        res.send(path.join(__dirname,'../views/login'));
+        res.render(path.join(__dirname,'../views/login'));
     }
 };
 
