@@ -12,6 +12,12 @@ router.get('/register', mainController.register);
 
 router.get('/login',mainController.login);
 
+router.get('/admin',mainController.admin);
+
+router.get('/adminProducts',mainController.adminProducts);
+
+router.get('/adminAddProduct',mainController.adminAddProduct);
+
 
 
 module.exports = router;
