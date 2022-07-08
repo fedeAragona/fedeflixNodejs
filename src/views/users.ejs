@@ -1,0 +1,25 @@
+<%- include("./partials/head.ejs")%>
+
+<body>
+    <form class="formulario">
+    
+        <h1 style="margin-bottom: 15px;">Todos los usuarios</h1>
+             
+        
+
+        <ul type="none">
+            <% for(let i = 0; i < allUsers.length; i++) {%>
+                <li>
+                    <p>
+                        <a href="/user/<%= allUsers[i].id%>"><%= allUsers[i].name %></a>
+                        <a href="/edit/<%= allUsers[i].id%>">Edit</a>
+                    </p>
+                </li>
+            <%}%>
+        </ul>
+        <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/admin">Volver atras</a></p>
+    </form>
+
+    <%- include("./partials/footer.ejs")%>
+</body>
+</html>
