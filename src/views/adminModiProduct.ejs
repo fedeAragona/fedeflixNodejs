@@ -1,0 +1,51 @@
+<%- include("./partials/head.ejs")%>
+<body>
+    <form class="formulario">
+    
+        <h1>Modificar producto</h1>
+    
+         <div class="contenedor">
+            <div class="input-contenedor">
+                <div class="iconAdmin">
+                <i class="fa-solid fa-pencil"></i>
+                 <input type="text" placeholder="Nombre">
+                </div>
+            </div>
+
+            <div class="input-contenedor">
+                <div class="iconAdmin">
+                <i class="fa-solid fa-file-signature"></i>
+                <input type="text" placeholder="Descripcion">
+                </div>
+           </div>
+
+           <div class="input-contenedor">
+                <div class="iconAdmin">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" min="0" placeholder="Precio">
+                </div>
+            </div>
+
+            <div class="input-contenedor">
+                <div class="iconAdmin">
+                     <i class="fa-solid fa-image"></i>
+                     <input type="file" placeholder="Imagen">
+                </div>
+            </div>
+
+            <div class="input-contenedor">
+                <div class="iconAdmin">
+                     <p>Producto en descuento</p>
+                     <input type="checkbox">
+                </div>
+                
+            </div>
+             
+             <input type="submit" value="Guardar cambios" class="button">
+             <p style="margin-top: 15px;"><a class="link" href="/adminModiProducts">Cancelar</a></p>
+         </div>
+
+    </form>
+    <%- include("./partials/footer.ejs")%>
+</body>
+</html>

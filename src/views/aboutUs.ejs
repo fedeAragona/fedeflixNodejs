@@ -1,7 +1,5 @@
 <%- include("./partials/head.ejs")%>
-
 <body>
-
     <header class="header">
         <div class="headerMain">
             <div class="headerLogoYBuscador">
@@ -18,20 +16,20 @@
                 </div>
             </div>
             <div class="headerNavLogin">
-                <ul type="none">
-                  <li>
-                      <a href="/login">Ingresar 
-                        <i class="fa-solid fa-user"></i>
-                      </a>
-                  </li>
-                 </ul>
-                 <li type="none" style="margin-left: 5%;">
-                  <a href="javascript:alert('En construcción');" style="color: black;">
-                      Carrito 
-                      <i class="fa-solid fa-cart-shopping"></i>
-                  </a>
-                 </li>
-              </div>
+              <ul type="none">
+                <li>
+                    <a href="/login">ACCEDER 
+                      <i class="fa-solid fa-user"></i>
+                    </a>
+                </li>
+               </ul>
+               <li type="none" style="margin-left: 5%;">
+                <a href="javascript:alert('En construcción');" style="color: black;">
+                    CARRITO 
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+               </li>
+            </div>
         </div>
         <nav class="headerNav">
             <div class="headerNavItems">
@@ -56,38 +54,23 @@
         </nav>
     </header>
 
-<main>
+    <main>
+            <section class="sectionAboutUs">
+                <div class="contenido">
+                        <h1>
+                            SAYI ES CONSCIENCIA
+                        </h1>
+                    <p>
+                        SAYI es un espacio consciente que integra una tienda con gran variedad de productos y servicios necesarios para llevar a cabo un estilo de vida saludable y sustentable, equilibrando el bienestar de las personas y el planeta.
+                    </p>
+                </div>
 
+                <div class="contenido">
+                    <img src="/images/lechuga.jpg" alt="" style="border-radius: 10px;">
+                </div>
+            </section>
+    </main>
 
-
-  <form class="formulario">
-    
-    <h1>Registrate</h1>
-
-     <div class="contenedor">
-        <div class="input-contenedor">
-             <i class="fas fa-user icon"></i>
-             <input type="text" placeholder="Nombre Completo">
-         
-        </div>
-         
-        <div class="input-contenedor">
-            <i class="fas fa-envelope icon"></i>
-            <input type="email" placeholder="Correo Electronico">
-         
-        </div>
-         
-        <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>
-            <input type="password" placeholder="Contraseña">
-         
-        </div>
-         <input type="submit" value="Registrate" class="button">
-         <p style="font-size: small; margin: 2%;">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿Ya tienes una cuenta?<a class="link" href="/login"> Iniciar Sesion</a></p>
-     </div>
-    </form>
-</main>
-<%- include("./partials/footer.ejs")%>
+    <%- include("./partials/footer.ejs")%>
 </body>
 </html>
