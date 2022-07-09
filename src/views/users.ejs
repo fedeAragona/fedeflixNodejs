@@ -11,8 +11,10 @@
             <% for(let i = 0; i < allUsers.length; i++) {%>
                 <li>
                     <p>
-                        <a href="/user/<%= allUsers[i].id%>"><%= allUsers[i].name %></a>
-                        <a href="/edit/<%= allUsers[i].id%>">Edit</a>
+                        <div style="margin-bottom: 9px; text-align: center;">
+                            <input type="text" value="<%= allUsers[i].id%>     <%= allUsers[i].name%>" readonly>
+                            <a class="button" style="padding: 6px;" href="/editUser/<%= allUsers[i].id%>">Editar</a>
+                        </div>
                     </p>
                 </li>
             <%}%>

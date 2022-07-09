@@ -10,6 +10,7 @@ const allUsers = json.map(e => {
       id: e.id,
       name: e.name,
       email: e.email,
+      password: e.password
     }
   }) 
 
