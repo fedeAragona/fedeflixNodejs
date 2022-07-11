@@ -1,6 +1,6 @@
 <%- include("./partials/head.ejs")%>
 <body>
-    <form class="formulario">
+    <form class="formulario" action="/adminAddProduct" enctype="multipart/form-data" method="POST">
     
         <h1>Agregar producto</h1>
     
@@ -8,28 +8,28 @@
             <div class="input-contenedor">
                 <div class="iconAdmin">
                 <i class="fa-solid fa-pencil"></i>
-                 <input type="text" placeholder="Nombre">
+                 <input type="text" placeholder="Nombre" name="nameProduct">
                 </div>
             </div>
 
             <div class="input-contenedor">
                 <div class="iconAdmin">
                 <i class="fa-solid fa-file-signature"></i>
-                <input type="text" placeholder="Descripcion">
+                <input type="text" placeholder="Descripcion" name="detailProduct">
                 </div>
            </div>
 
            <div class="input-contenedor">
                 <div class="iconAdmin">
                     <i class="fa-solid fa-dollar-sign"></i>
-                    <input type="number" min="0" placeholder="Precio">
+                    <input type="number" min="0" placeholder="Precio" name="priceProduct">
                 </div>
             </div>
 
             <div class="input-contenedor">
                 <div class="iconAdmin">
                      <i class="fa-solid fa-image"></i>
-                     <input type="file" placeholder="Imagen">
+                     <input type="file" placeholder="Imagen" name="imageProduct">
                 </div>
             </div>
 
