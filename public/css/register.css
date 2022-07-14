@@ -17,6 +17,7 @@ body {
     padding: 3px;
     margin-top: 80px;
 }
+
 h1{
     text-align: center;
     color: #000000;
@@ -88,4 +89,24 @@ p{
     margin-left: -4%;
     text-align: center;
     color: #999;
+}
+
+.buttonEditar{
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background:  #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttonEditar:visited{
+    color: white;
+}
+
+.buttonEditar:hover{
+    background: rgb(255, 255, 255);
+    color: black;
 }

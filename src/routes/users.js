@@ -11,6 +11,7 @@ router.get("/users", controllersUser.allUsers);
 
 
 //router.post('/user',controllersUser.postUser);
-//router.get('/edit/:id', userController.edit);
-//router.put('/edit', userController.editConfirm);
+router.get('/edit/:id', controllersUser.edit);
+router.put('/edit', controllersUser.editConfirm);
+router.delete('/delete/:id',controllersUser.delete);
 module.exports = router;

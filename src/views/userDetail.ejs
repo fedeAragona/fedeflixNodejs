@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User details</title>
+    <title>User Details</title>
 </head>
 <body>
     <h2>User detail</h2>
-    <h2>Name: <%=user.name%></h2>
-    <h2>Email: <%=user.email%></h2>
+    <% if(Array.isArray(user)){%>
+        <% for(let i=0;i < user.length; i++){%>
+            <li>
+                <p>
+                    <h5>Name: <%= user[i].name%></h5>
+                </p>
+                <p>
+                    <h5>E-Mail: <%= user[i].email%></h5>
+                </p>
+            </li>
+        <%}%>
+    <%}else{%>
+        <h3>Name: <%= user.name%></h3>
+        <h3>E-mail: <%= user.email%></h3>
+    <%}%>
 </body>
 </html>
