@@ -18,6 +18,32 @@ const controller = {
         res.render(path.join(__dirname,'../views/users'),{'allUsers':allUsers});
     },
 
+    postUser: (req,res) =>{
+        const newName = req.body.name;
+        const newEmail = req.body.email;
+        const newPassword = req.body.password;
+
+        const id = allUsers[allUsers.length - 1].id;
+        const newId = id + 1;
+
+        const obj = {
+            id: newId,
+            name: newName,
+            email: newEmail,
+            password: newPassword,
+        }
+
+        allUsers.push(obj);
+        
+        fs.writeFile(jsonPath,JSON.stringify(allUsers),(error) => {
+            if(error){
+                res.send(error);
+            }else{
+                res.redirect('/home');
+            }
+        })
+    },
+
     getUserId: (req,res) => {
       const id = req.params.id;
       const user = allUsers.find((element) => element.id == parseInt(id));
@@ -68,7 +94,6 @@ const controller = {
             res.redirect('/users');
         }
     });
-
   }
 };
 

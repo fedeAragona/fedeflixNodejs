@@ -60,30 +60,33 @@
 
 
 
-  <form class="formulario">
+  <form class="formulario" action="/user" method="POST">
     
     <h1>Registrate</h1>
 
      <div class="contenedor">
         <div class="input-contenedor">
              <i class="fas fa-user icon"></i>
-             <input type="text" placeholder="Nombre de usuario">
+             <input type="text" placeholder="Nombre de usuario" name="name">
          
         </div>
          
         <div class="input-contenedor">
             <i class="fas fa-envelope icon"></i>
-            <input type="email" placeholder="Correo Electronico">
+            <input type="email" placeholder="Correo Electronico" name="email">
          
         </div>
          
         <div class="input-contenedor">
             <i class="fas fa-key icon"></i>
-            <input type="password" placeholder="Contraseña">
+            <input type="password" placeholder="Contraseña" name="password">
          
         </div>
+
          <input type="submit" value="Registrate" class="button">
+
          <p style="font-size: small; margin: 2%;">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+         
          <p>¿Ya tienes una cuenta?<a class="link" href="/login"> Iniciar Sesion</a></p>
      </div>
     </form>
