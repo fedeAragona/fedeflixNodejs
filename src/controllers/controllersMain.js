@@ -33,10 +33,6 @@ const controller = {
         res.render(path.join(__dirname,'../views/admin'));
     },
 
-    adminAddProduct: (req,res) => {
-        res.render(path.join(__dirname,'../views/adminAddProduct'));
-    },
-
     adminProducts: (req,res) => {
         res.render(path.join(__dirname,'../views/adminProducts'));
     },
@@ -51,6 +47,10 @@ const controller = {
 
     adminDeleteProducts: (req,res) => {
         res.render(path.join(__dirname,'../views/adminDeleteProducts'));
+    },
+
+    adminAddProduct: (req,res) => {
+        res.render(path.join(__dirname,'../views/adminAddProduct'));
     },
 };
 

@@ -18,13 +18,12 @@ router.get('/admin',mainController.admin);
 
 router.get('/adminProducts',mainController.adminProducts);
 
-router.get('/adminAddProduct',mainController.adminAddProduct);
-
 router.get('/adminModiProducts',mainController.adminModiProducts);
 
 router.get('/adminModiProduct',mainController.adminModiProduct);
 
 router.get('/adminDeleteProducts',mainController.adminDeleteProducts);
 
+router.get('/adminAddProduct',mainController.adminAddProduct);
 
 module.exports = router;

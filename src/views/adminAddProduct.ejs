@@ -1,6 +1,6 @@
 <%- include("./partials/head.ejs")%>
 <body>
-    <form class="formulario" action="/adminAddProduct" enctype="multipart/form-data" method="POST">
+    <form class="formulario" action="/addProduct" method="POST">
     
         <h1>Agregar producto</h1>
     
@@ -8,41 +8,42 @@
             <div class="input-contenedor">
                 <div class="iconAdmin">
                 <i class="fa-solid fa-pencil"></i>
-                 <input type="text" placeholder="Nombre" name="nameProduct">
+                 <input type="text" placeholder="Nombre" name="nombre" id="nombre">
                 </div>
             </div>
 
             <div class="input-contenedor">
                 <div class="iconAdmin">
                 <i class="fa-solid fa-file-signature"></i>
-                <input type="text" placeholder="Descripcion" name="detailProduct">
+                <input type="text" placeholder="Descripcion" name="descripcion" id="descripcion">
                 </div>
            </div>
 
            <div class="input-contenedor">
                 <div class="iconAdmin">
                     <i class="fa-solid fa-dollar-sign"></i>
-                    <input type="number" min="0" placeholder="Precio" name="priceProduct">
+                    <input type="number" min="0" placeholder="Precio" name="precio" id="precio">
                 </div>
             </div>
 
             <div class="input-contenedor">
                 <div class="iconAdmin">
                      <i class="fa-solid fa-image"></i>
-                     <input type="file" placeholder="Imagen" name="imageProduct">
+                     <input type="file" placeholder="Imagen" name="imagen" id="imagen">
                 </div>
             </div>
 
             <div class="input-contenedor">
                 <div class="iconAdmin">
                      <p>Producto en descuento</p>
-                     <input type="checkbox">
+                     <input type="checkbox" name="descuento" id="descuento">
                 </div>
                 
             </div>
              
 
              <input type="submit" value="Cargar" class="button">
+
              <p style="margin-top: 15px;"><a class="link" href="/adminProducts">Cancelar</a></p>
          </div>
     </form>

@@ -5,6 +5,7 @@ const path = require("path");
 
 const routerMain = require('./routes/main');
 const routerUsers = require('./routes/users');
+const routerProducts = require('./routes/products');
 
 const app = express();
 
@@ -21,7 +22,8 @@ app.use(express.static(path.join(__dirname,'../public')));
 
 
 app.use(routerMain);
-app.use(routerUsers)
+app.use(routerUsers);
+app.use(routerProducts);
 
 
 app.listen(3030, () => console.log("Trabajando en puerto 3030"));
