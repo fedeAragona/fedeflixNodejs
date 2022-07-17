@@ -55,6 +55,62 @@ const controller2 = {
           }
       })
   },
+
+  search: (req, res) => {
+    const id = req.query.id;
+    const product = allProducts.filter((element) => element.id == parseInt(id));
+    if(product){
+        res.render(path.join(__dirname,'../views/adminProductDetail'),{'product':product})
+    }else{
+        res.send("Not Found");
+    }
+  },
+
+  delete: (req,res)=>{
+    const id = req.params.id;
+    const product = allProducts.filter(e => e.id != parseInt(id));
+
+    fs.writeFile(jsonPath,JSON.stringify(product), (error)=>{
+        if(error){
+            res.send("Error " + error);
+        }else{
+            res.redirect('/adminProducts');
+        }
+    });
+  },
+
+  edit: (req,res)=>{
+    const id = req.params.id;
+    const productEdit=allProducts.find((element) => element.id === parseInt(id));
+    res.render(path.join(__dirname,'../views/productEdit'),{'productEdit':productEdit});
+  },
+
+  editConfirm: (req,res) => {
+    const newId = req.body.id;
+    const newName = req.body.nombre;
+    const newDetail = req.body.descripcion;
+    const newPrice = req.body.precio;
+    const newOffert = req.body.descuento;
+
+    allProducts.forEach((element) => {
+        if(element.id === parseInt(newId)){
+            element.id = parseInt(newId);
+            element.nombre = newName;
+            element.descripcion = newDetail;
+            element.precio = newPrice;
+            element.descuento = newOffert;
+        }
+    });
+
+    fs.writeFile(jsonPath,JSON.stringify(allProducts),(error) => {
+        if(error){
+            res.send(error);
+        }else{
+            res.redirect('/adminListarProducts');
+        }
+    })
+  },
+
 }
 
 

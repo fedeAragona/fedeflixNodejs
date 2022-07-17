@@ -1,10 +1,14 @@
 <%- include("./partials/head.ejs")%>
 <body>
-    <form class="formulario">
+
+    <form class="formulario"  action="/search" method="GET" style="text-align: center;">
     
         <h1 style="margin-bottom: 15px;">Modificar productos</h1>
-             
-        <a href="/adminListarProducts"><input type="button" value="Todos los productos" class="button" style="margin-bottom: 10px;"></a>
+
+            <input type="text" placeholder="Ingrese ID" name="id" id="id" style="width: 30%;">
+            <button type="submit" class="buttonEditar" style="width: auto; margin-bottom: 20px; padding: 2%;">Buscar</button>
+
+        <a href="/adminListarProducts"><input type="button" value="Ver todos los productos" class="button" style="margin-bottom: 10px;"></a>
 
         <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/adminProducts">Volver atras</a></p>
 

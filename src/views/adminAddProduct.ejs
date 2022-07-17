@@ -1,6 +1,6 @@
 <%- include("./partials/head.ejs")%>
 <body>
-    <form class="formulario" action="/addProduct" method="POST">
+    <form class="formulario" action="/addProduct" method="POST" style="text-align: center;">
     
         <h1>Agregar producto</h1>
     
@@ -8,23 +8,40 @@
             <div class="input-contenedor">
                 <div class="iconAdmin">
                 <i class="fa-solid fa-pencil"></i>
-                 <input type="text" placeholder="Nombre" name="nombre" id="nombre">
+                 <input type="text" placeholder="Nombre" name="nombre" id="nombre" required>
                 </div>
             </div>
 
             <div class="input-contenedor">
                 <div class="iconAdmin">
                 <i class="fa-solid fa-file-signature"></i>
-                <input type="text" placeholder="Descripcion" name="descripcion" id="descripcion">
+                <input type="text" placeholder="Descripcion" name="descripcion" id="descripcion" required>
                 </div>
            </div>
 
            <div class="input-contenedor">
                 <div class="iconAdmin">
                     <i class="fa-solid fa-dollar-sign"></i>
-                    <input type="number" min="0" placeholder="Precio" name="precio" id="precio">
+                    <input style="margin-left: 5px;" type="number" min="0" placeholder="Precio" name="precio" id="precio" required>
                 </div>
             </div>
+
+            <div class="input-contenedor">
+                <div class="iconAdmin">
+                    <i class="fa-solid fa-arrow-up-wide-short"></i>
+                    <input type="number" min="0" placeholder="Cantidad de stock" name="stock" id="stock" required>
+                </div>
+            </div>
+
+            
+            <div class="input-contenedor">
+                <div class="iconAdmin" style="display: flex; justify-content: flex-start; margin-left: 3%; height: 40px;">
+                     
+                     <input placeholder="producto" type="checkbox" name="descuento" id="descuento" style="width: 20px; margin-right: 2.5%;">
+                     <p style="margin-top: 8px; font-size: 20px; color: rgb(132, 132, 132);">Producto en descuento</p>
+                </div>
+            </div>
+
 
             <div class="input-contenedor">
                 <div class="iconAdmin">
@@ -32,15 +49,6 @@
                      <input type="file" placeholder="Imagen" name="imagen" id="imagen">
                 </div>
             </div>
-
-            <div class="input-contenedor">
-                <div class="iconAdmin">
-                     <p>Producto en descuento</p>
-                     <input type="checkbox" name="descuento" id="descuento">
-                </div>
-                
-            </div>
-             
 
              <input type="submit" value="Cargar" class="button">
 
