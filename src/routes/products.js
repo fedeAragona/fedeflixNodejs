@@ -1,6 +1,7 @@
 const express = require("express");
 const controllersProducts = require("../controllers/controllersProducts");
 const multer = require('multer');
+const path = require('path');
 const router = express.Router();
 
 const storage = multer.diskStorage({
@@ -16,7 +17,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.get("/adminListarProducts", controllersProducts.allProducts);
-router.post('/addProduct',controllersProducts.postProduct);
 router.post('/addProduct',upload.single('img'),controllersProducts.postProduct);
 router.get('/search',controllersProducts.search);
 router.delete('/deleteProduct/:id',controllersProducts.delete);
