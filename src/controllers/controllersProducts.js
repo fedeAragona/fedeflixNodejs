@@ -27,7 +27,7 @@ const controller2 = {
       const newDetail = req.body.descripcion;
       const newPrice = req.body.precio;
       const newOffert = req.body.descuento;
-      const newImg = req.file ? req.file.filename : "";
+      const newImg = req.file ? req.file.filename : "productDefault.png";
       const newStock = req.body.stock;
 
       const id = allProducts[allProducts.length - 1].id;
@@ -112,6 +112,26 @@ const controller2 = {
         }
     })
   },
+
+  adminProducts: (req,res) => {
+    res.render(path.join(__dirname,'../views/adminProducts'));
+    },
+
+    adminModiProducts: (req,res) => {
+    res.render(path.join(__dirname,'../views/adminModiProducts'));
+    },
+
+    adminModiProduct: (req,res) => {
+    res.render(path.join(__dirname,'../views/adminModiProduct'));
+    },
+
+    adminDeleteProducts: (req,res) => {
+    res.render(path.join(__dirname,'../views/adminDeleteProducts'));
+    },
+
+    adminAddProduct: (req,res) => {
+    res.render(path.join(__dirname,'../views/adminAddProduct'));
+    },
 
 }
 

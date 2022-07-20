@@ -6,7 +6,7 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname,'../../public/images'));
+        cb(null, path.join(__dirname,'../../public/images/products'));
     },
     filename: (req, file, cb)=>{
         const newFile = 'product-' + Date.now() + path.extname(file.originalname);
@@ -15,6 +15,17 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+
+router.get('/adminProducts',controllersProducts.adminProducts);
+
+router.get('/adminModiProducts',controllersProducts.adminModiProducts);
+
+router.get('/adminModiProduct',controllersProducts.adminModiProduct);
+
+router.get('/adminDeleteProducts',controllersProducts.adminDeleteProducts);
+
+router.get('/adminAddProduct',controllersProducts.adminAddProduct);
 
 router.get("/adminListarProducts", controllersProducts.allProducts);
 router.post('/addProduct',upload.single('img'),controllersProducts.postProduct);

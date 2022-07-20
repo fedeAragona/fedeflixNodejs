@@ -9,8 +9,6 @@ router.get("/users", controllersUser.allUsers);
 //router.get('/user/:id', userController.getUserId);
 //router.get('/search',userController.search);
 
-
-//router.post('/user',controllersUser.postUser);
 router.get('/edit/:id', controllersUser.edit);
 router.put('/edit', controllersUser.editConfirm);
 router.delete('/delete/:id',controllersUser.delete);

@@ -16,14 +16,8 @@ router.get('/aboutUs',mainController.aboutUs);
 
 router.get('/admin',mainController.admin);
 
-router.get('/adminProducts',mainController.adminProducts);
+router.get('/descuentos',mainController.descuentos);
 
-router.get('/adminModiProducts',mainController.adminModiProducts);
-
-router.get('/adminModiProduct',mainController.adminModiProduct);
-
-router.get('/adminDeleteProducts',mainController.adminDeleteProducts);
-
-router.get('/adminAddProduct',mainController.adminAddProduct);
+router.post('/addContact', mainController.postContact);
 
 module.exports = router;

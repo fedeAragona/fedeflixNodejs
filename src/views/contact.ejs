@@ -42,7 +42,7 @@
                         <a href="javascript:alert('En construcción');">PRODUCTOS</a>
                     </li>
                     <li>
-                        <a href="javascript:alert('En construcción');">DESCUENTOS</a>
+                        <a href="/descuentos">DESCUENTOS</a>
                     </li>
                     <li>
                         <a href="/aboutUs">QUIENES SOMOS</a>
@@ -57,25 +57,28 @@
 
     <main>
 
-        <form class="formulario">
+        <form class="formulario" action="/addContact" method="POST">
     
             <h1>Envianos tu mensaje</h1>
         
              <div class="contenedor">
                 <div class="input-contenedor">
-                     <input type="text" placeholder="Nombre Completo" required>
+                    <i class="fas fa-user icon"></i>
+                     <input type="text" placeholder="Nombre Completo" name="name" id="name" required>
                 </div>
                  
                 <div class="input-contenedor">
-                    <input type="text" placeholder="Correo Electronico" required>
+                    <i class="fas fa-envelope icon"></i>
+                    <input type="text" placeholder="Correo Electronico" name="email" id="email" required>
                 </div>
                  
                 <div class="input-contenedor">
-                    <input type="text" placeholder="Asunto">
+                    <i class="fa-solid fa-pencil" style="color: gray; margin-left: 20px;"></i>
+                    <input type="text" placeholder="Asunto" name="topic" id="topic" style="margin-left: 20px;">
                 </div>
 
                 <div class="input-contenedor">
-                    <textarea name="your-message" placeholder="Tu mensaje..." cols="60" rows="9" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required></textarea>
+                    <textarea name="your-message" name="text" id="text" placeholder="Tu mensaje..." style="resize: none;" cols="60" rows="9" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required></textarea>
                 </div>
 
                  <input type="submit" value="Enviar" class="button">
