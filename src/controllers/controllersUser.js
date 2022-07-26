@@ -8,8 +8,11 @@ const allUsers = json.map(e => {
     return {
       id: e.id,
       name: e.name,
+      lastName: e.lastName,
       email: e.email,
-      password: e.password
+      password: e.password,
+      img: e.img,
+
     }
   }) 
 
@@ -20,8 +23,10 @@ const controller = {
 
     postUser: (req,res) =>{
         const newName = req.body.name;
+        const newlastName = req.body.lastName;
         const newEmail = req.body.email;
         const newPassword = req.body.password;
+        const newImg = req.file ? req.file.filename : "userDefault.png";
 
         const id = allUsers[allUsers.length - 1].id;
         const newId = id + 1;
@@ -29,8 +34,10 @@ const controller = {
         const obj = {
             id: newId,
             name: newName,
+            lastName: newlastName,
             email: newEmail,
             password: newPassword,
+            img: newImg,
         }
 
         allUsers.push(obj);
@@ -39,7 +46,7 @@ const controller = {
             if(error){
                 res.send(error);
             }else{
-                res.redirect('/home');
+                res.redirect('/perfil/'+ newId );
             }
         })
     },
@@ -63,6 +70,7 @@ const controller = {
   editConfirm: (req,res) => {
     const newId = req.body.id;
     const newName = req.body.name;
+    const newlastName = req.body.lastName;
     const newEmail = req.body.email;
     const newPassword = req.body.password;
 
@@ -70,6 +78,7 @@ const controller = {
         if(element.id === parseInt(newId)){
             element.id = parseInt(newId);
             element.name = newName;
+            element.lastName = newlastName;
             element.email = newEmail;
             element.password = newPassword;
         }
@@ -94,7 +103,39 @@ const controller = {
             res.redirect('/users');
         }
     });
-  }
+  },
+
+  perfil: (req,res)=>{
+    const id = req.params.id;
+    const perfil=allUsers.find((element) => element.id === parseInt(id));
+    res.render(path.join(__dirname,'../views/perfil'),{'perfil':perfil});
+},
+
+editConfirm: (req,res) => {
+  const newId = req.body.id;
+  const newName = req.body.name;
+  const newlastName = req.body.lastName;
+  const newEmail = req.body.email;
+  const newPassword = req.body.password;
+
+  allUsers.forEach((element) => {
+      if(element.id === parseInt(newId)){
+          element.id = parseInt(newId);
+          element.name = newName;
+          element.lastName = newlastName;
+          element.email = newEmail;
+          element.password = newPassword;
+      }
+  });
+
+  fs.writeFile(jsonPath,JSON.stringify(allUsers),(error) => {
+      if(error){
+          res.send(error);
+      }else{
+          res.redirect('/home');
+      }
+  })
+ },
 };
 
 

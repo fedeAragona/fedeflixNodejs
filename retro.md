@@ -19,4 +19,3 @@
 5. Dejar de hacer:
 - Comunicarse solo por Whatsapp
 - No dividir tareas de formas esquemática
-

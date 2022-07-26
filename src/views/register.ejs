@@ -20,14 +20,14 @@
             <div class="headerNavLogin">
                 <ul type="none">
                   <li>
-                      <a href="/login">Ingresar 
+                      <a href="/login">ACCEDER 
                         <i class="fa-solid fa-user"></i>
                       </a>
                   </li>
                  </ul>
                  <li type="none" style="margin-left: 5%;">
                   <a href="javascript:alert('En construcción');" style="color: black;">
-                      Carrito 
+                      CARRITO 
                       <i class="fa-solid fa-cart-shopping"></i>
                   </a>
                  </li>
@@ -60,16 +60,22 @@
 
 
 
-  <form class="formulario" style="text-align: center;" action="/user" method="POST">
+  <form class="formulario" style="text-align: center;" action="/user" method="POST" enctype="multipart/form-data">
     
     <h1>Registrate</h1>
 
      <div class="contenedor">
         <div class="input-contenedor">
              <i class="fas fa-user icon"></i>
-             <input type="text" placeholder="Nombre de usuario" name="name" required>
+             <input type="text" placeholder="Nombre" name="name" required>
          
         </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+            <input type="text" placeholder="Apellido" name="lastName" required>
+        
+       </div>
          
         <div class="input-contenedor">
             <i class="fas fa-envelope icon"></i>
@@ -81,6 +87,11 @@
             <i class="fas fa-key icon"></i>
             <input type="password" placeholder="Contraseña" name="password" required>
          
+        </div>
+
+        <div class="input-contenedor">
+                 <i class="fa-solid fa-image" style="color: gray;"></i>
+                 <input type="file" placeholder="Imagen de perfil" name="img" id="img">
         </div>
 
          <input type="submit" value="Registrate" class="button">
