@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const jsonPath = path.join(__dirname,'../database/users.json');
-
+const bcrypt = require('bcryptjs')
 const json = JSON.parse(fs.readFileSync(jsonPath,'utf-8'));
 
 const allUsers = json.map(e => {
@@ -25,7 +25,7 @@ const controller = {
         const newName = req.body.name;
         const newlastName = req.body.lastName;
         const newEmail = req.body.email;
-        const newPassword = req.body.password;
+        const newPassword = bcrypt.hashSync(req.body.password, 5);
         const newImg = req.file ? req.file.filename : "userDefault.png";
 
         const id = allUsers[allUsers.length - 1].id;
@@ -72,7 +72,7 @@ const controller = {
     const newName = req.body.name;
     const newlastName = req.body.lastName;
     const newEmail = req.body.email;
-    const newPassword = req.body.password;
+    const newPassword = bcrypt.hashSync(req.body.password, 5)
 
     allUsers.forEach((element) => {
         if(element.id === parseInt(newId)){
@@ -116,7 +116,7 @@ editConfirm: (req,res) => {
   const newName = req.body.name;
   const newlastName = req.body.lastName;
   const newEmail = req.body.email;
-  const newPassword = req.body.password;
+  const newPassword = bcrypt.hashSync(req.body.password, 5);
 
   allUsers.forEach((element) => {
       if(element.id === parseInt(newId)){
