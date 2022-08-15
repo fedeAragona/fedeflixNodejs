@@ -1,5 +1,6 @@
-const path = require('path');
+
 const fs = require('fs');
+const path = require('path');
 const jsonPath = path.join(__dirname,'../database/users.json');
 const bcrypt = require('bcryptjs')
 const json = JSON.parse(fs.readFileSync(jsonPath,'utf-8'));
@@ -21,35 +22,6 @@ const controller = {
         res.render(path.join(__dirname,'../views/users'),{'allUsers':allUsers});
     },
 
-    postUser: (req,res) =>{
-        const newName = req.body.name;
-        const newlastName = req.body.lastName;
-        const newEmail = req.body.email;
-        const newPassword = bcrypt.hashSync(req.body.password, 5);
-        const newImg = req.file ? req.file.filename : "userDefault.png";
-
-        const id = allUsers[allUsers.length - 1].id;
-        const newId = id + 1;
-
-        const obj = {
-            id: newId,
-            name: newName,
-            lastName: newlastName,
-            email: newEmail,
-            password: newPassword,
-            img: newImg,
-        }
-
-        allUsers.push(obj);
-        
-        fs.writeFile(jsonPath,JSON.stringify(allUsers),(error) => {
-            if(error){
-                res.send(error);
-            }else{
-                res.redirect('/perfil/'+ newId );
-            }
-        })
-    },
 
     getUserId: (req,res) => {
       const id = req.params.id;

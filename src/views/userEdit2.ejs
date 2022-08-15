@@ -1,0 +1,49 @@
+<%- include("./partials/head.ejs")%>
+<body>
+    <form class="formulario" style="text-align: center;" action="/edit?_method=PUT" method="POST">
+
+        <h1 style="margin-bottom: 15px;">Editar usuario</h1>
+             
+        <ul type="none" style="text-align: center; text-align: center;">
+                <li>
+                            <div style="margin-bottom: 9px; align-items: center;">
+                                <label>Id</label>
+                                <input style="margin-left: 63px;" type="text" name="id" value="<%= usuarios.id%>" readonly="true">
+                            </div>
+
+                            <div style="margin-bottom: 9px; align-items: center;">
+                                <label>Nombre</label>
+                                <input style="margin-left: 30px;" type="text" name="name" value="<%= usuarios.nombre%>" required>
+                            </div>
+
+                            <div style="margin-bottom: 9px; align-items: center;">
+                                <label>Apellido</label>
+                                <input style="margin-left: 30px;" type="text" name="lastName" value="<%= usuarios.apellido%>" required>
+                            </div>
+
+                            <div style="margin-bottom: 9px; align-items: center;">
+                                <label>Email</label>
+                                <input style="margin-left: 42px;" type="text" name="email" value="<%= usuarios.email%>" required>
+                            </div>
+
+                            <div style="margin-bottom: 9px; align-items: center;">
+                                <label>Contraseña</label>
+                                <input style="margin-left: 8px;" type="text" name="password" value="<%= usuarios.contraseña%>" required>
+                            </div>
+
+                            <div style="display: flex; justify-content: space-between; text-align: right; margin-right: 5px;">
+                                <div>
+                                    <label for="" style="margin-left: 6px;">Imagen</label>
+                                </div>
+                                <img src="\images\users\<%= usuarios.img%>" width="405px" height="300px">
+                            </div>
+                </li>
+        </ul>
+        <button class="button" style="width: 95%; margin-bottom: 20px; margin-top: 20px;" type="submit">Guardar cambios</button>
+
+        <p><a class="link" href="/users2">Cancelar</a></p>
+        <br>
+    </form>
+    <%- include("./partials/footer.ejs")%>
+</body>
+</html>

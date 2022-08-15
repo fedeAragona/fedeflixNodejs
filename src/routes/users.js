@@ -19,12 +19,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 
-router.get("/users", controllersUser.allUsers);
+//router.get("/users", controllersUser.allUsers);
 
 
-router.get('/edit/:id', controllersUser.edit);
+//router.get('/edit/:id', controllersUser.edit);
 router.put('/edit', controllersUser.editConfirm);
 router.delete('/delete/:id',controllersUser.delete);
-router.post('/user',upload.single('img'),controllersUser.postUser);
-router.get('/perfil/:id', controllersUser.perfil);
+//router.post('/user',upload.single('img'),controllersUser.postUser);
+//router.get('/perfil/:id', controllersUser.perfil);
 module.exports = router;
