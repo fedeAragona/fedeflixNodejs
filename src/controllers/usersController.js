@@ -31,7 +31,7 @@ const usersController = {
             contraseña: req.body.contraseña,
             img: req.file ? req.file.filename : "userDefault.png"
         }
-  
+
         try{
             await db.Usuario.create(newUser);
             const user = await db.Usuario.findOne({
