@@ -23,8 +23,8 @@ const upload = multer({ storage });
 
 
 //router.get('/edit/:id', controllersUser.edit);
-router.put('/edit', controllersUser.editConfirm);
-router.delete('/delete/:id',controllersUser.delete);
+//router.put('/edit', controllersUser.editConfirm);//
+//router.delete('/delete/:id',controllersUser.delete);
 //router.post('/user',upload.single('img'),controllersUser.postUser);
 //router.get('/perfil/:id', controllersUser.perfil);
 module.exports = router;

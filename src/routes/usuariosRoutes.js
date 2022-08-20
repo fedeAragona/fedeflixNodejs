@@ -18,11 +18,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.get('/users2', usersController.list);
-//router.get('/movies/new', userController.new);
-//router.get('/movies/recommended', userController.recomended);
 router.get('/edit/:id', usersController.detail);
 router.post('/user',upload.single('img'),usersController.postUser);
 router.get('/perfil/:id', usersController.perfil);
+router.put('/edit', usersController.update);
+router.delete('/delete/:id',usersController.delete);
 
 
 //Rutas exigidas para la creación del CRUD

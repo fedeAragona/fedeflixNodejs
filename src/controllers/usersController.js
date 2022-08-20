@@ -29,7 +29,8 @@ const usersController = {
             apellido: req.body.apellido,
             email: req.body.email,
             contraseña: req.body.contraseña,
-            img: req.file ? req.file.filename : "userDefault.png"
+            img: req.file ? req.file.filename : "userDefault.png",
+            estado: 1
         }
 
         try{
@@ -52,6 +53,55 @@ const usersController = {
             res.render(path.join(__dirname,'../views/perfil'),{perfil});
         }
         catch(error){
+            console.log(error);
+        }
+    },
+
+    update: async (req,res) => {
+        const {
+            nombre,
+            apellido,
+            email,
+            contraseña,
+            img,
+        } = req.body;
+    
+        try {
+            await db.Usuario.update(
+                {
+                    nombre,
+                    apellido,
+                    email,
+                    contraseña,
+                    img,
+                    estado:1
+                },
+                {
+                    where: {
+                        id: req.body.id,
+                    }
+                }
+            );
+            res.redirect('/users2');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    delete: async (req,res) => {
+        try {
+            await db.Usuario.update(
+                {
+                    estado:0
+                },
+                {
+                    where: {
+                        id: req.params.id,
+                    }
+                }
+            );
+            res.redirect('/users2');
+        } catch (error) {
             console.log(error);
         }
     },

@@ -13,12 +13,12 @@
 
                             <div style="margin-bottom: 9px; align-items: center;">
                                 <label>Nombre</label>
-                                <input style="margin-left: 30px;" type="text" name="name" value="<%= usuarios.nombre%>" required>
+                                <input style="margin-left: 30px;" type="text" name="nombre" value="<%= usuarios.nombre%>" required>
                             </div>
 
                             <div style="margin-bottom: 9px; align-items: center;">
                                 <label>Apellido</label>
-                                <input style="margin-left: 30px;" type="text" name="lastName" value="<%= usuarios.apellido%>" required>
+                                <input style="margin-left: 30px;" type="text" name="apellido" value="<%= usuarios.apellido%>" required>
                             </div>
 
                             <div style="margin-bottom: 9px; align-items: center;">
@@ -28,14 +28,14 @@
 
                             <div style="margin-bottom: 9px; align-items: center;">
                                 <label>Contraseña</label>
-                                <input style="margin-left: 8px;" type="text" name="password" value="<%= usuarios.contraseña%>" required>
+                                <input style="margin-left: 8px;" type="password" name="contraseña" value="<%= usuarios.contraseña%>" required>
                             </div>
 
                             <div style="display: flex; justify-content: space-between; text-align: right; margin-right: 5px;">
                                 <div>
                                     <label for="" style="margin-left: 6px;">Imagen</label>
                                 </div>
-                                <img src="\images\users\<%= usuarios.img%>" width="405px" height="300px">
+                                <img src="\images\users\<%= usuarios.img%>" width="405px" name="img" height="300px">
                             </div>
                 </li>
         </ul>

@@ -20,6 +20,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         img: {
             type: dataTypes.STRING
+        },
+        estado: {
+            type: dataTypes.INTEGER
         }
     };
     let config = {
