@@ -20,4 +20,6 @@ router.get('/descuentos',mainController.descuentos);
 
 router.post('/addContact', mainController.postContact);
 
+router.get('/product',mainController.product);
+
 module.exports = router;

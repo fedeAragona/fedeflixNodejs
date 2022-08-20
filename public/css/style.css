@@ -11,11 +11,15 @@
   background-color: rgb(212, 193, 158);
   width: 95%;
   margin: 0 auto;
+  -webkit-transition: all ease .7s;
+  -o-transition: all ease .7s;
+  transition: all ease .7s;
 }
 
 .headerMain{
   display: flex;
   flex-direction: column;
+  height: 70px;
 }
 
 @media (min-width: 361px){
@@ -33,6 +37,10 @@
   .header .headerMain .headerLogoYBuscador a{
     margin-left: 4%;
     margin-right: 4%;
+    margin-top: 40px;
+    -webkit-transition: all ease .7s;
+    -o-transition: all ease .7s;
+    transition: all ease .7s;
   }
 
   @media (min-width: 761px){
@@ -375,3 +383,27 @@ main{
 
 
   }
+
+.menu-fixed{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  transition: background-color .7s,opacity .7s;
+  background-color: rgb(212, 193, 158);
+}
+
+.contenedorProduct{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contenidoProduct{
+  padding: 30px;
+}
+
+.contenidoProduct img{
+  max-width: 400px;
+  max-height: 400px;
+}

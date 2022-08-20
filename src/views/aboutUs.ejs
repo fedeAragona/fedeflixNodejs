@@ -55,6 +55,13 @@
         </nav>
     </header>
 
+    <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+          var header = document.querySelector("header");
+          header.classList.toggle("menu-fixed", window.scrollY>100);
+        })
+      </script>
+
     <main>
             <section class="sectionAboutUs">
                 <div class="contenido"  style="width: 70%;">

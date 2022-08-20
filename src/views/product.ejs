@@ -62,47 +62,34 @@
   })
 </script>
 
-    <main>
-    
-           <div class="sliderAuto">
-               <ul>
-                   <li>
-                      <img src="\images\slideHome.jpg" width="100%" alt="">
-                   </li>
-                   <li>
-                      <img src="\images\slideHome2.jpg" width="100%" alt="">
-                   </li>
-               </ul>
-           </div>
+<body>
 
-        <br>
-        <div>
-          <h2 class="titulos">- Novedades -</h2>
-          <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 15px;"></b>
-        </div>
-        
+    <div class="contenedorProduct">
+         <div class="contenidoProduct">
+            <img src="\images\Granola-Cashem.jpg" alt="">
+         </div>
 
-        <div class="novedades">
-          <% for(let i = 0; i < 8; i++) {%>
-            <div class="gallery">
-              <a target="" href="/product">
-                <img src="\images\Granola-Cashem.jpg" alt="Cinque Terre" width="60%" height="40%">
-              </a>
-              <div class="desc">
-                <h3>
-                    Granola
-                </h3>
-                <p>
-                  assssssssssssssssssssssssddddddddddddsdddddddddjpofgsjdpfogdgspokdgfs´pkfd´pdlksf´sdfdddddddddddddddddddddddddsssssssss
-                </p>
-              </div>
-              <div style="width: 100%;">
-                <a href="/product"><input type="button" value="Añadir al carrito" class="button"></a>
-              </div>
+         <div class="contenidoProduct">
+            <div>
+                <h1>GRANOLA sssssssssssssssss</h1>
             </div>
-        <%}%>
-      </div>
-    </main>
+            <div>
+                <h2>precio</h2>
+            </div>
+
+            <div>
+                <h2>Stock</h2>
+            </div>
+
+            <div>
+                <button type="submit">Agregar al carrito</button>
+            </div>
+         </div>
+    </div>
+    <div style="text-align: center;">
+        <h3>descripcion</h3>
+    </div>
+
     <%- include("./partials/footer.ejs")%>
 </body>
 </html>

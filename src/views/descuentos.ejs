@@ -42,7 +42,7 @@
                     <a href="javascript:alert('En construcción');">Productos</a>
                 </li>
                 <li>
-                    <a href="javascript:alert('En construcción');">Promociones</a>
+                    <a href="/descuentos">Promociones</a>
                 </li>
                 <li>
                     <a href="/aboutUs">Nosotros</a>
@@ -54,43 +54,18 @@
         </div>
     </nav>
 </header>
+
+<script type="text/javascript">
+  window.addEventListener("scroll", function(){
+    var header = document.querySelector("header");
+    header.classList.toggle("menu-fixed", window.scrollY>100);
+  })
+</script>
+
     <main>
     
-           <div class="sliderAuto">
-               <ul>
-                   <li>
-                      <img src="\images\slideHome.jpg" width="100%" alt="">
-                   </li>
-                   <li>
-                      <img src="\images\slideHome2.jpg" width="100%" alt="">
-                   </li>
-               </ul>
-           </div>
-
-        <script>
-         var slideIndex = 1;
-          showDivs(slideIndex);
-          
-          function plusDivs(n) {
-            showDivs(slideIndex += n);
-          }
-          
-          function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            if (n > x.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = x.length}
-            for (i = 0; i < x.length; i++) {
-              x[i].style.display = "none";  
-            }
-            x[slideIndex-1].style.display = "block";  
-          }
-        </script>
-
-        
-
         <br>
-        <h2 class="titulos">Novedades</h2>
+        <h2 class="titulos">Productos en promoción</h2>
 
         <div class="novedades">
           <% for(let i = 0; i < 8; i++) {%>

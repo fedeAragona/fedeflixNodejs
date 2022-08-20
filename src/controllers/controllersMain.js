@@ -52,6 +52,10 @@ const controller = {
         res.render(path.join(__dirname,'../views/descuentos'));
     },
 
+    product: (req,res) => {
+        res.render(path.join(__dirname,'../views/product'));
+    },
+
     postContact: (req,res) =>{
         const newName = req.body.name;
         const newEmail = req.body.email;
