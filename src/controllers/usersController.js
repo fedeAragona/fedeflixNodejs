@@ -28,7 +28,7 @@ const usersController = {
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             email: req.body.email,
-            contraseña: req.body.contraseña,
+            contrasenia: req.body.contrasenia,
             img: req.file ? req.file.filename : "userDefault.png",
             estado: 1
         }
@@ -62,7 +62,7 @@ const usersController = {
             nombre,
             apellido,
             email,
-            contraseña,
+            contrasenia,
             img,
         } = req.body;
     
@@ -72,7 +72,7 @@ const usersController = {
                     nombre,
                     apellido,
                     email,
-                    contraseña,
+                    contrasenia,
                     img,
                     estado:1
                 },

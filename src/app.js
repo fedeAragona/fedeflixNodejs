@@ -29,7 +29,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 
 app.use(routerMain);
-app.use(routerUsers);
+//app.use(routerUsers);
 app.use(routerProducts);
 app.use(usuariosRoutes);
 
