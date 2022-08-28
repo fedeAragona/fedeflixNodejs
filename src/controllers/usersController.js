@@ -1,6 +1,8 @@
 const db = require('../database/models');
 const path = require('path');
 const sequelize = db.sequelize;
+const session = require('express-session');
+const { Script } = require('vm');
 
 //Otra forma de llamar a los modelos
 const Usuario = db.Usuario;
@@ -102,6 +104,31 @@ const usersController = {
             );
             res.redirect('/users2');
         } catch (error) {
+            console.log(error);
+        }
+    },
+
+    processLogin: async (req,res) =>{
+        try{
+            const usuario = await db.Usuario.findOne({
+                where:{
+                    email: req.body.email,
+                    contrasenia: req.body.password
+                }
+             });
+
+             if(usuario != null){
+                if(usuario.estado == 1){
+                    req.session.usuarioLogeado = usuario;
+                    console.log("encontro todo");
+                    res.redirect("/home");
+                }
+             }else{
+                 console.log("Credenciales invalidas");
+                 res.redirect("/home");
+             }
+           
+        }catch(error){
             console.log(error);
         }
     },

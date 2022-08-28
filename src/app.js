@@ -2,6 +2,7 @@ const express = require("express");
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const path = require("path");
+const session = require('express-session');
 
 const routerMain = require('./routes/main');
 const routerUsers = require('./routes/users');
@@ -12,7 +13,7 @@ const app = express();
 
 app.set('view engine','ejs');
 
-
+app.use(session({secret: 'secret'}));
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
 //para que pueda escribir en json con un post 

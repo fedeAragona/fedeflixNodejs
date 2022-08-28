@@ -19,9 +19,15 @@
         <div class="headerNavLogin">
           <ul type="none">
             <li>
-                <a href="/login">ACCEDER 
+              <%if(usuarioLogeado != null) {%>
+                <a href="/perfil/<%=usuarioLogeado.id%>">BIENVENIDO/A: <%=usuarioLogeado.email%>
                   <i class="fa-solid fa-user"></i>
                 </a>
+              <%}else{%>
+                <a href="/login">ACCEDER
+                  <i class="fa-solid fa-user"></i>
+                </a>
+                <%}%>
             </li>
            </ul>
            <li type="none" style="margin-left: 5%;">

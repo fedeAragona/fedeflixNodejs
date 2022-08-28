@@ -21,8 +21,8 @@ const controller = {
         res.render(path.join(__dirname,'../views/intro'));
     },
     home: (req,res) => {
-        
-        res.render(path.join(__dirname,'../views/home'));
+        const usuarioLogeado = req.session.usuarioLogeado;
+        res.render(path.join(__dirname,'../views/home'), {usuarioLogeado});
     },
 
     contact: (req,res) => {
