@@ -18,11 +18,15 @@
             </div>
             <div class="headerNavLogin">
                 <ul type="none">
-                  <li>
-                      <a href="/login">ACCEDER 
-                        <i class="fa-solid fa-user"></i>
-                      </a>
-                  </li>
+                    <li>
+                        <%if(usuarioLogeado != null) {%>
+                          <a href="/perfil/<%=usuarioLogeado.id%>">BIENVENIDO/A: <%=usuarioLogeado.email%></a>
+                        <%}else{%>
+                          <a href="/login">ACCEDER
+                            <i class="fa-solid fa-user"></i>
+                          </a>
+                          <%}%>
+                      </li>
                  </ul>
                  <li type="none" style="margin-left: 5%;">
                   <a href="javascript:alert('En construcción');" style="color: black;">

@@ -17,7 +17,6 @@ const allContacts = json.map(e => {
 
 const controller = {
     intro: (req,res) => {
-        
         res.render(path.join(__dirname,'../views/intro'));
     },
     home: (req,res) => {
@@ -26,17 +25,16 @@ const controller = {
     },
 
     contact: (req,res) => {
-      
-        res.render(path.join(__dirname,'../views/contact'));
+        const usuarioLogeado = req.session.usuarioLogeado;
+        res.render(path.join(__dirname,'../views/contact'), {usuarioLogeado});
     },
 
     aboutUs: (req,res) => {
-      
-        res.render(path.join(__dirname,'../views/aboutUs'));
+        const usuarioLogeado = req.session.usuarioLogeado;
+        res.render(path.join(__dirname,'../views/aboutUs'), {usuarioLogeado});
     },
 
     register: (req,res) => {
-        
         res.render(path.join(__dirname,'../views/register'));
     },
 
@@ -49,11 +47,13 @@ const controller = {
     },
 
     descuentos: (req,res) => {
-        res.render(path.join(__dirname,'../views/descuentos'));
+        const usuarioLogeado = req.session.usuarioLogeado;
+        res.render(path.join(__dirname,'../views/descuentos'), {usuarioLogeado});
     },
 
     product: (req,res) => {
-        res.render(path.join(__dirname,'../views/product'));
+        const usuarioLogeado = req.session.usuarioLogeado;
+        res.render(path.join(__dirname,'../views/product'), {usuarioLogeado});
     },
 
     postContact: (req,res) =>{

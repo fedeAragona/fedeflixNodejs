@@ -52,7 +52,8 @@ const usersController = {
     perfil: async (req,res)=>{
         try{
             const perfil = await db.Usuario.findByPk(req.params.id)
-            res.render(path.join(__dirname,'../views/perfil'),{perfil});
+            const usuarioLogeado = req.session.usuarioLogeado;
+            res.render(path.join(__dirname,'../views/perfil'),{perfil, usuarioLogeado});
         }
         catch(error){
             console.log(error);
@@ -125,13 +126,45 @@ const usersController = {
                 }
              }else{
                  console.log("Credenciales invalidas");
-                 res.redirect("/home");
+                 res.render("login.ejs");
              }
            
         }catch(error){
             console.log(error);
         }
     },
+
+    updateUserParticular: async (req,res) => {
+        const {
+            nombre,
+            apellido,
+            email,
+            contrasenia,
+            img,
+        } = req.body;
+    
+        try {
+            await db.Usuario.update(
+                {
+                    nombre,
+                    apellido,
+                    email,
+                    contrasenia,
+                    img,
+                    estado:1
+                },
+                {
+                    where: {
+                        id: req.body.id,
+                    }
+                }
+            );
+            res.redirect('/perfil/'+ req.body.id);
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
 }
 
 module.exports = usersController;

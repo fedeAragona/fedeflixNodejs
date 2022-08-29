@@ -19,11 +19,6 @@
             </div>
             <div class="headerNavLogin">
                 <ul type="none">
-                  <li>
-                      <a href="/login">ACCEDER 
-                        <i class="fa-solid fa-user"></i>
-                      </a>
-                  </li>
                  </ul>
                  <li type="none" style="margin-left: 5%;">
                   <a href="javascript:alert('En construcción');" style="color: black;">
@@ -56,16 +51,10 @@
         </nav>
     </header>
 
-    <script type="text/javascript">
-        window.addEventListener("scroll", function(){
-          var header = document.querySelector("header");
-          header.classList.toggle("menu-fixed", window.scrollY>100);
-        })
-      </script>
-
 <body>
-    <form class="formulario" style="text-align: center;" action="/edit?_method=PUT" method="POST">
-
+    <%if(usuarioLogeado!=null && perfil!=null){%>
+        <%if(usuarioLogeado.id==perfil.id){%>
+    <form class="formulario" style="text-align: center;" action="/editUser?_method=PUT" method="POST">
         <h1 style="margin-bottom: 15px;">Mi perfil</h1>
              
         <ul type="none" style="text-align: center; text-align: center;">
@@ -77,12 +66,12 @@
 
                             <div style="margin-bottom: 9px; align-items: center;">
                                 <label>Nombre</label>
-                                <input style="margin-left: 30px;" type="text" name="name" value="<%= perfil.nombre%>" required>
+                                <input style="margin-left: 30px;" type="text" name="nombre" value="<%= perfil.nombre%>" required>
                             </div>
 
                             <div style="margin-bottom: 9px; align-items: center;">
                                 <label>Apellido</label>
-                                <input style="margin-left: 30px;" type="text" name="lastName" value="<%= perfil.apellido%>" required>
+                                <input style="margin-left: 30px;" type="text" name="apellido" value="<%= perfil.apellido%>" required>
                             </div>
 
                             <div style="margin-bottom: 9px; align-items: center;">
@@ -92,22 +81,27 @@
 
                             <div style="margin-bottom: 9px; align-items: center;">
                                 <label>Contraseña</label>
-                                <input style="margin-left: 8px;" type="password" name="password" value="<%= perfil.contrasenia%>" required>
+                                <input style="margin-left: 8px;" type="password" name="contrasenia" value="<%= perfil.contrasenia%>" required>
                             </div>
 
                             <div style="display: flex; justify-content: space-between; text-align: right; margin-right: 5px;">
                                 <div>
                                     <label for="" style="margin-left: 6px;">Imagen</label>
                                 </div>
-                                <img src="\images\users\<%= perfil.img%>" width="405px" height="300px">
+                                <img src="\images\users\<%= perfil.img%>" width="83%" height="300px">
                             </div>
                           
                 </li>
         </ul>
         <button class="button" style="width: 95%; margin-bottom: 20px; margin-top: 20px;" type="submit">Guardar cambios</button>
-        <input type="submit" value="Ingresar" class="button">
-    </form>
+        
+        <input type="submit" value="Cerrar sesión" class="button" style="margin-bottom: 15px;">
 
+        </form>
+        <%}%>
+    <%}else{%>
+        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/login"> </head>
+    <%}%>
     <%- include("./partials/footer.ejs")%>
 </body>
 </html>

@@ -22,6 +22,7 @@ router.get('/edit/:id', usersController.detail);
 router.post('/user',upload.single('img'),usersController.postUser);
 router.get('/perfil/:id', usersController.perfil);
 router.put('/edit', usersController.update);
+router.put('/editUser', usersController.updateUserParticular);
 router.delete('/delete/:id', usersController.delete);
 router.post('/login', usersController.processLogin);
 module.exports = router;
