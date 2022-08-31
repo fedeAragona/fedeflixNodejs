@@ -9,6 +9,7 @@ const routerUsers = require('./routes/users');
 const routerProducts = require('./routes/products');
 const usuariosRoutes = require('./routes/usuariosRoutes');
 
+
 const app = express();
 
 app.set('view engine','ejs');
@@ -33,6 +34,7 @@ app.use(routerMain);
 //app.use(routerUsers);
 app.use(routerProducts);
 app.use(usuariosRoutes);
+
 
 
 app.listen(3030, () => console.log("Trabajando en puerto 3030"));

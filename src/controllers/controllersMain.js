@@ -81,6 +81,11 @@ const controller = {
         })
     },
 
+    logout: (req,res) => {
+        req.session.usuarioLogeado = null;
+        res.redirect('/home');
+    },
+    
 };
 
 module.exports = controller;

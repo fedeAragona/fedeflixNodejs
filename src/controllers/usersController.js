@@ -42,7 +42,7 @@ const usersController = {
                     email: req.body.email
                 }
             });
-            res.redirect('/perfil/' + user.id);
+            res.redirect('/home');
         }
         catch(error){
             console.log(error);
