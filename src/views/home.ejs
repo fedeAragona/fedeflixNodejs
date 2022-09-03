@@ -44,7 +44,7 @@
             </li>
            </ul>
            <li type="none" style="margin-left: 5%;">
-            <a href="javascript:alert('En construcción');" style="color: black;">
+            <a href="#carrito" style="color: black;">
                 CARRITO 
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
@@ -53,7 +53,7 @@
     </div>
     <nav class="headerNav">
         <div class="headerNavItems">
-            <ul type="none" style="border-top: 1px solid gray;">
+            <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
                 <li>
                     <a href="/home">Home</a>
                 </li>
@@ -66,7 +66,7 @@
                 <li>
                     <a href="/aboutUs">Nosotros</a>
                 </li>
-                <li>
+                <li style="margin-right: 0px;">
                   <a href="/contact">Contacto</a>
               </li>
             </ul>
@@ -84,6 +84,7 @@
     <main>
     
            <div class="sliderAuto">
+            <a href="/descuentos">
                <ul>
                    <li>
                       <img src="\images\slideHome.jpg" width="100%" alt="">
@@ -92,14 +93,16 @@
                       <img src="\images\slideHome2.jpg" width="100%" alt="">
                    </li>
                </ul>
+            </a>
            </div>
 
         <br>
 
 
         <div>
-          <h2 class="titulos">- Novedades -</h2>
-          <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 15px;"></b>
+          <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
+          <h1 class="text-center">NOVEDADES</h1>
+          <br>
         </div>
         
 
@@ -129,89 +132,33 @@
       <div class="container">
           <div class="items">
               <div class="row">
-
+                <% for(let i = 0; i < 8; i++) {%>
                   <div class="col-12 col-md-6">
                       <div class="item shadow mb-4">
-                          <h3 class="item-title">Pokemon Azul</h3>
+                          <h3 class="item-title">Granola</h3>
                           <img class="item-image" src="\images\Granola-Cashem.jpg">
+                            <div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed similique a aut et in alias vel asperiores voluptatibus nesciunt!</p>
 
+                            </div>
                           <div class="item-details">
-                              <h4 class="item-price">9.99€</h4>
-                              <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                              <h4 class="item-price">9.99$ARS</h4>
+                              <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
                           </div>
                       </div>
                   </div>
-                  <div class="col-12 col-md-6">
-                      <div class="item shadow mb-4">
-                          <h3 class="item-title">Pokemon Rojo</h3>
-
-                          <img class="item-image" src="./img/pokemon-rojo.jpg">
-
-                          <div class="item-details">
-                              <h4 class="item-price">9.99€</h4>
-                              <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
-                          </div>
-                      </div>
-                  </div>
+                  <%}%>
               </div>
 
-              <div class="row">
-                  <div class="col-12 col-md-6">
-                      <div class="item shadow mb-4">
-                          <h3 class="item-title">Pokemon Verde</h3>
-
-                          <img class="item-image" src="./img/pokemon-verde.jpg">
-
-                          <div class="item-details">
-                              <h4 class="item-price">9.99€</h4>
-                              <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-12 col-md-6">
-                      <div class="item shadow mb-4">
-                          <h3 class="item-title">Pokemon Plata</h3>
-
-                          <img class="item-image" src="./img/pokemon-plata.jpg">
-
-                          <div class="item-details">
-                              <h4 class="item-price">19.99€</h4>
-                              <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-12 col-md-6">
-                      <div class="item shadow mb-4">
-                          <h3 class="item-title">Pokemon Oro</h3>
-
-                          <img class="item-image" src="./img/pokemon-oro.jpg">
-                          <div class="item-details">
-                              <h4 class="item-price">19.99€</h4>
-                              <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-12 col-md-6">
-                      <div class="item shadow mb-4">
-                          <h3 class="item-title">Sonic</h3>
-
-                          <img class="item-image" src="./img/sonic.jpg">
-                          <div class="item-details">
-                              <h4 class="item-price">6.99€</h4>
-                              <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
           </div>
       </div>
   </section>
   <!-- END SECTION STORE -->
     <!-- START SECTION SHOPPING CART -->
+    <br>
+    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
     <section class="shopping-cart">
-      <div class="container">
+      <div class="container" id="carrito">
           <h1 class="text-center">CARRITO</h1>
           <hr>
           <div class="row">
@@ -241,7 +188,7 @@
               <div class="col-12">
                   <div class="shopping-cart-total d-flex align-items-center">
                       <p class="mb-0">Total</p>
-                      <p class="ml-4 mb-0 shoppingCartTotal">0€</p>
+                      <p class="ml-4 mb-0 shoppingCartTotal">0$ARS</p>
                       <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
                           data-delay="2000">
                           <div class="toast-header">

@@ -79,17 +79,16 @@
     border: 1px solid #ebebeb;
     border-radius: 5px;
     padding: 10px;
-    margin-left: 10px;
     padding-right: 10px;
-    width: 99%;
+    width: 100%;
     outline: 0;
 }
 
 .botonBuscar{
     color: #666;
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 22%;
+    right: 3%;
 }
 
 nav{
@@ -411,22 +410,27 @@ main{
 
 
 
-
 .item {
-  border: 2px solid #000;
-  padding: 10px;
-  border-radius: 20px;
+  border: 1px solid rgb(155, 155, 155);
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f0f0f093;
+}
+
+.item:hover {
+  border: 2px solid #777;
 }
 
 .item-title {
   text-transform: uppercase;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .item-image {
-  height: 300px;
+  height: 350px;
   width: 100%;
+  margin-bottom: 5px;
 }
 
 .item-details {
