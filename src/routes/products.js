@@ -28,7 +28,7 @@ router.get('/adminDeleteProducts',controllersProducts.adminDeleteProducts);
 router.get('/adminAddProduct',controllersProducts.adminAddProduct);
 
 router.get("/adminListarProducts", controllersProducts.allProducts);
-router.post('/addProduct',upload.single('img'),controllersProducts.postProduct);
+//router.post('/addProduct',upload.single('img'),controllersProducts.postProduct);
 router.get('/search',controllersProducts.search);
 router.delete('/deleteProduct/:id',controllersProducts.delete);
 router.get('/productEdit/:id', controllersProducts.edit);
