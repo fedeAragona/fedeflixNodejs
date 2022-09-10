@@ -18,5 +18,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/addProduct',upload.single('img'),productsController.postProduct);
+router.get("/adminListarProducts", productsController.list);
+router.get('/search',productsController.search);
+router.get('/adminModiProducts',productsController.adminModiProducts);
 
 module.exports = router;

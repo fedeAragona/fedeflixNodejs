@@ -20,12 +20,18 @@
             <div class="headerNavLogin">
                 <ul type="none">
                  </ul>
-                 <li type="none" style="margin-left: 5%;">
-                  <a href="javascript:alert('En construcción');" style="color: black;">
-                      CARRITO 
-                      <i class="fa-solid fa-cart-shopping"></i>
-                  </a>
-                 </li>
+                 <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+                    <li type="none" style="margin-left: 5%;">
+                    <a href="/admin" style="color: black;">Panel de administrador</a>
+                    </li>
+                <%}else{%>
+               <li type="none" style="margin-left: 5%;">
+                <a href="#carrito" style="color: black;">
+                    CARRITO 
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+               </li>
+               <%}%>
               </div>
         </div>
         <nav class="headerNav">

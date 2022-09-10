@@ -1,14 +1,26 @@
 <%- include("./partials/head.ejs")%>
+
 <body>
+    <header class="header">
+            <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
+                <a href="/home">
+                    <img src="\images\logo.png" alt="sayi" width="70%">
+                </a>
+                <a href="/admin">
+                    <h2 style="margin-top: 17px;">PANEL DE ADMINISTRADOR</h2>
+                </a>
+            </div>
+    </header>
 
     <form class="formulario"  action="/search" method="GET" style="text-align: center;">
     
-        <h1 style="margin-bottom: 15px;">Modificar productos</h1>
+        <h1 style="margin-bottom: 15px;">Modificar productos</h1><br>
 
-            <input type="text" placeholder="Ingrese ID" name="id" id="id" style="width: 30%;">
+            <p>Buscar por ID</p>
+            <input type="text" placeholder="Ingrese ID" name="id" id="id" style="width: 30%; margin-top: 10px;">
             <button type="submit" class="buttonEditar" style="width: auto; margin-bottom: 20px; padding: 2%;">Buscar</button>
-
-        <a href="/adminListarProducts"><input type="button" value="Ver todos los productos" class="button" style="margin-bottom: 10px;"></a>
+        
+            <a href="/adminListarProducts"><input type="button" value="Ver todos los productos" class="button" style="margin-top: 15px; margin-bottom: 15px;"></a>
 
         <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/adminProducts">Volver atras</a></p>
 

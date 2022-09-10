@@ -32,7 +32,8 @@ const usersController = {
             email: req.body.email,
             contrasenia: req.body.contrasenia,
             img: req.file ? req.file.filename : "userDefault.png",
-            estado: 1
+            estado: 1,
+            admin: 0
         }
 
         try{

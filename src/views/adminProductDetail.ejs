@@ -2,42 +2,49 @@
 
 <body>
 
-    <div class="formulario" style="text-align: center;">
-    
+    <header class="header">
+        <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
+            <a href="/home">
+                <img src="\images\logo.png" alt="sayi" width="70%">
+            </a>
+            <a href="/admin">
+                <h2 style="margin-top: 17px;">PANEL DE ADMINISTRADOR</h2>
+            </a>
+        </div>
+    </header>
 
-             
+
+    <div class="formulario" style="text-align: center;">
+   
         <ul type="none">
-           
-            <% if(Array.isArray(product)){%>
-                <% for(let i=0;i < product.length; i++){%>
-                    <h1 style="margin-bottom: 15px;">Producto ID: <%= product[i].id%></h1>
+                    <h1 style="margin-bottom: 15px;">Producto ID: <%= product.id%></h1>
 
                     <li>
                         <div class="input-contenedor">
                             <div class="iconAdmin">
                             <i class="fa-solid fa-pencil"></i>
-                             <input type="text" placeholder="Nombre" name="nombre" id="nombre" value="<%= product[i].nombre%>" required>
+                             <input type="text" placeholder="Nombre" name="nombre" id="nombre" value="<%= product.nombre%>" required>
                             </div>
                         </div>
 
                         <div class="input-contenedor">
                             <div class="iconAdmin">
                             <i class="fa-solid fa-file-signature"></i>
-                            <input type="text" placeholder="Descripcion" name="descripcion" id="descripcion" value="<%= product[i].descripcion%>" required>
+                            <input type="text" placeholder="Descripcion" name="descripcion" id="descripcion" value="<%= product.descripcion%>" required>
                             </div>
                        </div>
             
                        <div class="input-contenedor">
                             <div class="iconAdmin">
                                 <i class="fa-solid fa-dollar-sign"></i>
-                                <input style="margin-left: 5px;" type="number" min="0" placeholder="Precio" name="precio" id="precio" value="<%= product[i].precio%>" required>
+                                <input style="margin-left: 5px;" type="number" min="0" placeholder="Precio" name="precio" id="precio" value="<%= product.precio%>" required>
                             </div>
                         </div>
             
                         <div class="input-contenedor">
                             <div class="iconAdmin">
                                 <i class="fa-solid fa-arrow-up-wide-short"></i>
-                                <input type="number" min="0" placeholder="Cantidad de stock" name="stock" id="stock" value="<%= product[i].stock%>" required>
+                                <input type="number" min="0" placeholder="Cantidad de stock" name="stock" id="stock" value="<%= product.stock%>" required>
                             </div>
                         </div>
 
@@ -45,7 +52,7 @@
                         <div class="input-contenedor">
                             <div class="iconAdmin" style="display: flex; justify-content: flex-start; margin-left: 3%; height: 40px;">
                                  
-                                 <input placeholder="producto" type="checkbox" name="descuento" id="descuento" style="width: 20px; margin-right: 2.5%;" value="<%= product[i].descuento%>">
+                                 <input placeholder="producto" type="checkbox" name="descuento" id="descuento" style="width: 20px; margin-right: 2.5%;" value="<%= product.descuento%>">
                                  <p style="margin-top: 8px; font-size: 20px; color: rgb(132, 132, 132);">Producto en descuento</p>
                             </div>
                         </div>
@@ -54,28 +61,24 @@
                         <div class="input-contenedor">
                             <div class="iconAdmin">
                                  <i class="fa-solid fa-image"></i>
-                                 <input type="file" placeholder="Imagen" name="imagen" id="imagen" value="<%= product[i].image%>">
+                                 <input type="file" placeholder="Imagen" name="imagen" id="imagen" value="<%=product.img%>">
                             </div>
                         </div>
 
                     </li>
                     <div>
-                        <form action="/deleteProduct/<%=product[i].id%>?_method=DELETE" method="POST">
+                        <form action="/deleteProduct/<%=product.id%>?_method=DELETE" method="POST">
                             <button class="buttonEditar" style="width: 95%; margin-bottom: 15px;" type="submit">Guardar cambios</button>
                         </form>
                     </div>
                     <div>
-                        <form action="/deleteProduct/<%=product[i].id%>?_method=DELETE" method="POST">
+                        <form action="/deleteProduct/<%=product.id%>?_method=DELETE" method="POST">
                             <button class="buttonEditar" style="background-color: rgb(122, 7, 7); width: 95%;" type="submit">Eliminar</button>
                         </form>
                     </div>
-                <%}%>
-            <%}else{%>
-                <h1>Name: <%= product.nombre%></h1>
-            <%}%>
         </ul>
 
-        <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/adminDeleteProducts">Volver atras</a></p>
+        <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/adminModiProducts">Volver atras</a></p>
 
     </div>
     <%- include("./partials/footer.ejs")%>

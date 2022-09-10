@@ -20,7 +20,7 @@
                 <ul type="none">
                     <li>
                         <%if(usuarioLogeado != null) {%>
-                          <a href="/perfil/<%=usuarioLogeado.id%>">BIENVENIDO/A: <%=usuarioLogeado.email%></a>
+                          <a href="/perfil/<%=usuarioLogeado.id%>">Hola! <%=usuarioLogeado.nombre%></a>
                         <%}else{%>
                           <a href="/login">ACCEDER
                             <i class="fa-solid fa-user"></i>
@@ -28,12 +28,18 @@
                           <%}%>
                       </li>
                  </ul>
-                 <li type="none" style="margin-left: 5%;">
-                  <a href="javascript:alert('En construcción');" style="color: black;">
-                      CARRITO 
-                      <i class="fa-solid fa-cart-shopping"></i>
-                  </a>
-                 </li>
+                 <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+                    <li type="none" style="margin-left: 5%;">
+                    <a href="/admin" style="color: black;">Panel de administrador</a>
+                    </li>
+                <%}else{%>
+               <li type="none" style="margin-left: 5%;">
+                <a href="#carrito" style="color: black;">
+                    CARRITO 
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+               </li>
+               <%}%>
               </div>
         </div>
         <nav class="headerNav">
@@ -75,7 +81,7 @@
              <div class="contenedor">
                 <div class="input-contenedor">
                     <i class="fas fa-user icon"></i>
-                     <input type="text" placeholder="Nombre Completo" name="name" id="name" required>
+                     <input type="text" placeholder="Nombre Completo" name="nombre" id="nombre" required>
                 </div>
                  
                 <div class="input-contenedor">
@@ -85,11 +91,11 @@
                  
                 <div class="input-contenedor">
                     <i class="fa-solid fa-pencil" style="color: gray; margin-left: 20px;"></i>
-                    <input type="text" placeholder="Asunto" name="topic" id="topic" style="margin-left: 20px;">
+                    <input type="text" placeholder="Asunto" name="asunto" id="asunto" style="margin-left: 20px;">
                 </div>
 
                 <div class="input-contenedor">
-                    <textarea name="your-message" name="text" id="text" placeholder="Tu mensaje..." style="resize: none;" cols="60" rows="9" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required></textarea>
+                    <textarea name="your-message" name="consulta" id="consulta" placeholder="Tu mensaje..." style="resize: none; width: 100%;" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required></textarea>
                 </div>
 
                  <input type="submit" value="Enviar" class="button">

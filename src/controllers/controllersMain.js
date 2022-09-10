@@ -1,6 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 const jsonPath = path.join(__dirname,'../database/contact.json');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Script } = require('vm');
 
 const json = JSON.parse(fs.readFileSync(jsonPath,'utf-8'));
 
@@ -56,29 +59,23 @@ const controller = {
         res.render(path.join(__dirname,'../views/product'), {usuarioLogeado});
     },
 
-    postContact: (req,res) =>{
-        const newName = req.body.name;
-        const newEmail = req.body.email;
-        const newTopic = req.body.topic;
-        const newText = req.body.text;
 
-        const obj = {
-            name: newName,
-            email: newEmail,
-            topic: newTopic,
-            text: newText,
-            date: new Date().toDateString(),
+    postContact: async (req, res) => {
+
+        const newContact = {
+            nombre: req.body.nombre,
+            email: req.body.email,
+            asunto: req.body.asunto,
+            consulta: req.body.consulta,
         }
 
-        allContacts.push(obj);
-        
-        fs.writeFile(jsonPath,JSON.stringify(allContacts),(error) => {
-            if(error){
-                res.send(error);
-            }else{
-                res.redirect('/home');
-            }
-        })
+        try{
+            await db.Contacto.create(newContact);
+            res.redirect('/home');
+        }
+        catch(error){
+            console.log(error);
+        }
     },
 
     logout: (req,res) => {

@@ -28,6 +28,27 @@ const productsController = {
             console.log(error);
         }
     },
+
+    list: (req, res) => {
+        db.Producto.findAll()
+            .then(productos => {
+                res.render('adminListarProducts.ejs', {productos})
+            })
+    },
+
+    search: async (req, res) => {
+            try{
+                const product = await db.Producto.findByPk(parseInt(req.query.id))
+                product ? res.render('adminProductDetail.ejs',{product}) : res.redirect('/adminModiProducts');
+            } 
+            catch (error){
+                console.log(error);
+            }
+      },
+
+      adminModiProducts: (req,res) => {
+        res.render(path.join(__dirname,'../views/adminModiProducts'));
+        },
 };
 
 module.exports = productsController;

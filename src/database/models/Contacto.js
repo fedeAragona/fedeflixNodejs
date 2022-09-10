@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Usuario';
+    let alias = 'Contacto';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -9,30 +9,21 @@ module.exports = (sequelize, dataTypes) => {
         nombre: {
             type: dataTypes.STRING
         },
-        apellido: {
-            type: dataTypes.STRING
-        },
         email: {
             type: dataTypes.STRING
         },
-        contrasenia: {
+        asunto: {
             type: dataTypes.STRING
         },
-        img: {
+        consulta: {
             type: dataTypes.STRING
-        },
-        estado: {
-            type: dataTypes.INTEGER
-        },
-        admin: {
-            type: dataTypes.INTEGER
         }
     };
     let config = {
-        tableName: 'usuarios',
+        tableName: 'contacto',
         timestamps: false
     };
-    const Usuario = sequelize.define(alias, cols, config)
+    const Contacto = sequelize.define(alias, cols, config)
 
-    return Usuario
+    return Contacto
 }
