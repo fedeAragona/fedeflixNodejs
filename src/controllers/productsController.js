@@ -49,6 +49,35 @@ const productsController = {
       adminModiProducts: (req,res) => {
         res.render(path.join(__dirname,'../views/adminModiProducts'));
         },
+
+    update: async (req,res) => {
+
+                const desc = await db.Producto.findByPk(parseInt(req.body.id));
+        
+            try {
+                await db.Producto.update(
+                    
+                    {
+                        nombre: req.body.nombre,
+                        precio: req.body.precio,
+                        stock: req.body.stock,
+                        descripcion: req.body.descripcion,
+                        descuento: desc.descuento ? req.body.descuento1 : req.body.descuento2,
+                        img: req.file ? req.file.filename : req.body.img1,
+                        idcategoria: req.body.categoria,
+                    },
+                    {
+                         where:{
+                            id: req.body.id,
+                         }
+                    }
+                );
+                res.redirect('/search?id='+ id);
+            } catch (error) {
+                console.log(error);
+            }
+     },
+    
 };
 
 module.exports = productsController;

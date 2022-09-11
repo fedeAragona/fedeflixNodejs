@@ -17,9 +17,18 @@
     <div class="formulario" style="text-align: center;">
    
         <ul type="none">
-                    <h1 style="margin-bottom: 15px;">Producto ID: <%= product.id%></h1>
+                    
+                    <form action="/editProduct?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <h1 style="margin-bottom: 15px;">Modificar producto</h1>
 
                     <li>
+                        <div class="input-contenedor">
+                            <div class="iconAdmin">
+                            <i class="fa-solid fa-pencil"></i>
+                             <input type="text" placeholder="id" name="id" id="id" value="<%= product.id%>" readonly>
+                            </div>
+                        </div>
+
                         <div class="input-contenedor">
                             <div class="iconAdmin">
                             <i class="fa-solid fa-pencil"></i>
@@ -52,25 +61,44 @@
                         <div class="input-contenedor">
                             <div class="iconAdmin" style="display: flex; justify-content: flex-start; margin-left: 3%; height: 40px;">
                                  
-                                 <input placeholder="producto" type="checkbox" name="descuento" id="descuento" style="width: 20px; margin-right: 2.5%;" value="<%= product.descuento%>">
+                                <%if(product.descuento == 1){%>
+                                    <input placeholder="producto" type="checkbox" name="descuento1" id="descuento1" style="width: 20px; margin-right: 2.5%;" checked>
+                                <%}else{%>
+                                    <input placeholder="producto" type="checkbox" name="descuento2" id="descuento2" style="width: 20px; margin-right: 2.5%;">
+                                <%}%>
                                  <p style="margin-top: 8px; font-size: 20px; color: rgb(132, 132, 132);">Producto en descuento</p>
+                            </div>
+                        </div>
+
+                        <div class="input-contenedor">
+                            <div class="iconAdmin">
+                                <i class="fa-solid fa-bars"></i>
+                                <input type="text" placeholder="Categoria" name="categoria" id="categoria" value="<%= product.idcategoria%>">
                             </div>
                         </div>
             
             
                         <div class="input-contenedor">
                             <div class="iconAdmin">
+                                 <img src="\images\products\<%=product.img%>" width="405px" name="img" height="300px" id="img1">
+                            </div>
+                        </div>
+
+                        <div class="input-contenedor">
+                            <div class="iconAdmin">
                                  <i class="fa-solid fa-image"></i>
-                                 <input type="file" placeholder="Imagen" name="imagen" id="imagen" value="<%=product.img%>">
+                              
+                                 <input type="file" placeholder="Imagen" name="imagen" id="img2" value="\images\products\<%=product.img%>">
                             </div>
                         </div>
 
                     </li>
                     <div>
-                        <form action="/deleteProduct/<%=product.id%>?_method=DELETE" method="POST">
                             <button class="buttonEditar" style="width: 95%; margin-bottom: 15px;" type="submit">Guardar cambios</button>
-                        </form>
                     </div>
+                </form>
+
+
                     <div>
                         <form action="/deleteProduct/<%=product.id%>?_method=DELETE" method="POST">
                             <button class="buttonEditar" style="background-color: rgb(122, 7, 7); width: 95%;" type="submit">Eliminar</button>
@@ -78,7 +106,7 @@
                     </div>
         </ul>
 
-        <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/adminModiProducts">Volver atras</a></p>
+        <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/adminListarProducts">Volver atras</a></p>
 
     </div>
     <%- include("./partials/footer.ejs")%>
