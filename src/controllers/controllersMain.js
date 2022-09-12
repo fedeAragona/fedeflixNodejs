@@ -24,7 +24,11 @@ const controller = {
     },
     home: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        res.render(path.join(__dirname,'../views/home'), {usuarioLogeado});
+        db.Producto.findAll()
+            .then(productos => {
+                res.render(path.join(__dirname,'../views/home'), {productos, usuarioLogeado})
+            })
+      //  res.render(path.join(__dirname,'../views/home'), {usuarioLogeado});
     },
 
     contact: (req,res) => {

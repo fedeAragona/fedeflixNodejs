@@ -87,7 +87,7 @@ function updateShoppingCartTotal() {
       '.shoppingCartItemPrice'
     );
     const shoppingCartItemPrice = Number(
-      shoppingCartItemPriceElement.textContent.replace('€', '')
+      shoppingCartItemPriceElement.textContent.replace('$ARS', '')
     );
     const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
       '.shoppingCartItemQuantity'
@@ -97,7 +97,7 @@ function updateShoppingCartTotal() {
     );
     total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
   });
-  shoppingCartTotal.innerHTML = `${total.toFixed(2)}€`;
+  shoppingCartTotal.innerHTML = `${total.toFixed(2)}$ARS`;
 }
 
 function removeShoppingCartItem(event) {

@@ -138,13 +138,13 @@
       <div class="container">
           <div class="items">
               <div class="row">
-                <% for(let i = 0; i < 8; i++) {%>
+                <% for(let i = 0; i < productos.length; i++) {%>
                   <div class="col-12 col-md-6">
                       <div class="item shadow mb-4">
-                          <h3 class="item-title">Granola</h3>
-                          <img class="item-image" src="\images\Granola-Cashem.jpg">
+                          <h3 class="item-title"><%=productos[i].nombre%></h3>
+                          <img class="item-image" src="\images\products\<%=productos[i].img%>">
                             <div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed similique a aut et in alias vel asperiores voluptatibus nesciunt!</p>
+                                <p><%=productos[i].descripcion%></p>
 
                             </div>
                           <div class="item-details">
@@ -194,7 +194,7 @@
               <div class="col-12">
                   <div class="shopping-cart-total d-flex align-items-center">
                       <p class="mb-0">Total</p>
-                      <p class="ml-4 mb-0 shoppingCartTotal">0$ARS</p>
+                      <p class="ml-4 mb-0 shoppingCartTotal">0</p>
                       <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
                           data-delay="2000">
                           <div class="toast-header">
