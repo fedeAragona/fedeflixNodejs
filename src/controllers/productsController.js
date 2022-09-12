@@ -52,30 +52,40 @@ const productsController = {
 
     update: async (req,res) => {
 
-                const desc = await db.Producto.findByPk(parseInt(req.body.id));
+        const desc = await db.Producto.findByPk(req.body.id);
+        const d1 = req.body.descuento1 ? true : false;
+        const d2= req.body.descuento2 ? true : false;
         
-            try {
-                await db.Producto.update(
-                    
-                    {
-                        nombre: req.body.nombre,
-                        precio: req.body.precio,
-                        stock: req.body.stock,
-                        descripcion: req.body.descripcion,
-                        descuento: desc.descuento ? req.body.descuento1 : req.body.descuento2,
-                        img: req.file ? req.file.filename : req.body.img1,
-                        idcategoria: req.body.categoria,
-                    },
-                    {
-                         where:{
-                            id: req.body.id,
-                         }
-                    }
-                );
-                res.redirect('/search?id='+ id);
-            } catch (error) {
-                console.log(error);
-            }
+        const nombre= req.body.nombre;
+        const precio= req.body.precio;
+        const stock= req.body.stock;
+        const descripcion= req.body.descripcion;
+        const descuento= desc.descuento ? d1 : d2;
+        const img= req.file ? req.file.filename : req.body.img1;
+        const idcategoria= req.body.categoria;
+
+
+        try {
+            await db.Producto.update(
+                {
+                    nombre,
+                    precio,
+                    stock,
+                    descripcion,
+                    descuento,
+                    img,
+                    idcategoria
+                },
+                {
+                     where:{
+                        id: 3,
+                     }
+                }
+            );
+            res.redirect('/search?id='+ req.body.id);
+        } catch (error) {
+            console.log(error);
+        }
      },
     
 };

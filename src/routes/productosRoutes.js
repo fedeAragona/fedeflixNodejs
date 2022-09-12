@@ -21,6 +21,6 @@ router.post('/addProduct',upload.single('img'),productsController.postProduct);
 router.get("/adminListarProducts", productsController.list);
 router.get('/search',productsController.search);
 router.get('/adminModiProducts',productsController.adminModiProducts);
-router.put('/editProduct', productsController.update);
+router.put('/editProduct',upload.single('img2'),productsController.update);
 
 module.exports = router;
