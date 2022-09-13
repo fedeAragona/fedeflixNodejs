@@ -138,7 +138,7 @@
       <div class="container">
           <div class="items">
               <div class="row">
-                <% for(let i = 0; i < productos.length; i++) {%>
+                <% for(let i = productos.length - 1; i >= 0; i--) {%>
                   <div class="col-12 col-md-6">
                       <div class="item shadow mb-4">
                           <h3 class="item-title"><%=productos[i].nombre%></h3>
@@ -148,12 +148,15 @@
 
                             </div>
                           <div class="item-details">
-                              <h4 class="item-price">9.99$ARS</h4>
+                              <h4 class="item-price"><%=productos[i].precio%>$ARS</h4>
                               <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
                           </div>
                       </div>
                   </div>
-                  <%}%>
+                    <%if(i==8){%>
+                        <%break%>
+                    <%}%>
+                <%}%>
               </div>
 
           </div>
