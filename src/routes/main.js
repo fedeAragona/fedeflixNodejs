@@ -21,7 +21,7 @@ router.get('/descuentos',mainController.descuentos);
 
 router.post('/addContact', mainController.postContact);
 
-router.get('/product',mainController.product);
+router.get('/product/:id',mainController.product);
 
 router.get('/logout',mainController.logout);
 

@@ -55,14 +55,27 @@ const controller = {
 
     descuentos: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        res.render(path.join(__dirname,'../views/descuentos'), {usuarioLogeado});
+        db.Producto.findAll({
+            where: {
+                descuento: 1,
+            }
+        })
+            .then(productos => {
+                res.render(path.join(__dirname,'../views/descuentos'), {productos, usuarioLogeado})
+            })
+       /// res.render(path.join(__dirname,'../views/descuentos'), {usuarioLogeado});
     },
 
-    product: (req,res) => {
-        const usuarioLogeado = req.session.usuarioLogeado;
-        res.render(path.join(__dirname,'../views/product'), {usuarioLogeado});
-    },
-
+    product: async (req,res) => {
+            try{
+                const buscarProducto = await db.Producto.findByPk(req.params.id)
+                const usuarioLogeado = req.session.usuarioLogeado;
+                res.render(path.join(__dirname,'../views/product'),{buscarProducto, usuarioLogeado});
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
 
     postContact: async (req, res) => {
 
