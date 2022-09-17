@@ -42,7 +42,8 @@ const controller = {
     },
 
     register: (req,res) => {
-        res.render(path.join(__dirname,'../views/register'));
+        const buscarEmail = null;
+        res.render(path.join(__dirname,'../views/register'), {buscarEmail});
     },
 
     login: (req,res) => {

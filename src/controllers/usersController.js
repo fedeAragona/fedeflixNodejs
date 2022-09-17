@@ -3,6 +3,7 @@ const path = require('path');
 const sequelize = db.sequelize;
 const session = require('express-session');
 const { Script } = require('vm');
+const e = require('express');
 
 //Otra forma de llamar a los modelos
 const Usuario = db.Usuario;
@@ -26,28 +27,37 @@ const usersController = {
 
     postUser: async (req, res) => {
 
-        const newUser = {
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            contrasenia: req.body.contrasenia,
-            img: req.file ? req.file.filename : "userDefault.png",
-            estado: 1,
-            admin: 0
-        }
-
-        try{
-            await db.Usuario.create(newUser);
-            const user = await db.Usuario.findOne({
+     const buscarEmail = await db.Usuario.findOne({
                 where:{
-                    email: req.body.email
+                    email: req.body.email,
                 }
-            });
-            res.redirect('/home');
-        }
-        catch(error){
-            console.log(error);
-        }
+            })
+            if(buscarEmail){
+                res.render('register.ejs', {buscarEmail})
+            }else{
+                const newUser = {
+                    nombre: req.body.nombre,
+                    apellido: req.body.apellido,
+                    email: req.body.email,
+                    contrasenia: req.body.contrasenia,
+                    img: req.file ? req.file.filename : "userDefault.png",
+                    estado: 1,
+                    admin: 0
+                }
+        
+                try{
+                    await db.Usuario.create(newUser);
+                    const user = await db.Usuario.findOne({
+                        where:{
+                            email: req.body.email
+                        }
+                    });
+                    req.session.usuarioLogeado = user;
+                    res.redirect('/home');
+                }catch(error){
+                    console.log(error);
+                }
+            }
     },
 
     perfil: async (req,res)=>{
@@ -122,11 +132,9 @@ const usersController = {
              if(usuario != null){
                 if(usuario.estado == 1){
                     req.session.usuarioLogeado = usuario;
-                    console.log("encontro todo");
                     res.redirect("/home");
                 }
              }else{
-                 console.log("Credenciales invalidas");
                  res.render("login.ejs");
              }
            

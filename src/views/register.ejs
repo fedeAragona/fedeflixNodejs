@@ -59,8 +59,16 @@
 
   <form class="formulario" style="text-align: center;" action="/user" method="POST" enctype="multipart/form-data">
     
+
     <h1>Registrate</h1>
 
+    <%if(buscarEmail){%>
+        <div class="errores">
+            <ul>
+                <li type="none" style="color: red; margin-top: 10px;">El email ingresado ya tiene asociada una cuenta</li>
+            </ul>
+        </div>
+        <%}%>
      <div class="contenedor">
         <div class="input-contenedor">
              <i class="fas fa-user icon"></i>
