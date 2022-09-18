@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="\css\style.css">
-    <link rel="stylesheet" href="\css\register.css">
-    <link rel="stylesheet" href="\css\intro.css">
-    <script src="https://kit.fontawesome.com/c3d638413c.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="\images\logo.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Sayi web site</title>
-</head>
+<%- include("./partials/head.ejs")%>
 
 <a href="https://wa.me/1169790502?text=Me%20gustaría%20saber%20el%20precio%20del%20producto" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <body>
@@ -35,9 +21,9 @@
           <ul type="none">
             <li>
               <%if(usuarioLogeado != null) {%>
-                <a href="/perfil/<%=usuarioLogeado.id%>">Hola! <%=usuarioLogeado.nombre%></a>
+                <a href="/perfil/<%=usuarioLogeado.id%>" style="color: black;">Hola <%=usuarioLogeado.nombre%></a>
               <%}else{%>
-                <a href="/login">ACCEDER
+                <a href="/login" style="color: black;">ACCEDER
                   <i class="fa-solid fa-user"></i>
                 </a>
                 <%}%>

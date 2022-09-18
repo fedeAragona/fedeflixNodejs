@@ -47,7 +47,8 @@ const controller = {
     },
 
     login: (req,res) => {
-        res.render(path.join(__dirname,'../views/login'));
+        const usuario = 0;
+        res.render(path.join(__dirname,'../views/login'),{usuario});
     },
 
     admin: (req,res) => {

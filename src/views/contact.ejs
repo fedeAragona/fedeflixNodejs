@@ -17,18 +17,18 @@
                 </div>
             </div>
             <div class="headerNavLogin">
-                <ul type="none">
-                    <li>
-                        <%if(usuarioLogeado != null) {%>
-                          <a href="/perfil/<%=usuarioLogeado.id%>">Hola! <%=usuarioLogeado.nombre%></a>
-                        <%}else{%>
-                          <a href="/login">ACCEDER
-                            <i class="fa-solid fa-user"></i>
-                          </a>
-                          <%}%>
-                      </li>
-                 </ul>
-                 <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+              <ul type="none">
+                <li>
+                  <%if(usuarioLogeado != null) {%>
+                    <a href="/perfil/<%=usuarioLogeado.id%>">Hola <%=usuarioLogeado.nombre%></a>
+                  <%}else{%>
+                    <a href="/login">ACCEDER
+                      <i class="fa-solid fa-user"></i>
+                    </a>
+                    <%}%>
+                </li>
+               </ul>
+               <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
                     <li type="none" style="margin-left: 5%;">
                     <a href="/admin" style="color: black;">Panel de administrador</a>
                     </li>
@@ -40,11 +40,11 @@
                 </a>
                </li>
                <%}%>
-              </div>
+            </div>
         </div>
         <nav class="headerNav">
             <div class="headerNavItems">
-                <ul type="none" style="border-top: 1px solid gray;">
+                <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
                     <li>
                         <a href="/home">Home</a>
                     </li>
@@ -57,14 +57,13 @@
                     <li>
                         <a href="/aboutUs">Nosotros</a>
                     </li>
-                    <li>
+                    <li style="margin-right: 0px;">
                       <a href="/contact">Contacto</a>
                   </li>
                 </ul>
             </div>
         </nav>
     </header>
-
     <script type="text/javascript">
         window.addEventListener("scroll", function(){
           var header = document.querySelector("header");

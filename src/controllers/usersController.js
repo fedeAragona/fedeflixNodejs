@@ -122,6 +122,7 @@ const usersController = {
 
     processLogin: async (req,res) =>{
         try{
+            
             const usuario = await db.Usuario.findOne({
                 where:{
                     email: req.body.email,
@@ -133,9 +134,13 @@ const usersController = {
                 if(usuario.estado == 1){
                     req.session.usuarioLogeado = usuario;
                     res.redirect("/home");
+                }else{
+                    const usuario = 1;
+                    res.render("login.ejs", {usuario});
                 }
              }else{
-                 res.render("login.ejs");
+                 const usuario = 2
+                 res.render("login.ejs", {usuario});
              }
            
         }catch(error){
@@ -168,6 +173,11 @@ const usersController = {
                     }
                 }
             );
+            req.session.usuarioLogeado = await db.Usuario.findOne({
+                where:{
+                    email: req.body.email
+                }
+            });
             res.redirect('/perfil/'+ req.body.id);
         } catch (error) {
             console.log(error);

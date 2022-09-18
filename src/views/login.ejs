@@ -32,27 +32,27 @@
                  </li>
               </div>
         </div>
-        <nav class="headerNav">
-            <div class="headerNavItems">
-                <ul type="none" style="border-top: 1px solid gray;">
-                    <li>
-                        <a href="/home">Home</a>
-                    </li>
-                    <li>
-                        <a href="javascript:alert('En construcción');">Productos</a>
-                    </li>
-                    <li>
-                        <a href="/descuentos">Promociones</a>
-                    </li>
-                    <li>
-                        <a href="/aboutUs">Nosotros</a>
-                    </li>
-                    <li>
-                      <a href="/contact">Contacto</a>
-                  </li>
-                </ul>
-            </div>
-        </nav>
+    <nav class="headerNav">
+        <div class="headerNavItems">
+            <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+                <li>
+                    <a href="javascript:alert('En construcción');">Productos</a>
+                </li>
+                <li>
+                    <a href="/descuentos">Promociones</a>
+                </li>
+                <li>
+                    <a href="/aboutUs">Nosotros</a>
+                </li>
+                <li style="margin-right: 0px;">
+                  <a href="/contact">Contacto</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
     </header>
 
     <script type="text/javascript">
@@ -65,6 +65,21 @@
 <main>
     <form class="formulario" style="text-align: center;" method="POST" action="/login">
         <h1>Iniciar sesión</h1>
+    <%if(usuario != 0){%>
+        <%if(usuario == 1){%>
+            <div class="errores">
+                <ul>
+                    <li type="none" style="color: red; margin-top: 10px;">La cuenta fue dada de baja</li>
+                </ul>
+            </div>
+        <%}else{%>
+            <div class="errores">
+                <ul>
+                    <li type="none" style="color: red; margin-top: 10px;">El email y/o la contraseña no coinciden</li>
+                </ul>
+            </div>
+        <%}%>
+    <%}%>
 
         <div class="contenedor">
           <div class="input-contenedor">
