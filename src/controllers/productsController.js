@@ -88,6 +88,22 @@ const productsController = {
         }
      },
     
+
+     adminProducts: (req,res) => {
+        res.render(path.join(__dirname,'../views/adminProducts'));
+        },
+    
+        adminModiProducts: (req,res) => {
+        res.render(path.join(__dirname,'../views/adminModiProducts'));
+        },
+    
+        adminDeleteProducts: (req,res) => {
+        res.render(path.join(__dirname,'../views/adminDeleteProducts'));
+        },
+    
+        adminAddProduct: (req,res) => {
+        res.render(path.join(__dirname,'../views/adminAddProduct'));
+        },
 };
 
 module.exports = productsController;

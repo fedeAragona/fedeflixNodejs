@@ -23,4 +23,9 @@ router.get('/search',productsController.search);
 router.get('/adminModiProducts',productsController.adminModiProducts);
 router.put('/editProduct',upload.single('img2'),productsController.update);
 
+router.get('/adminProducts',productsController.adminProducts);
+router.get('/adminDeleteProducts',productsController.adminDeleteProducts);
+router.get('/adminAddProduct',productsController.adminAddProduct);
+
+
 module.exports = router;

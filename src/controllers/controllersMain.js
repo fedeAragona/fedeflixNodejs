@@ -1,22 +1,10 @@
 const path = require('path');
 const fs = require('fs');
-const jsonPath = path.join(__dirname,'../database/contact.json');
+
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Script } = require('vm');
 
-const json = JSON.parse(fs.readFileSync(jsonPath,'utf-8'));
-
-
-const allContacts = json.map(e => {
-    return {
-      name: e.name,
-      email: e.email,
-      topic: e.topic,
-      text: e.text,
-      date: e.date,
-    }
-  }) 
 
 const controller = {
     intro: (req,res) => {
@@ -28,7 +16,6 @@ const controller = {
             .then(productos => {
                 res.render(path.join(__dirname,'../views/home'), {productos, usuarioLogeado})
             })
-      //  res.render(path.join(__dirname,'../views/home'), {usuarioLogeado});
     },
 
     contact: (req,res) => {
@@ -65,7 +52,6 @@ const controller = {
             .then(productos => {
                 res.render(path.join(__dirname,'../views/descuentos'), {productos, usuarioLogeado})
             })
-       /// res.render(path.join(__dirname,'../views/descuentos'), {usuarioLogeado});
     },
 
     product: async (req,res) => {

@@ -5,8 +5,6 @@ const path = require("path");
 const session = require('express-session');
 
 const routerMain = require('./routes/main');
-const routerUsers = require('./routes/users');
-const routerProducts = require('./routes/products');
 const usuariosRoutes = require('./routes/usuariosRoutes');
 const productosRoutes = require("./routes/ProductosRoutes");
 
@@ -32,8 +30,6 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 
 app.use(routerMain);
-//app.use(routerUsers);
-app.use(routerProducts);
 app.use(usuariosRoutes);
 app.use(productosRoutes);
 

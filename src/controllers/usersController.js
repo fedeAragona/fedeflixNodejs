@@ -96,7 +96,12 @@ const usersController = {
                     }
                 }
             );
-            res.redirect('/users2');
+            req.session.usuarioLogeado = await db.Usuario.findOne({
+                where:{
+                    email: req.body.email
+                }
+            });
+            res.redirect('/edit/'+ req.body.id);
         } catch (error) {
             console.log(error);
         }
