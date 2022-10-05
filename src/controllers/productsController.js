@@ -18,6 +18,7 @@ const productsController = {
             descuento: req.body.descuento ? true : false,
             img: req.file ? req.file.filename : "productDefault.png",
             idcategoria: req.body.categoria,
+            estado: 1,
         }
 
         try{
@@ -46,13 +47,13 @@ const productsController = {
             }
       },
 
-      adminModiProducts: (req,res) => {
+    adminModiProducts: (req,res) => {
         res.render(path.join(__dirname,'../views/adminModiProducts'));
-        },
+    },
 
     update: async (req,res) => {
 
-        const desc = await db.Producto.findByPk(req.body.id);
+        const desc = await db.Producto.findByPk(parseInt(req.body.id));
         const d1 = req.body.descuento1 ? true : false;
         const d2= req.body.descuento2 ? true : false;
         
@@ -78,7 +79,7 @@ const productsController = {
                 },
                 {
                      where:{
-                        id: 3,
+                        id: parseInt(req.body.id)
                      }
                 }
             );
@@ -93,15 +94,15 @@ const productsController = {
         res.render(path.join(__dirname,'../views/adminProducts'));
         },
     
-        adminModiProducts: (req,res) => {
+    adminModiProducts: (req,res) => {
         res.render(path.join(__dirname,'../views/adminModiProducts'));
         },
     
-        adminDeleteProducts: (req,res) => {
+    adminDeleteProducts: (req,res) => {
         res.render(path.join(__dirname,'../views/adminDeleteProducts'));
         },
     
-        adminAddProduct: (req,res) => {
+    adminAddProduct: (req,res) => {
         res.render(path.join(__dirname,'../views/adminAddProduct'));
         },
 };

@@ -96,11 +96,13 @@ const usersController = {
                     }
                 }
             );
-            req.session.usuarioLogeado = await db.Usuario.findOne({
-                where:{
-                    email: req.body.email
-                }
-            });
+            if(req.session.usuarioLogeado==null){
+                req.session.usuarioLogeado = await db.Usuario.findOne({
+                    where:{
+                        email: req.body.email
+                    }
+                });
+            }
             res.redirect('/edit/'+ req.body.id);
         } catch (error) {
             console.log(error);

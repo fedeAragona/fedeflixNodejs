@@ -98,26 +98,6 @@
         </div>
         
 
-        <div class="novedades">
-          <!-- <% for(let i = 0; i < 8; i++) {%>
-            <div class="gallery">
-              <a target="" href="/product">
-                <img src="\images\Granola-Cashem.jpg" alt="Cinque Terre" width="60%" height="40%">
-              </a>
-              <div class="desc">
-                <h3>
-                    Granola
-                </h3>
-                <p>
-                  assssssssssssssssssssssssddddddddddddsdddddddddjpofgsjdpfogdgspokdgfs´pkfd´pdlksf´sdfdddddddddddddddddddddddddsssssssss
-                </p>
-              </div>
-              <div style="width: 100%;">
-                <a href="/product"><input type="button" value="Añadir al carrito" class="button"></a>
-              </div>
-            </div>
-          <%}%> -->
-      </div>
 
           <!-- START SECTION STORE -->
     <section class="store">
@@ -130,19 +110,15 @@
                       <div class="item shadow mb-4">
                           <h3 class="item-title"><%=productos[i].nombre%></h3>
                           <img class="item-image" src="\images\products\<%=productos[i].img%>" style="border-radius: 2%;">
-                            <div>
-                                <p><%=productos[i].descripcion%></p>
-
-                            </div>
                           <div class="item-details">
                               <h4 class="item-price"><%=productos[i].precio%>$ARS</h4>
                               <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
                           </div>
                       </div>
                   </div>
-                    <%if(i==8){%>
-                        <%break%>
-                    <%}%>
+                  <%if(i == productos.length - 6){%>
+                    <%break%>
+                <%}%>
                 </a>
                 <%}%>
               </div>

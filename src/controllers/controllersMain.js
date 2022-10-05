@@ -12,7 +12,11 @@ const controller = {
     },
     home: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        db.Producto.findAll()
+        db.Producto.findAll({
+            where: {
+                estado: 1,
+            }
+        })
             .then(productos => {
                 res.render(path.join(__dirname,'../views/home'), {productos, usuarioLogeado})
             })
@@ -46,7 +50,7 @@ const controller = {
         const usuarioLogeado = req.session.usuarioLogeado;
         db.Producto.findAll({
             where: {
-                descuento: 1,
+                descuento:1,
             }
         })
             .then(productos => {

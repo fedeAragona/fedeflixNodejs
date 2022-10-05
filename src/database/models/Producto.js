@@ -27,6 +27,9 @@ module.exports = (sequelize, dataTypes) => {
         idcategoria: {
             type: dataTypes.STRING
         },
+        estado: {
+            type: dataTypes.INTEGER
+        }
     };
     let config = {
         tableName: 'productos',
