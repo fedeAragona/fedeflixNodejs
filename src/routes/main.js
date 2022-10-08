@@ -26,5 +26,6 @@ router.get('/product/:id',mainController.product);
 
 router.get('/logout',mainController.logout);
 
+router.get('/faq',mainController.faq);
 
 module.exports = router;
