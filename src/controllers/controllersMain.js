@@ -96,6 +96,11 @@ const controller = {
         const usuarioLogeado = req.session.usuarioLogeado;
         res.render(path.join(__dirname,'../views/faq'),{usuarioLogeado});
     },
+
+    market: (req,res) => {
+        const usuarioLogeado = req.session.usuarioLogeado;
+        res.render(path.join(__dirname,'../views/market'),{usuarioLogeado});
+    },
 };
 
 module.exports = controller;

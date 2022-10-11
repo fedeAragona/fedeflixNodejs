@@ -1,0 +1,100 @@
+<%- include("./partials/head.ejs")%>
+
+<a href="https://wa.me/1169790502?text=Me%20gustaría%20saber%20el%20precio%20del%20producto" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+<body>
+    <header class="header">
+        <div class="headerMain">
+            <div class="headerLogoYBuscador">
+                <a href="/home">
+                    <img src="\images\logo.png" alt="sayi" width="100%">
+                </a>
+                <div class="headerBuscador">
+                    <form action="">
+                        <input type="search" name="busqueda" placeholder="Buscar productos, marcas..." class="buscador">
+                        <div class="botonBuscar">
+                            <i class="fas fa-search header-brand-search-icon"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="headerNavLogin">
+              <ul type="none">
+                <li>
+                  <%if(usuarioLogeado != null) {%>
+                    <a href="/perfil/<%=usuarioLogeado.id%>">Hola <%=usuarioLogeado.nombre%></a>
+                  <%}else{%>
+                    <a href="/login">ACCEDER
+                      <i class="fa-solid fa-user"></i>
+                    </a>
+                    <%}%>
+                </li>
+               </ul>
+               <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+                    <li type="none" style="margin-left: 5%;">
+                    <a href="/admin" style="color: black;">Panel de administrador</a>
+                    </li>
+                <%}else{%>
+               <li type="none" style="margin-left: 5%;">
+                <a href="#carrito" style="color: black;">
+                    CARRITO 
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+               </li>
+               <%}%>
+            </div>
+        </div>
+        <nav class="headerNav">
+            <div class="headerNavItems">
+                <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                    <li>
+                        <a href="javascript:alert('En construcción');">Productos</a>
+                    </li>
+                    <li>
+                        <a href="/descuentos">Promociones</a>
+                    </li>
+                    <li>
+                        <a href="/aboutUs">Nosotros</a>
+                    </li>
+                    <li style="margin-right: 0px;">
+                      <a href="/contact">Contacto</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+<script type="text/javascript">
+  window.addEventListener("scroll", function(){
+    var header = document.querySelector("header");
+    header.classList.toggle("menu-fixed", window.scrollY>100);
+  })
+</script>
+
+    <main>
+      <br>
+      <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
+      
+      <h1>Market</h1>
+      <h2 style="text-align: center;">- CONGELADOS -</h2>
+      <br>
+
+      
+        <!-- END SECTION SHOPPING CART -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+        <script src="/tienda.js"></script>
+      
+    </main>
+    <%- include("./partials/footer.ejs")%>
+</body>
+</html>

@@ -28,4 +28,6 @@ router.get('/logout',mainController.logout);
 
 router.get('/faq',mainController.faq);
 
+router.get('/market',mainController.market);
+
 module.exports = router;
