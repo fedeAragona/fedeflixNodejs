@@ -28,6 +28,6 @@ router.get('/logout',mainController.logout);
 
 router.get('/faq',mainController.faq);
 
-router.get('/market',mainController.market);
+router.get('/market/:cat',mainController.market);
 
 module.exports = router;

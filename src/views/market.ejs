@@ -78,11 +78,41 @@
       <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
       
       <h1>Market</h1>
-      <h2 style="text-align: center;">- CONGELADOS -</h2>
+      <h2 style="text-align: center;">- <%=cat%> -</h2>
       <br>
 
-      
-        <!-- END SECTION SHOPPING CART -->
+
+      <section class="store">
+        <div class="container">
+            <div class="items">
+                <div class="row">
+                  <% for(let i=0; i < buscarCategoria.length; i++){%>
+                    <a href="/product/<%=buscarCategoria[i].id%>" style="text-decoration:none; color:black">
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title"><%=buscarCategoria[i].nombre%></h3>
+                            <img class="item-image" src="\images\products\<%=buscarCategoria[i].img%>" style="border-radius: 2%;">
+
+                            <div class="item-details">
+                                <h4 class="item-price"><%=buscarCategoria[i].precio%>$ARS</h4>
+                                <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
+                            </div>
+                        </div>
+                    </div>
+                      <%if(i==8){%>
+                          <%break%>
+                      <%}%>
+                    </a>
+                  <%}%>
+                </div>
+  
+            </div>
+        </div>
+    </section>
+
+
+
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

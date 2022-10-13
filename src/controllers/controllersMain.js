@@ -97,9 +97,20 @@ const controller = {
         res.render(path.join(__dirname,'../views/faq'),{usuarioLogeado});
     },
 
-    market: (req,res) => {
-        const usuarioLogeado = req.session.usuarioLogeado;
-        res.render(path.join(__dirname,'../views/market'),{usuarioLogeado});
+    market: async (req,res) => {
+        try{
+            const cat = req.params.cat
+            const buscarCategoria = await db.Producto.findAll({
+                where:{
+                    idcategoria: cat
+                }
+            });
+            const usuarioLogeado = req.session.usuarioLogeado;
+            res.render(path.join(__dirname,'../views/market'),{buscarCategoria, cat, usuarioLogeado});
+        }
+        catch(error){
+            console.log(error);
+        }
     },
 };
 
