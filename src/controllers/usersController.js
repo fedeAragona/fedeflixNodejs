@@ -27,36 +27,41 @@ const usersController = {
 
     postUser: async (req, res) => {
 
-     const buscarEmail = await db.Usuario.findOne({
-                where:{
-                    email: req.body.email,
+            const productos = await db.Producto.findAll({
+                where: {
+                    estado: 1,
                 }
             })
-            if(buscarEmail){
-                res.render('register.ejs', {buscarEmail})
-            }else{
-                const newUser = {
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    email: req.body.email,
-                    contrasenia: req.body.contrasenia,
-                    img: req.file ? req.file.filename : "userDefault.png",
-                    estado: 1,
-                    admin: 0
-                }
-        
-                try{
-                    await db.Usuario.create(newUser);
-                    const user = await db.Usuario.findOne({
-                        where:{
-                            email: req.body.email
-                        }
-                    });
-                    req.session.usuarioLogeado = user;
-                    res.redirect('/home');
-                }catch(error){
-                    console.log(error);
-                }
+            const buscarEmail = await db.Usuario.findOne({
+                    where:{
+                        email: req.body.email,
+                    }
+                })
+                if(buscarEmail){
+                    res.render('register.ejs', {buscarEmail, productos})
+                }else{
+                    const newUser = {
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        email: req.body.email,
+                        contrasenia: req.body.contrasenia,
+                        img: req.file ? req.file.filename : "userDefault.png",
+                        estado: 1,
+                        admin: 0
+                    }
+            
+                    try{
+                        await db.Usuario.create(newUser);
+                        const user = await db.Usuario.findOne({
+                            where:{
+                                email: req.body.email
+                            }
+                        });
+                        req.session.usuarioLogeado = user;
+                        res.redirect('/home');
+                    }catch(error){
+                        console.log(error);
+                    }
             }
     },
 
@@ -137,17 +142,23 @@ const usersController = {
                 }
              });
 
+            const productos = await db.Producto.findAll({
+                where: {
+                    estado: 1,
+                }
+            })
+
              if(usuario != null){
                 if(usuario.estado == 1){
                     req.session.usuarioLogeado = usuario;
                     res.redirect("/home");
                 }else{
                     const usuario = 1;
-                    res.render("login.ejs", {usuario});
+                    res.render("login.ejs", {usuario, productos});
                 }
              }else{
                  const usuario = 2
-                 res.render("login.ejs", {usuario});
+                 res.render("login.ejs", {usuario, productos});
              }
            
         }catch(error){

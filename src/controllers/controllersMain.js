@@ -10,6 +10,7 @@ const controller = {
     intro: (req,res) => {
         res.render(path.join(__dirname,'../views/intro'));
     },
+
     home: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
         db.Producto.findAll({
@@ -24,22 +25,50 @@ const controller = {
 
     contact: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        res.render(path.join(__dirname,'../views/contact'), {usuarioLogeado});
+        db.Producto.findAll({
+            where: {
+                estado: 1,
+            }
+        })
+            .then(productos => {
+                res.render(path.join(__dirname,'../views/contact'), {productos, usuarioLogeado})
+            })
     },
 
     aboutUs: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        res.render(path.join(__dirname,'../views/aboutUs'), {usuarioLogeado});
+        db.Producto.findAll({
+            where: {
+                estado: 1,
+            }
+        })
+            .then(productos => {
+                res.render(path.join(__dirname,'../views/aboutUs'), {productos, usuarioLogeado})
+            })
     },
 
     register: (req,res) => {
         const buscarEmail = null;
-        res.render(path.join(__dirname,'../views/register'), {buscarEmail});
+        db.Producto.findAll({
+            where: {
+                estado: 1,
+            }
+        })
+        .then(productos => {
+            res.render(path.join(__dirname,'../views/register'), {productos, buscarEmail})
+        })
     },
 
     login: (req,res) => {
         const usuario = 0;
-        res.render(path.join(__dirname,'../views/login'),{usuario});
+        db.Producto.findAll({
+            where: {
+                estado: 1,
+            }
+        })
+        .then(productos => {
+            res.render(path.join(__dirname,'../views/login'), {productos, usuario})
+        })
     },
 
     admin: (req,res) => {
@@ -50,7 +79,7 @@ const controller = {
         const usuarioLogeado = req.session.usuarioLogeado;
         db.Producto.findAll({
             where: {
-                descuento:1,
+                estado:1,
             }
         })
             .then(productos => {
@@ -61,8 +90,13 @@ const controller = {
     product: async (req,res) => {
             try{
                 const buscarProducto = await db.Producto.findByPk(req.params.id)
+                const productos = await db.Producto.findAll({
+                    where: {
+                        estado: 1,
+                    }
+                })
                 const usuarioLogeado = req.session.usuarioLogeado;
-                res.render(path.join(__dirname,'../views/product'),{buscarProducto, usuarioLogeado});
+                res.render(path.join(__dirname,'../views/product'),{buscarProducto, productos, usuarioLogeado});
             }
             catch(error){
                 console.log(error);
@@ -94,7 +128,14 @@ const controller = {
     
     faq: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        res.render(path.join(__dirname,'../views/faq'),{usuarioLogeado});
+        db.Producto.findAll({
+            where: {
+                estado: 1,
+            }
+        })
+            .then(productos => {
+                res.render(path.join(__dirname,'../views/faq'), {productos, usuarioLogeado})
+            })
     },
 
     market: async (req,res) => {
@@ -105,12 +146,20 @@ const controller = {
                     idcategoria: cat
                 }
             });
+
+            const productos = await db.Producto.findAll({
+                where: {
+                    estado: 1,
+                }
+            })
+
             const usuarioLogeado = req.session.usuarioLogeado;
-            res.render(path.join(__dirname,'../views/market'),{buscarCategoria, cat, usuarioLogeado});
+            res.render(path.join(__dirname,'../views/market'),{buscarCategoria, cat, productos, usuarioLogeado});
         }
         catch(error){
             console.log(error);
         }
+        
     },
 };
 

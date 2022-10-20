@@ -50,7 +50,29 @@
                         <a href="/home">Home</a>
                     </li>
                     <li>
-                        <a href="javascript:alert('En construcción');">Productos</a>
+                      <div class="dropdown">
+                        <button class="dropbtn">Market</button>
+                        <div class="dropdown-content">
+                            <%let nuevo=[];%>
+                            <%let bandera=false;%>
+                            <%for(let i=0; i < productos.length; i++){%>
+                                <%for(let x=0; x < nuevo.length; x++){%>
+                                    <%if(productos[i].idcategoria === nuevo[x]){%>
+                                        <%bandera=true%>
+                                    <%}else{%>
+                                        <%bandera=false%>
+                                    <%}%>
+                                <%}%>
+                             <%if(bandera==false){%>
+                                    <%nuevo.push(productos[i].idcategoria)%>
+                             <%}%>
+                            <%}%>
+                            <%let ordenado=nuevo.sort()%>
+                            <%for(let i=0; i < ordenado.length; i++){%>
+                                <a href="/market/<%=ordenado[i]%>"><%=ordenado[i]%></a>
+                            <%}%>
+                        </div>
+                      </div>
                     </li>
                     <li>
                         <a href="/descuentos">Promociones</a>
@@ -88,24 +110,20 @@
                 <div class="row">
                   <% for(let i=0; i < buscarCategoria.length; i++){%>
                     <a href="/product/<%=buscarCategoria[i].id%>" style="text-decoration:none; color:black">
-                    <div class="col-12 col-md-6">
-                        <div class="item shadow mb-4">
-                            <h3 class="item-title"><%=buscarCategoria[i].nombre%></h3>
-                            <img class="item-image" src="\images\products\<%=buscarCategoria[i].img%>" style="border-radius: 2%;">
+                      <div class="col-12 col-md-6">
+                          <div class="item shadow mb-4">
+                              <h3 class="item-title"><%=buscarCategoria[i].nombre%></h3>
+                              <img class="item-image" src="\images\products\<%=buscarCategoria[i].img%>" style="border-radius: 2%;">
 
-                            <div class="item-details">
-                                <h4 class="item-price"><%=buscarCategoria[i].precio%>$ARS</h4>
-                                <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
-                            </div>
-                        </div>
-                    </div>
-                      <%if(i==8){%>
-                          <%break%>
-                      <%}%>
+                              <div class="item-details">
+                                  <h4 class="item-price"><%=buscarCategoria[i].precio%>$ARS</h4>
+                                  <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
+                              </div>
+                          </div>
+                      </div>
                     </a>
                   <%}%>
                 </div>
-  
             </div>
         </div>
     </section>

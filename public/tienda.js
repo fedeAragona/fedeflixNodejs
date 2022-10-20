@@ -126,25 +126,3 @@ function comprarButtonClicked() {
   //shoppingCartItemsContainer.innerHTML = '';
   updateShoppingCartTotal();
 }
-
-function getItemsInShoppingCart(){
-  const shoppingCartItems = document.querySelectorAll('.shoppingCartItem')
-  const arrayShoppingCartItems = [];
-
-  shoppingCartItems.forEach(shoppingCartItem =>{
-    const shoppingCartItemQuantityElement = shoppingCartItem.querySelector('.shoppingCartItemQuantity')
-    const shoppingCartItemQuantity = Number(shoppingCartItemQuantityElement.value)
-    const itemTitle = getItemsInShoppingCart.itemid
-    const item ={
-      name: itemTitle,
-      qty: shoppingCartItemQuantity
-    }
-
-    arrayShoppingCartItems.push(item)
-  })
-  return arrayShoppingCartItems;
-}
-
-function addToLocalStorage(key, items){
-  localStorage.setItem(key, JSON.stringify(items))
-}
