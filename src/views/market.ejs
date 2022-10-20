@@ -100,7 +100,10 @@
       <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
       
       <h1>Market</h1>
-      <h2 style="text-align: center;">- <%=cat%> -</h2>
+
+      <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
+      <br>
+      <h4 style="text-align: center; background-color: rgb(141, 106, 61); color: white; padding: 2px;">/ <%=cat%></h4>
       <br>
 
 
@@ -112,7 +115,9 @@
                     <a href="/product/<%=buscarCategoria[i].id%>" style="text-decoration:none; color:black">
                       <div class="col-12 col-md-6">
                           <div class="item shadow mb-4">
+                            <div style="height: 70px;">
                               <h3 class="item-title"><%=buscarCategoria[i].nombre%></h3>
+                            </div>
                               <img class="item-image" src="\images\products\<%=buscarCategoria[i].img%>" style="border-radius: 2%;">
 
                               <div class="item-details">
