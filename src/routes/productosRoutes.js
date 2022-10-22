@@ -26,6 +26,7 @@ router.put('/editProduct',upload.single('img2'),productsController.update);
 router.get('/adminProducts',productsController.adminProducts);
 router.get('/adminDeleteProducts',productsController.adminDeleteProducts);
 router.get('/adminAddProduct',productsController.adminAddProduct);
+router.delete('/deleteProduct/:id', productsController.delete);
 
 
 module.exports = router;

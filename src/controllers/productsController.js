@@ -31,10 +31,14 @@ const productsController = {
     },
 
     list: (req, res) => {
-        db.Producto.findAll()
-            .then(productos => {
+        db.Producto.findAll({
+            where:{
+                estado:1
+            }
+        })
+        .then(productos => {
                 res.render('adminListarProducts.ejs', {productos})
-            })
+         })
     },
 
     search: async (req, res) => {
@@ -104,6 +108,24 @@ const productsController = {
     
     adminAddProduct: (req,res) => {
         res.render(path.join(__dirname,'../views/adminAddProduct'));
+        },
+
+        delete: async (req,res) => {
+            try {
+                await db.Producto.update(
+                    {
+                        estado:0
+                    },
+                    {
+                        where: {
+                            id: req.params.id,
+                        }
+                    }
+                );
+                res.redirect('/adminListarProducts');
+            } catch (error) {
+                console.log(error);
+            }
         },
 };
 

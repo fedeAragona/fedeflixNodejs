@@ -1,4 +1,3 @@
-
 const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
 addToShoppingCartButtons.forEach((addToCartButton) => {
   addToCartButton.addEventListener('click', addToCartClicked);
@@ -7,26 +6,25 @@ addToShoppingCartButtons.forEach((addToCartButton) => {
 const comprarButton = document.querySelector('.comprarButton');
 comprarButton.addEventListener('click', comprarButtonClicked);
 
+const limpiarButton = document.querySelector('.limpiarButton');
+limpiarButton.addEventListener('click', limpiarButtonClicked);
+
 const shoppingCartItemsContainer = document.querySelector(
   '.shoppingCartItemsContainer'
 );
 
 function addToCartClicked(event) {
-
   const button = event.target;
   const item = button.closest('.item');
 
   const itemTitle = item.querySelector('.item-title').textContent;
   const itemPrice = item.querySelector('.item-price').textContent;
   const itemImage = item.querySelector('.item-image').src;
-  const itemid = item.querySelector('.item-id').textContent;
 
-  addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemid);
+  addItemToShoppingCart(itemTitle, itemPrice, itemImage);
 }
 
-
- function addItemToShoppingCart(itemTitle, itemPrice, itemImage, itemid) {
-
+function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
   const elementsTitle = shoppingCartItemsContainer.getElementsByClassName(
     'shoppingCartItemTitle'
   );
@@ -46,7 +44,7 @@ function addToCartClicked(event) {
 
   const shoppingCartRow = document.createElement('div');
   const shoppingCartContent = `
-  <div class="row shoppingCartItem" data-id=${itemid}>
+  <div class="row shoppingCartItem">
         <div class="col-6">
             <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
                 <img src=${itemImage} class="shopping-cart-image">
@@ -88,7 +86,6 @@ function updateShoppingCartTotal() {
   const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
 
   shoppingCartItems.forEach((shoppingCartItem) => {
-
     const shoppingCartItemPriceElement = shoppingCartItem.querySelector(
       '.shoppingCartItemPrice'
     );
@@ -119,10 +116,11 @@ function quantityChanged(event) {
 }
 
 function comprarButtonClicked() {
-  console.log("hola")
-  const shoppingCartItems = getItemsInShoppingCart()
-  addToLocalStorage('shoppingCart', shoppingCartItems)
-  
-  //shoppingCartItemsContainer.innerHTML = '';
+  shoppingCartItemsContainer.innerHTML = '';
+  updateShoppingCartTotal();
+}
+
+function limpiarButtonClicked() {
+  shoppingCartItemsContainer.innerHTML = '';
   updateShoppingCartTotal();
 }
