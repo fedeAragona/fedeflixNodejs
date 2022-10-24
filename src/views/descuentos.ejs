@@ -106,24 +106,22 @@
             <div class="container">
                 <div class="items">
                     <div class="row">
-                      <% for(let i=0; i < productos.length; i++){%>
-                        <%if(productos[i].descuento != 0){%>
+                      <% for(let i=0; i < buscarProductos.length; i++){%>
                             <a href="/product/<%=productos[i].id%>" style="text-decoration:none; color:black">
                                 <div class="col-12 col-md-6">
                                     <div class="item shadow mb-4">
                                         <div style="height: 70px;">
-                                            <h3 class="item-title"><%=productos[i].nombre%></h3>
+                                            <h3 class="item-title"><%=buscarProductos[i].nombre%></h3>
                                         </div>
-                                        <img class="item-image" src="\images\products\<%=productos[i].img%>" style="border-radius: 2%;">
+                                        <img class="item-image" src="\images\products\<%=buscarProductos[i].img%>" style="border-radius: 2%;">
 
                                         <div class="item-details">
-                                            <h4 class="item-price"><%=productos[i].precio%>$ARS</h4>
+                                            <h4 class="item-price"><%=buscarProductos[i].precio%>$ARS</h4>
                                             <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                        <%}%>
                       <%}%>
                     </div>
       

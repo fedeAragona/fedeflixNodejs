@@ -33,10 +33,22 @@ app.use(routerMain);
 app.use(usuariosRoutes);
 app.use(productosRoutes);
 
+//app.use((req,res,next) =>{
+//    res.status(404).render('not-found')
+//});
+
+
+//Routes de Api
+const productsApiRouter = require('./routes/api/productApiRoute');
+const usersApiRouter = require('./routes/api/userApiRoute');
+
+//Endpoints de Apis
+app.use('/api/products', productsApiRouter);
+app.use('/api/users', usersApiRouter);
+
+
 app.use((req,res,next) =>{
     res.status(404).render('not-found')
 });
-
-
 
 app.listen(3030, () => console.log("Trabajando en puerto 3030"));

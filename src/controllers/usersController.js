@@ -69,11 +69,7 @@ const usersController = {
         try{
             const perfil = await db.Usuario.findByPk(req.params.id)
             const usuarioLogeado = req.session.usuarioLogeado;
-            const productos = await db.Producto.findAll({
-                where: {
-                    estado: 1,
-                }
-            })
+            const productos = await db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
             res.render(path.join(__dirname,'../views/perfil'),{perfil, productos, usuarioLogeado});
         }
         catch(error){

@@ -13,11 +13,7 @@ const controller = {
 
     home: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        db.Producto.findAll({
-            where: {
-                estado: 1,
-            }
-        })
+        db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
             .then(productos => {
                 res.render(path.join(__dirname,'../views/home'), {productos, usuarioLogeado})
             })
@@ -25,11 +21,7 @@ const controller = {
 
     contact: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        db.Producto.findAll({
-            where: {
-                estado: 1,
-            }
-        })
+        db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
             .then(productos => {
                 res.render(path.join(__dirname,'../views/contact'), {productos, usuarioLogeado})
             })
@@ -37,11 +29,7 @@ const controller = {
 
     aboutUs: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        db.Producto.findAll({
-            where: {
-                estado: 1,
-            }
-        })
+        db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
             .then(productos => {
                 res.render(path.join(__dirname,'../views/aboutUs'), {productos, usuarioLogeado})
             })
@@ -49,11 +37,7 @@ const controller = {
 
     register: (req,res) => {
         const buscarEmail = null;
-        db.Producto.findAll({
-            where: {
-                estado: 1,
-            }
-        })
+        db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
         .then(productos => {
             res.render(path.join(__dirname,'../views/register'), {productos, buscarEmail})
         })
@@ -61,11 +45,7 @@ const controller = {
 
     login: (req,res) => {
         const usuario = 0;
-        db.Producto.findAll({
-            where: {
-                estado: 1,
-            }
-        })
+        db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
         .then(productos => {
             res.render(path.join(__dirname,'../views/login'), {productos, usuario})
         })
@@ -75,26 +55,27 @@ const controller = {
         res.render(path.join(__dirname,'../views/admin'));
     },
 
-    descuentos: (req,res) => {
-        const usuarioLogeado = req.session.usuarioLogeado;
-        db.Producto.findAll({
-            where: {
-                estado:1,
-            }
-        })
-            .then(productos => {
-                res.render(path.join(__dirname,'../views/descuentos'), {productos, usuarioLogeado})
-            })
+    descuentos: async (req,res) => {
+        try{
+            const buscarProductos = await await db.Producto.findAll({
+                where:{
+                    descuento:1,
+                    estado:1
+                }
+            });
+            const productos = await db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
+            const usuarioLogeado = req.session.usuarioLogeado;
+            res.render(path.join(__dirname,'../views/descuentos'),{buscarProductos, productos, usuarioLogeado});
+        }
+        catch(error){
+                console.log(error);
+        }
     },
 
     product: async (req,res) => {
             try{
                 const buscarProducto = await db.Producto.findByPk(req.params.id)
-                const productos = await db.Producto.findAll({
-                    where: {
-                        estado: 1,
-                    }
-                })
+                const productos = await db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
                 const usuarioLogeado = req.session.usuarioLogeado;
                 res.render(path.join(__dirname,'../views/product'),{buscarProducto, productos, usuarioLogeado});
             }
@@ -128,11 +109,7 @@ const controller = {
     
     faq: (req,res) => {
         const usuarioLogeado = req.session.usuarioLogeado;
-        db.Producto.findAll({
-            where: {
-                estado: 1,
-            }
-        })
+        db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
             .then(productos => {
                 res.render(path.join(__dirname,'../views/faq'), {productos, usuarioLogeado})
             })
@@ -143,15 +120,12 @@ const controller = {
             const cat = req.params.cat
             const buscarCategoria = await db.Producto.findAll({
                 where:{
-                    idcategoria: cat
+                    idcategoria: cat,
+                    estado:1
                 }
             });
-
-            const productos = await db.Producto.findAll({
-                where: {
-                    estado: 1,
-                }
-            })
+            
+            const productos = await db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
 
             const usuarioLogeado = req.session.usuarioLogeado;
             res.render(path.join(__dirname,'../views/market'),{buscarCategoria, cat, productos, usuarioLogeado});
