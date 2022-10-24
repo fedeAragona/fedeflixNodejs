@@ -2,56 +2,56 @@
 
 <a href="https://wa.me/1169790502?text=Me%20gustaría%20saber%20el%20precio%20del%20producto" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <body>
-  <header class="header">
-    <div class="headerMain">
-        <div class="headerLogoYBuscador">
-            <a href="/home">
-                <img src="\images\logo.png" alt="sayi" width="100%">
-            </a>
-            <div class="headerBuscador">
+    <header class="header">
+        <div class="headerMain">
+            <div class="headerLogoYBuscador">
+                <a href="/home">
+                    <img src="\images\logo.png" alt="sayi" width="100%">
+                </a>
+                <div class="headerBuscador">
                     <form class="formSearch" action="">
                         <input id="search" type="text" class="input-search" placeholder="Buscar productos, marcas...">
                     </form>
                     <script defer src="/search.js"></script>
+                </div>
+            </div>
+            <div class="headerNavLogin">
+              <ul type="none">
+                <li>
+                  <%if(usuarioLogeado != null) {%>
+                    <a href="/perfil/<%=usuarioLogeado.id%>">Hola <%=usuarioLogeado.nombre%></a>
+                  <%}else{%>
+                    <a href="/login">ACCEDER
+                      <i class="fa-solid fa-user"></i>
+                    </a>
+                    <%}%>
+                </li>
+               </ul>
+               <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+                    <li type="none" style="margin-left: 5%;">
+                    <a href="/admin" style="color: black;">Panel de administrador</a>
+                    </li>
+                <%}else{%>
+               <li type="none" style="margin-left: 5%;">
+                <a href="#carrito" style="color: black;">
+                    CARRITO 
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+               </li>
+               <%}%>
             </div>
         </div>
-        <div class="headerNavLogin">
-          <ul type="none">
-            <li>
-              <%if(usuarioLogeado != null) {%>
-                <a href="/perfil/<%=usuarioLogeado.id%>" style="color: black;">Hola <%=usuarioLogeado.nombre%></a>
-              <%}else{%>
-                <a href="/login" style="color: black;">ACCEDER
-                  <i class="fa-solid fa-user"></i>
-                </a>
-                <%}%>
-            </li>
-           </ul>
-           <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
-                <li type="none" style="margin-left: 5%;">
-                <a href="/admin" style="color: black;">Panel de administrador</a>
-                </li>
-            <%}else{%>
-           <li type="none" style="margin-left: 5%;">
-            <a href="#carrito" style="color: black;">
-                CARRITO 
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-           </li>
-           <%}%>
-        </div>
-    </div>
-    <nav class="headerNav">
-        <div class="headerNavItems">
-            <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
-                <li>
-                    <a href="/home">Home</a>
-                </li>
-                <li>
-                    <div class="dropdown">
-                        <button class="dropbtn">Market</button>
-                        <div class="dropdown-content">
-                            <%let nuevo=[];%>
+        <nav class="headerNav">
+            <div class="headerNavItems">
+                <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Market</button>
+                            <div class="dropdown-content">
+                                <%let nuevo=[];%>
                             <%let bandera=false;%>
                             <%for(let i=0; i < productos.length; i++){%>
                                 <%for(let x=0; x < nuevo.length; x++){%>
@@ -69,22 +69,22 @@
                             <%for(let i=0; i < ordenado.length; i++){%>
                                 <a href="/market/<%=ordenado[i]%>"><%=ordenado[i]%></a>
                             <%}%>
-                        </div>
-                      </div>
-                </li>
-                <li>
-                    <a href="/descuentos">Promociones</a>
-                </li>
-                <li>
-                    <a href="/aboutUs">Nosotros</a>
-                </li>
-                <li style="margin-right: 0px;">
-                  <a href="/contact">Contacto</a>
-              </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+                            </div>
+                          </div>
+                    </li>
+                    <li>
+                        <a href="/descuentos">Promociones</a>
+                    </li>
+                    <li>
+                        <a href="/aboutUs">Nosotros</a>
+                    </li>
+                    <li style="margin-right: 0px;">
+                      <a href="/contact">Contacto</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
 <script type="text/javascript">
   window.addEventListener("scroll", function(){
@@ -94,59 +94,39 @@
 </script>
 
     <main>
-    
-           <div class="sliderAuto">
-            <a href="/descuentos">
-               <ul>
-                   <li>
-                      <img src="\images\slideHome.jpg" width="100%" alt="">
-                   </li>
-                   <li>
-                      <img src="\images\slideHome2.jpg" width="100%" alt="">
-                   </li>
-               </ul>
-            </a>
-           </div>
-
-        <br>
-
-
-        <div>
-          <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
-          <h1 class="text-center">NOVEDADES</h1>
-          <br>
-        </div>
-        
+      <br>
+      <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
+      
+      <h1>Resultado de tu busqueda</h1>
+      <br>
           <!-- START SECTION STORE -->
-    <section class="store">
-      <div class="container">
-          <div class="items">
-              <div class="row">
-                <% for(let i = buscarProductos.length - 1; i >= 0; i--) {%>
-                    <a href="/product/<%=buscarProductos[i].id%>" style="text-decoration:none; color:black">
-                  <div class="col-12 col-md-6">
-                      <div class="item shadow mb-4">
-                        <div style="height: 70px;">
-                            <h3 class="item-title"><%=buscarProductos[i].nombre%></h3>
-                        </div>
-                          <img class="item-image" src="\images\products\<%=buscarProductos[i].img%>" style="border-radius: 2%;">
-                          <div class="item-details">
-                              <h4 class="item-price"><%=buscarProductos[i].precio%>$ARS</h4>
-                              <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
-                          </div>
-                      </div>
-                  </div>
-                  <%if(i == productos.length - 7){%>
-                    <%break%>
-                <%}%>
-                </a>
-                <%}%>
-              </div>
+          <section class="store">
+            <div class="container">
+                <div class="items">
+                    <div class="row">
+                      <% for(let i=0; i < buscarProductos.length; i++){%>
+                            <a href="/product/<%=buscarProductos[i].id%>" style="text-decoration:none; color:black">
+                                <div class="col-12 col-md-6">
+                                    <div class="item shadow mb-4">
+                                        <div style="height: 70px;">
+                                            <h3 class="item-title"><%=buscarProductos[i].nombre%></h3>
+                                        </div>
+                                        <img class="item-image" src="\images\products\<%=buscarProductos[i].img%>" style="border-radius: 2%;">
 
-          </div>
-      </div>
-  </section>
-  <!-- END SECTION STORE -->
+                                        <div class="item-details">
+                                            <h4 class="item-price"><%=buscarProductos[i].precio%>$ARS</h4>
+                                            <a href="#carrito"><button class="item-button btn btn-primary addToCart" style="background-color: rgb(212, 193, 158); border: 0;">AÑADIR AL CARRITO</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                      <%}%>
+                    </div>
+      
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION STORE -->
     <!-- START SECTION SHOPPING CART -->
     <br>
     <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
@@ -211,7 +191,7 @@
               aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
-                      <div class="modal-header">
+                    <div class="modal-header">
                         <%if(usuarioLogeado == null) {%>
                             <h5 class="modal-title" id="comprarModalLabel">Atencion</h5>
                         <%}else{%>

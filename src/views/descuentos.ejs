@@ -9,12 +9,10 @@
                     <img src="\images\logo.png" alt="sayi" width="100%">
                 </a>
                 <div class="headerBuscador">
-                    <form action="">
-                        <input type="search" name="busqueda" placeholder="Buscar productos, marcas..." class="buscador">
-                        <div class="botonBuscar">
-                            <i class="fas fa-search header-brand-search-icon"></i>
-                        </div>
+                    <form class="formSearch" action="">
+                        <input id="search" type="text" class="input-search" placeholder="Buscar productos, marcas...">
                     </form>
+                    <script defer src="/search.js"></script>
                 </div>
             </div>
             <div class="headerNavLogin">
@@ -193,14 +191,22 @@
               aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+                    <div class="modal-header">
+                        <%if(usuarioLogeado == null) {%>
+                            <h5 class="modal-title" id="comprarModalLabel">Atencion</h5>
+                        <%}else{%>
+                            <h5 class="modal-title" id="comprarModalLabel">En construccion</h5>
+                        <%}%>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                           </button>
                       </div>
                       <div class="modal-body">
-                          <p>Pronto recibirá su pedido</p>
+                        <%if(usuarioLogeado == null) {%>
+                            <p>Porfavor Ingrese / registrese en la pagina</p>
+                        <%}else{%>
+                            <p>Pronto habilitaremos la pasarela de pago</p>
+                        <%}%>
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

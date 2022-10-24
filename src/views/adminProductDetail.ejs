@@ -13,11 +13,11 @@
         </div>
     </header>
 
-
+<main>
+    <br>
+    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
     <div class="formulario" style="padding: 15px;">
-   
-        <ul type="none">
-                    
+        <ul type="none">     
                     <form action="/editProduct?_method=PUT" method="post" enctype="multipart/form-data">
                         <h1 style="margin-bottom: 15px;">Modificar producto</h1>
 
@@ -79,8 +79,8 @@
             
             
                         <div class="input-contenedor">
-                            <div class="iconAdmin">
-                                 <img src="\images\products\<%=product.img%>" width="405px" name="img1" height="300px">
+                            <div>
+                                 <img src="\images\products\<%=product.img%>" width="100%" name="img1" height="300px">
                             </div>
                         </div>
 
@@ -96,15 +96,13 @@
                     <div>
                             <button class="buttonEditar" style="width: 95%; margin-bottom: 15px;" type="submit">Guardar cambios</button>
                     </div>
-                </form>
-
-
-                 
+                </form> 
         </ul>
-
         <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/adminListarProducts">Volver atras</a></p>
-
     </div>
+
+    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
+</main>
     <%- include("./partials/footer.ejs")%>
 </body>
 </html>

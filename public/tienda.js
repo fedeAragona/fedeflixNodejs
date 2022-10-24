@@ -116,8 +116,8 @@ function quantityChanged(event) {
 }
 
 function comprarButtonClicked() {
-  shoppingCartItemsContainer.innerHTML = '';
-  updateShoppingCartTotal();
+    shoppingCartItemsContainer.innerHTML = '';
+    updateShoppingCartTotal();
 }
 
 function limpiarButtonClicked() {

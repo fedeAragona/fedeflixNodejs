@@ -27,6 +27,7 @@ router.get('/adminProducts',productsController.adminProducts);
 router.get('/adminDeleteProducts',productsController.adminDeleteProducts);
 router.get('/adminAddProduct',productsController.adminAddProduct);
 router.delete('/deleteProduct/:id', productsController.delete);
+router.get("/search/:search", productsController.searchProduct);
 
 
 module.exports = router;

@@ -9,12 +9,10 @@
                     <img src="\images\logo.png" alt="sayi" width="100%">
                 </a>
                 <div class="headerBuscador">
-                    <form action="">
-                        <input type="search" name="busqueda" placeholder="Buscar productos, marcas..." class="buscador">
-                        <div class="botonBuscar">
-                            <i class="fas fa-search header-brand-search-icon"></i>
-                        </div>
+                    <form class="formSearch" action="">
+                        <input id="search" type="text" class="input-search" placeholder="Buscar productos, marcas...">
                     </form>
+                    <script defer src="/search.js"></script>
                 </div>
             </div>
             <div class="headerNavLogin">
@@ -26,7 +24,7 @@
                     </li>
                 <%}else{%>
                <li type="none" style="margin-left: 5%;">
-                <a href="#carrito" style="color: black;">
+                <a href="/home#carrito" style="color: black;">
                     CARRITO 
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
@@ -80,6 +78,11 @@
     </header>
 
 <body>
+<main>
+
+
+    <br>
+    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
     <%if(usuarioLogeado!=null && perfil!=null){%>
         <%if(usuarioLogeado.id==perfil.id){%>
     <div class="formulario">
@@ -122,13 +125,17 @@
         <button class="button" style="width: 95%; margin-bottom: 20px; margin-top: 20px;" type="submit">Guardar cambios</button>
         </form>
         
-        <button class="button" style="margin-bottom: 15px;" onclick="location.href='/logout'">Cerrar sesión</button>
+        <button class="button" style="margin-bottom: 15px; background-color: rgb(122, 7, 7);" onclick="location.href='/logout'">Cerrar sesión</button>
     </div>
 
         <%}%>
     <%}else{%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/login"> </head>
     <%}%>
+
+    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
+    <br>
     <%- include("./partials/footer.ejs")%>
+</main>
 </body>
 </html>

@@ -3,7 +3,7 @@ const path = require('path');
 const sequelize = db.sequelize;
 const session = require('express-session');
 const { Script } = require('vm');
-
+const { Op } = require("sequelize");
 
 
 const productsController = {
@@ -127,6 +127,35 @@ const productsController = {
                 console.log(error);
             }
         },
+
+
+        searchProduct: async (req, res) => {
+            let search = req.params.search;
+            const usuarioLogeado = req.session.usuarioLogeado;
+            const productos = await db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
+            await db.Producto.findAll({
+              
+                where: {
+                  
+                    [Op.or]:[
+                    {idcategoria: {[Op.like]: "%" + search + "%"}},
+                    {nombre: {[Op.like]: "%" + search + "%"}}
+                  ]   
+                },
+            })
+            .then((productFilter) => {
+              res.render("search", {
+                styles: "allProducts",
+                buscarProductos: productFilter,
+                usuarioLogeado,
+                productos
+                });
+                
+            })
+            .catch((error) => {
+              console.error(error);
+            })
+          },
 };
 
 module.exports = productsController;

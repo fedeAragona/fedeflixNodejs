@@ -11,12 +11,21 @@ const controller = {
         res.render(path.join(__dirname,'../views/intro'));
     },
 
-    home: (req,res) => {
-        const usuarioLogeado = req.session.usuarioLogeado;
-        db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
-            .then(productos => {
-                res.render(path.join(__dirname,'../views/home'), {productos, usuarioLogeado})
-            })
+    home: async (req,res) => {
+        try{
+            const usuarioLogeado = req.session.usuarioLogeado;
+            const buscarProductos = await await db.Producto.findAll({
+                where:{
+                    estado:1
+                }
+            });
+            const productos = await db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
+
+            res.render(path.join(__dirname,'../views/home'),{productos,buscarProductos, usuarioLogeado});
+        }
+        catch(error){
+                console.log(error);
+        }
     },
 
     contact: (req,res) => {

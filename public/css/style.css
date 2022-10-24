@@ -26,6 +26,9 @@
   .headerMain {
       flex-direction: row;
   }
+  .dropbtn{
+    margin-left: 20px;
+  }
   }
   
   .headerLogoYBuscador{
@@ -50,6 +53,9 @@
       position: relative;
       top: 10%;
     }
+    .dropbtn{
+      margin-left: 0px;
+    }
 
 }
 
@@ -61,7 +67,7 @@
   }
     
     .headerBuscador{
-        flex-basis: 50%;
+        flex-basis: 40%;
         position: relative;
     }
   
@@ -88,7 +94,7 @@
     color: #666;
     position: absolute;
     top: 22%;
-    right: 3%;
+    right: 90px;
 }
 
 nav{
