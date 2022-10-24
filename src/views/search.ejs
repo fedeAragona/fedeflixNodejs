@@ -97,7 +97,7 @@
       <br>
       <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
       
-      <h1>Resultado de tu busqueda</h1>
+      <h1>Resultado de tu busqueda para: <%=search%></h1>
       <br>
           <!-- START SECTION STORE -->
           <section class="store">
@@ -105,6 +105,7 @@
                 <div class="items">
                     <div class="row">
                       <% for(let i=0; i < buscarProductos.length; i++){%>
+                        <%if(buscarProductos[i].estado!=0){%>
                             <a href="/product/<%=buscarProductos[i].id%>" style="text-decoration:none; color:black">
                                 <div class="col-12 col-md-6">
                                     <div class="item shadow mb-4">
@@ -120,6 +121,7 @@
                                     </div>
                                 </div>
                             </a>
+                        <%}%>
                       <%}%>
                     </div>
       

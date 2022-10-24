@@ -148,7 +148,8 @@ const productsController = {
                 styles: "allProducts",
                 buscarProductos: productFilter,
                 usuarioLogeado,
-                productos
+                productos,
+                search
                 });
                 
             })
