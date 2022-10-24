@@ -3,14 +3,19 @@ const sequelize = db.sequelize;
 
 const productsApiController = {
 
-    list: (req, res) => {
-        db.Producto.findAll()
+    list: async (req, res) => {
+        const productos = await db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
+        db.Producto.findAll({
+            where: {
+                estado:1,
+            }
+        })
             .then((products) => {
                 let respuesta = {
                     count: {
                         status: 200,
                         total: products.length,
-                        totalCategorias: 11,
+                        totalCategorias: productos.length,
                         url: "/api/products",
                     },
                     data: products.map((product) => {

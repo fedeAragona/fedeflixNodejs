@@ -3,7 +3,11 @@ const sequelize = db.sequelize;
 
 const usersApiController = {
     list: (req, res) => {
-        db.Usuario.findAll()
+        db.Usuario.findAll({
+            where:{
+                estado:1,
+            }
+        })
             .then(users => {
                 let respuesta = {
                     count: {
