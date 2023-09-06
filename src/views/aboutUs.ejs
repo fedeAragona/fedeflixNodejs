@@ -54,28 +54,11 @@
           <h1>FedeFlix</h1>
         </div>
         <div class="contenido" style=" background-color: rgb(224, 224, 224); border-radius: 10px; border: 20px rgb(224, 224, 224) solid;">
-          <p>Es un espacio donde podras ver los detalles de tus peliculas favoritas, obteniendo dichos detalles desde nuestra base de datos y de la api externa OMDB.</p>
+          <p>Es un espacio donde podras encontrar y ver los detalles de tus peliculas favoritas, obteniendo dichos fragmentos desde nuestra base de datos y de la api externa OMDB.</p>
         </div>
       </div>
       <div class="contenido">
         <img src="/images/lechuga.jpg" alt="" style="border-radius: 10px; width: 100%;" >
-      </div>
-    </section>
-
-    <section class="store">
-      <div class="pelicula-grid">
-        <%buscarPeliculas.forEach((pelicula) => { %>
-          <a href="/nuestrasPelis/<%=pelicula.id%>">
-            <div class="pelicula">
-              <%if(pelicula.img.startsWith("http")){%>
-                <img src="<%=pelicula.img%>" alt="<%=pelicula.nombre%>">
-              <%}else{%>
-                <img src="\images\peliculas\<%=pelicula.img%>" alt="<%=pelicula.nombre%>">
-              <%}%>
-              <h3><%= pelicula.nombre %></h3>
-            </div>
-          </a>
-        <%});%>
       </div>
     </section>
   </main>

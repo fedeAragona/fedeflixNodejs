@@ -30,28 +30,9 @@ const controller = {
         res.render(path.join(__dirname,'../views/contact'), {usuarioLogeado})
     },
 
-    aboutUs: async (req,res) => {
-        try{
-            const peliculasGuardadas = await db.UsuariosXPeliculas.findAll({
-                where: {
-                  idusuario: 1, // Filtrar por el ID del usuario logeado
-                },
-                include: [
-                  {
-                    model: db.Pelicula, // Relación con la tabla de películas
-                    as: 'pelicula', // Alias para la relación
-                  },
-                ],
-              });
-            const usuarioLogeado = req.session.usuarioLogeado;
-            res.render(path.join(__dirname, '../views/aboutUs'), {
-                peliculasGuardadas,
-                usuarioLogeado,
-              });
-        }
-        catch(error){
-                console.log(error);
-        }
+    aboutUs: (req,res) => {
+        const usuarioLogeado = req.session.usuarioLogeado;
+        res.render(path.join(__dirname,'../views/aboutUs'), {usuarioLogeado})
     },
 
     register: (req,res) => {
