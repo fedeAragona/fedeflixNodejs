@@ -1,6 +1,6 @@
 # "FedeFlix"
-
-
+App backend en nodejs donde se puede visualizar el listado de peliculas guardadas en la base de datos, crear, actualizar y eliminar. Ademas se listan peliculas de la api externa OMDB el cual se pueden agregar a nuestra base de datos. Estas acciones solo las puede realizar el usuario designado como administrador
+Tambien contiene login/register conectado con la base de datos con sus validaciones y su respectivo CRUD.
 
 # Para comenzar
 -Asegurese de tener instalado Node.js 
@@ -14,7 +14,7 @@
 # API
 -Para la data de las pelicula se utilizo la API external 'https://www.omdbapi.com'
 
-# Endpoints de Apis
+# Nuestras APIs
 -/api/peliculas
 -/api/users
 
