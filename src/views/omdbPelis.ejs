@@ -1,0 +1,91 @@
+<%- include("./partials/head.ejs")%>
+<body>
+  <header class="header">
+    <div class="headerMain">
+      <div class="headerLogo">
+        <a href="/home"><img src="\images\logo.png" alt="FedeFlix" width="65%"></a>
+      </div>
+      <div class="headerSearch">
+        <form class="formSearch" action="">
+          <input id="search" type="text" style="width: 52%;" class="input-search" placeholder="Buscar películas...">
+        </form>
+        <script defer src="/search.js"></script>
+      </div>
+      <div class="headerNavLogin">
+        <ul type="none">
+          <li>
+            <% if(usuarioLogeado != null) { %>
+              <a href="/perfil/<%=usuarioLogeado.id%>">Hola <%=usuarioLogeado.nombre%></a>
+            <% } else { %>
+              <a href="/login">ACCEDER <i class="fa-solid fa-user"></i></a>
+            <% } %>
+          </li>
+        </ul>
+        <% if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+          <li type="none" style="margin-left: 5%;">
+              <a href="/admin">Panel de administrador</a>
+          </li>
+        <%}%>
+      </div>
+    </div>
+    <nav class="headerNav">
+      <div class="headerNavItems">
+        <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
+          <li>
+            <a href="/home">omdb API Pelis</a>
+          </li>
+          <li>
+            <a href="/nuestrasPelis">Nuestras Pelis</a>
+          </li>
+          <li>
+            <a href="/aboutUs">Nosotros</a>
+          </li>
+            <li>
+          <a href="/contact">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <form action="/addPeliculaDesdeOmdb" method="POST" enctype="multipart/form-data">
+      <div class="contenedorProduct">
+        <div class="contenedorProduct2">
+          <div class="imagen">
+            <img src="<%= pelicula.Poster %>" id="img" alt="<%= pelicula.Title %>">
+          </div>
+          <div class="contenidoProduct">
+            <div>
+              <h2><%= pelicula.Title %></h2>
+            </div>
+            <div>
+              <h5>Genero: <span><%= pelicula.Genre %></span></h5>
+            </div>
+            <div>
+              <h5>Duracion: <span><%= pelicula.Runtime %></span></h5>
+            </div>
+            <div>
+              <h5>Rating: <span><%= pelicula.imdbRating %> ★</span></h5>
+            </div>
+            <div>
+              <h5>Descripcion: <span><%=pelicula.Plot%></span></h5>
+            </div>
+
+            <input type="text" class="inputInvisible" name="imagen" id="imagen" value="<%=pelicula.Poster%>" readonly>
+            <input type="text" class="inputInvisible" style="font-size: 2.5rem; color: white;" name="nombre" id="nombre" value="<%=pelicula.Title%>" readonly>
+            <input type="text" class="inputInvisible" name="genero" id="genero" value="<%=pelicula.Genre%>" readonly>
+            <input type="text" class="inputInvisible" name="duracion" id="duracion" value="<%=pelicula.Runtime%>" readonly>
+            <input type="text" class="inputInvisible" name="rating" id="rating" value="<%=pelicula.imdbRating%>" readonly>
+            <input type="text" class="inputInvisible" name="descripcion" id="descripcion" value="<%=pelicula.Plot%>" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="contenedorBotonAgregar">
+        <% if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+          <input type="submit" value="Agregar pelicula" class="buttonAgregarPeli">
+        <%}%>
+      </div>
+    </form>
+  </main>
+<%- include("./partials/footer.ejs")%>
+</body>

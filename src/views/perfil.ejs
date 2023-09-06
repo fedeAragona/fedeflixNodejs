@@ -1,141 +1,89 @@
 <%- include("./partials/head.ejs")%>
-<a href="https://wa.me/1169790502?text=Me%20gustaría%20saber%20el%20precio%20del%20producto" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <body>
-
-    <header class="header">
-        <div class="headerMain">
-            <div class="headerLogoYBuscador">
-                <a href="/home">
-                    <img src="\images\logo.png" alt="sayi" width="100%">
-                </a>
-                <div class="headerBuscador">
-                    <form class="formSearch" action="">
-                        <input id="search" type="text" class="input-search" placeholder="Buscar productos, marcas...">
-                    </form>
-                    <script defer src="/search.js"></script>
-                </div>
-            </div>
-            <div class="headerNavLogin">
-                <ul type="none">
-                 </ul>
-                 <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
-                    <li type="none" style="margin-left: 5%;">
-                    <a href="/admin" style="color: black;">Panel de administrador</a>
-                    </li>
-                <%}else{%>
-               <li type="none" style="margin-left: 5%;">
-                <a href="/home#carrito" style="color: black;">
-                    CARRITO 
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-               </li>
-               <%}%>
-              </div>
-        </div>
-        <nav class="headerNav">
-            <div class="headerNavItems">
-                <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
-                    <li>
-                        <a href="/home">Home</a>
-                    </li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="dropbtn">Market</button>
-                            <div class="dropdown-content">
-                                <%let nuevo=[];%>
-                                <%let bandera=false;%>
-                                <%for(let i=0; i < productos.length; i++){%>
-                                    <%for(let x=0; x < nuevo.length; x++){%>
-                                        <%if(productos[i].idcategoria === nuevo[x]){%>
-                                            <%bandera=true%>
-                                        <%}else{%>
-                                            <%bandera=false%>
-                                        <%}%>
-                                    <%}%>
-                                 <%if(bandera==false){%>
-                                        <%nuevo.push(productos[i].idcategoria)%>
-                                 <%}%>
-                                <%}%>
-                                <%let ordenado=nuevo.sort()%>
-                                <%for(let i=0; i < ordenado.length; i++){%>
-                                    <a href="/market/<%=ordenado[i]%>"><%=ordenado[i]%></a>
-                                <%}%>
-                            </div>
-                          </div>
-                    </li>
-                    <li>
-                        <a href="/descuentos">Promociones</a>
-                    </li>
-                    <li>
-                        <a href="/aboutUs">Nosotros</a>
-                    </li>
-                    <li style="margin-right: 0px;">
-                      <a href="/contact">Contacto</a>
-                  </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-<body>
-<main>
-
-
-    <br>
-    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
-    <%if(usuarioLogeado!=null && perfil!=null){%>
-        <%if(usuarioLogeado.id==perfil.id){%>
-    <div class="formulario">
-    <form action="/editUser?_method=PUT" method="POST">
-        <h1 style="margin-bottom: 15px;">Mi Perfil</h1>
-             
-        <ul type="none">
-                <li>
-                            <div>
-                                <label>Id</label><br>
-                                <input type="text" name="id" value="<%= perfil.id%>" readonly="true">
-                            </div>
-
-                            <div style="margin-top: 10px;">
-                                <label>Nombre</label><br>
-                                <input type="text" name="nombre" value="<%= perfil.nombre%>" required>
-                            </div>
-
-                            <div style="margin-top: 10px;">
-                                <label>Apellido</label><br>
-                                <input type="text" name="apellido" value="<%= perfil.apellido%>" required>
-                            </div>
-
-                            <div style="margin-top: 10px;">
-                                <label>Email</label><br>
-                                <input type="text" name="email" value="<%= perfil.email%>" readonly>
-                            </div>
-
-                            <div style="margin-top: 10px;">
-                                <label>Contraseña</label><br>
-                                <input type="password" name="contrasenia" value="<%= perfil.contrasenia%>" required>
-                            </div>
-
-                            <div style="margin-top: 10px;">
-                                <label>Imagen</label><br>
-                                <img src="\images\users\<%= perfil.img%>" width="83%" height="300px">
-                            </div>   
-                </li>
-        </ul>
-        <button class="button" style="width: 95%; margin-bottom: 20px; margin-top: 20px;" type="submit">Guardar cambios</button>
+  <header class="header">
+    <div class="headerMain">
+      <div class="headerLogo">
+        <a href="/home"><img src="\images\logo.png" alt="FedeFlix" width="65%"></a>
+      </div>
+      <div class="headerSearch">
+        <form class="formSearch" action="">
+          <input id="search" type="text" style="width: 52%;" class="input-search" placeholder="Buscar películas...">
         </form>
-        
-        <button class="button" style="margin-bottom: 15px; background-color: rgb(122, 7, 7);" onclick="location.href='/logout'">Cerrar sesión</button>
+        <script defer src="/search.js"></script>
+      </div>
+      <div class="headerNavLogin">
+        <ul type="none">
+            <% if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+              <li type="none" style="margin-left: 5%;">
+                <a href="/admin">Panel de administrador</a>
+              </li>
+            <%}%>
+        </ul>
+      </div>
     </div>
-
-        <%}%>
+    <nav class="headerNav">
+      <div class="headerNavItems">
+        <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
+          <li>
+            <a href="/home">omdb API Pelis</a>
+          </li>
+          <li>
+            <a href="/nuestrasPelis">Nuestras Pelis</a>
+          </li>
+          <li>
+            <a href="/aboutUs">Nosotros</a>
+          </li>
+            <li>
+          <a href="/contact">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <%if(usuarioLogeado!=null && perfil!=null){%>
+      <%if(usuarioLogeado.id==perfil.id){%>
+        <div class="formulario">
+          <form action="/editUser?_method=PUT" method="POST">
+            <h1 style="margin-bottom: 15px;">Mi Perfil</h1>
+            <ul type="none">
+              <li>
+                <div>
+                  <label>Id</label>
+                  <br>
+                  <input type="text" name="id" value="<%= perfil.id%>" readonly="true">
+                </div>
+                <div style="margin-top: 10px;">
+                  <label>Nombre</label>
+                  <br>
+                  <input type="text" name="nombre" value="<%= perfil.nombre%>" required>
+                </div>
+                <div style="margin-top: 10px;">
+                  <label>Apellido</label><br>
+                  <input type="text" name="apellido" value="<%= perfil.apellido%>" required>
+                </div>
+                <div style="margin-top: 10px;">
+                  <label>Email</label><br>
+                  <input type="text" name="email" value="<%= perfil.email%>" readonly>
+                </div>
+                <div style="margin-top: 10px;">
+                  <label>Contraseña</label><br>
+                  <input type="password" name="contrasenia" value="<%= perfil.contrasenia%>" required>
+                </div>
+                <div style="margin-top: 10px;">
+                  <label>Imagen</label><br>
+                  <img src="\images\users\<%= perfil.img%>" width="83%" height="300px">
+                </div>   
+              </li>
+            </ul>
+            <button class="button" style="width: 95%; margin-bottom: 20px; margin-top: 20px;" type="submit">Guardar cambios</button>
+          </form>
+          <button class="button" style="margin-bottom: 15px; background-color: rgb(122, 7, 7);" onclick="location.href='/logout'">Cerrar sesión</button>
+        </div>
+      <%}%>
     <%}else{%>
         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/login"> </head>
     <%}%>
-
-    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
-    <br>
-    <%- include("./partials/footer.ejs")%>
-</main>
+  </main>
+<%- include("./partials/footer.ejs")%>
 </body>
-</html>

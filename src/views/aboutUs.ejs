@@ -1,119 +1,83 @@
 <%- include("./partials/head.ejs")%>
-<a href="https://wa.me/1169790502?text=Me%20gustaría%20saber%20el%20precio%20del%20producto" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <body>
-    <header class="header">
-        <div class="headerMain">
-            <div class="headerLogoYBuscador">
-                <a href="/home">
-                    <img src="\images\logo.png" alt="sayi" width="100%">
-                </a>
-                <div class="headerBuscador">
-                    <form class="formSearch" action="">
-                        <input id="search" type="text" class="input-search" placeholder="Buscar productos, marcas...">
-                    </form>
-                    <script defer src="/search.js"></script>
-                </div>
-            </div>
-            <div class="headerNavLogin">
-              <ul type="none">
-                <li>
-                  <%if(usuarioLogeado != null) {%>
-                    <a href="/perfil/<%=usuarioLogeado.id%>">Hola <%=usuarioLogeado.nombre%></a>
-                  <%}else{%>
-                    <a href="/login">ACCEDER
-                      <i class="fa-solid fa-user"></i>
-                    </a>
-                    <%}%>
-                </li>
-               </ul>
-               <%if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
-                    <li type="none" style="margin-left: 5%;">
-                    <a href="/admin" style="color: black;">Panel de administrador</a>
-                    </li>
-                <%}else{%>
-               <li type="none" style="margin-left: 5%;">
-                <a href="/home#carrito" style="color: black;">
-                    CARRITO 
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-               </li>
-               <%}%>
-            </div>
+  <header class="header">
+    <div class="headerMain">
+      <div class="headerLogo">
+        <a href="/home"><img src="\images\logo.png" alt="FedeFlix" width="65%"></a>
+      </div>
+      <div class="headerSearch">
+        <form class="formSearch" action="">
+          <input id="search" type="text" style="width: 52%;" class="input-search" placeholder="Buscar películas...">
+        </form>
+        <script defer src="/search.js"></script>
+      </div>
+      <div class="headerNavLogin">
+        <ul type="none">
+          <li>
+            <% if(usuarioLogeado != null) { %>
+              <a href="/perfil/<%=usuarioLogeado.id%>">Hola <%=usuarioLogeado.nombre%></a>
+            <% } else { %>
+              <a href="/login">ACCEDER <i class="fa-solid fa-user"></i></a>
+            <% } %>
+          </li>
+        </ul>
+        <% if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+          <li type="none" style="margin-left: 5%;">
+              <a href="/admin">Panel de administrador</a>
+          </li>
+        <%}%>
+      </div>
+    </div>
+    <nav class="headerNav">
+      <div class="headerNavItems">
+        <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
+          <li>
+            <a href="/home">omdb API Pelis</a>
+          </li>
+          <li>
+            <a href="/nuestrasPelis">Nuestras Pelis</a>
+          </li>
+          <li>
+            <a href="/aboutUs">Nosotros</a>
+          </li>
+            <li>
+          <a href="/contact">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="sectionAboutUs">
+      <div class="contenido"  style="width: 70%;">
+        <div class="titulos">
+          <h1>FedeFlix</h1>
         </div>
-        <nav class="headerNav">
-            <div class="headerNavItems">
-                <ul type="none" style="border-top: 1px solid gray; margin-bottom: 0px;">
-                    <li>
-                        <a href="/home">Home</a>
-                    </li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="dropbtn">Market</button>
-                            <div class="dropdown-content">
-                                <%let nuevo=[];%>
-                                <%let bandera=false;%>
-                                <%for(let i=0; i < productos.length; i++){%>
-                                    <%for(let x=0; x < nuevo.length; x++){%>
-                                        <%if(productos[i].idcategoria === nuevo[x]){%>
-                                            <%bandera=true%>
-                                        <%}else{%>
-                                            <%bandera=false%>
-                                        <%}%>
-                                    <%}%>
-                                 <%if(bandera==false){%>
-                                        <%nuevo.push(productos[i].idcategoria)%>
-                                 <%}%>
-                                <%}%>
-                                <%let ordenado=nuevo.sort()%>
-                                <%for(let i=0; i < ordenado.length; i++){%>
-                                    <a href="/market/<%=ordenado[i]%>"><%=ordenado[i]%></a>
-                                <%}%>
-                            </div>
-                          </div>
-                    </li>
-                    <li>
-                        <a href="/descuentos">Promociones</a>
-                    </li>
-                    <li>
-                        <a href="/aboutUs">Nosotros</a>
-                    </li>
-                    <li style="margin-right: 0px;">
-                      <a href="/contact">Contacto</a>
-                  </li>
-                </ul>
+        <div class="contenido" style=" background-color: rgb(224, 224, 224); border-radius: 10px; border: 20px rgb(224, 224, 224) solid;">
+          <p>Es un espacio donde podras ver los detalles de tus peliculas favoritas, obteniendo dichos detalles desde nuestra base de datos y de la api externa OMDB.</p>
+        </div>
+      </div>
+      <div class="contenido">
+        <img src="/images/lechuga.jpg" alt="" style="border-radius: 10px; width: 100%;" >
+      </div>
+    </section>
+
+    <section class="store">
+      <div class="pelicula-grid">
+        <%buscarPeliculas.forEach((pelicula) => { %>
+          <a href="/nuestrasPelis/<%=pelicula.id%>">
+            <div class="pelicula">
+              <%if(pelicula.img.startsWith("http")){%>
+                <img src="<%=pelicula.img%>" alt="<%=pelicula.nombre%>">
+              <%}else{%>
+                <img src="\images\peliculas\<%=pelicula.img%>" alt="<%=pelicula.nombre%>">
+              <%}%>
+              <h3><%= pelicula.nombre %></h3>
             </div>
-        </nav>
-    </header>
-
-    <main>
-            <section class="sectionAboutUs">
-                <div class="contenido"  style="width: 70%;">
-                        <h1>
-                            - SAYI ES CONSCIENCIA -
-                        </h1>
-                    <div class="contenido" style=" background-color: rgb(224, 224, 224); border-radius: 10px; border: 20px rgb(224, 224, 224) solid;">
-                        <p>
-                            SAYI es un espacio consciente que integra una tienda con gran variedad de productos y servicios necesarios para llevar a cabo un estilo de vida saludable y sustentable, equilibrando el bienestar de las personas y el planeta.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="contenido">
-                    <img src="/images/lechuga.jpg" alt="" style="border-radius: 10px; width: 100%;" >
-                </div>
-            </section>
-
-            <br>
-            <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
-            <br>
-            <h1>DONDE ESTAMOS</h1>
-            <br>
-          <div style="opacity: 0.9;">
-            <img src="\images\sayilocal.jpg" alt="" width="100%">
-          </div>
-          <br>
-    </main>
-
-    <%- include("./partials/footer.ejs")%>
+          </a>
+        <%});%>
+      </div>
+    </section>
+  </main>
+<%- include("./partials/footer.ejs")%>
 </body>
-</html>

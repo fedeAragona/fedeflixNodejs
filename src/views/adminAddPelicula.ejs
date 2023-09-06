@@ -1,0 +1,61 @@
+<%- include("./partials/head.ejs")%>
+<body>
+    <header class="header">
+        <div class="headerMain">
+            <div class="headerLogo">
+                <a href="/home"><img src="\images\logo.png" alt="FedeFlix" width="65%"></a>
+            </div>
+            <div class="headerSearch">
+            </div>
+            <div class="PanelAdminText">
+            <h3>Panel de administrador</h3>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form class="formulario" action="/addPelicula" method="POST" enctype="multipart/form-data" style="text-align: center;">
+            <h1>Agregar pelicula</h1>
+            <div class="contenedor">
+                <div class="input-contenedor">
+                    <div class="iconAdmin">
+                        <i class="fa-solid fa-pencil"></i>
+                        <input type="text" placeholder="Nombre" name="nombre" id="nombre" required>
+                    </div>
+                </div>
+                <div class="input-contenedor">
+                    <div class="iconAdmin">
+                        <i class="fa-solid fa-file-signature"></i>
+                        <input type="text" placeholder="Descripcion" name="descripcion" id="descripcion" required>
+                    </div>
+                </div>
+                <div class="input-contenedor">
+                    <div class="iconAdmin">
+                        <i class="fa-solid fa-star"></i>
+                        <input style="margin-left: 5px;" type="number" step="0.1" min="0.0" max="10.0" placeholder="Rating (Ej: 8.0)" name="rating" id="rating" required>
+                    </div>
+                </div>
+                <div class="input-contenedor">
+                    <div class="iconAdmin">
+                        <i class="fa-solid fa-bars"></i>
+                        <input type="text" placeholder="Genero" name="genero" id="genero" required>
+                    </div>
+                </div>
+                <div class="input-contenedor">
+                    <div class="iconAdmin">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <input type="number" placeholder="Duracion de la pelicula (min)" name="duracion" id="duracion" required>
+                    </div>
+                </div>
+                <div class="input-contenedor">
+                    <div class="iconAdmin">
+                        <i class="fa-solid fa-image"></i>
+                        <input type="file" placeholder="Imagen" name="img" id="img">
+                    </div>
+                </div>
+                <input type="submit" value="Cargar" class="button">
+                <p style="margin-top: 15px;"><a class="link" href="/adminPeliculas">Cancelar</a></p>
+            </div>
+        </form>
+    </main>
+<%- include("./partials/footer.ejs")%>
+</body>

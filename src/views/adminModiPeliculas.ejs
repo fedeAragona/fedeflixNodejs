@@ -1,0 +1,26 @@
+<%- include("./partials/head.ejs")%>
+<body>
+  <header class="header">
+      <div class="headerMain">
+        <div class="headerLogo">
+          <a href="/home"><img src="\images\logo.png" alt="FedeFlix" width="65%"></a>
+        </div>
+        <div class="headerSearch">
+        </div>
+        <div class="PanelAdminText">
+          <h3>Panel de administrador</h3>
+        </div>
+      </div>
+  </header>
+  <main>
+    <form class="formulario"  action="/search" method="GET" style="text-align: center;">
+      <h1 style="margin-bottom: 15px;">Modificar peliculas</h1><br>
+      <p>Buscar por ID</p>
+      <input type="text" placeholder="Ingrese ID" name="id" id="id" required style="width: 30%; margin-top: 10px;">
+      <button type="submit" class="buttonEditar" style="width: auto; margin-bottom: 20px; padding: 2%;">Buscar</button>
+      <a href="/adminListarPeliculas"><input type="button" value="Ver todas las peliculas" class="button" style="margin-top: 15px; margin-bottom: 15px;"></a>
+      <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/adminPeliculas">Volver atras</a></p>
+    </form>
+  </main>
+<%- include("./partials/footer.ejs")%>
+</body>

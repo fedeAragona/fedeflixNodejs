@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-    let searchBar = document.querySelector(".headerBuscador");
+    let searchBar = document.querySelector(".headerSearch");
     let submitform = document.querySelector(".formSearch");
     let section = document.querySelector("section");
     console.log(section);

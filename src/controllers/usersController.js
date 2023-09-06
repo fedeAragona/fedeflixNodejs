@@ -1,12 +1,6 @@
 const db = require('../database/models');
 const path = require('path');
-const sequelize = db.sequelize;
-const session = require('express-session');
-const { Script } = require('vm');
-const e = require('express');
-
-//Otra forma de llamar a los modelos
-const Usuario = db.Usuario;
+const bcrypt = require('bcrypt');
 
 const usersController = {
     'list': (req, res) => {
@@ -26,51 +20,44 @@ const usersController = {
     },
 
     postUser: async (req, res) => {
-
-            const productos = await db.Producto.findAll({
-                where: {
-                    estado: 1,
+        const buscarEmail = await db.Usuario.findOne({
+                where:{
+                    email: req.body.email,
                 }
-            })
-            const buscarEmail = await db.Usuario.findOne({
-                    where:{
-                        email: req.body.email,
-                    }
-                })
-                if(buscarEmail){
-                    res.render('register.ejs', {buscarEmail, productos})
-                }else{
-                    const newUser = {
-                        nombre: req.body.nombre,
-                        apellido: req.body.apellido,
-                        email: req.body.email,
-                        contrasenia: req.body.contrasenia,
-                        img: req.file ? req.file.filename : "userDefault.png",
-                        estado: 1,
-                        admin: 0
-                    }
-            
-                    try{
-                        await db.Usuario.create(newUser);
-                        const user = await db.Usuario.findOne({
-                            where:{
-                                email: req.body.email
-                            }
-                        });
-                        req.session.usuarioLogeado = user;
-                        res.redirect('/home');
-                    }catch(error){
-                        console.log(error);
-                    }
+        })
+        if(buscarEmail){
+            res.render('register.ejs', {buscarEmail})
+        }else{
+            const newUser = {
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                contrasenia: await bcrypt.hash(req.body.contrasenia, 10),
+                img: req.file ? req.file.filename : "userDefault.png",
+                estado: 1,
+                admin: 0
             }
+    
+            try{
+                await db.Usuario.create(newUser);
+                const user = await db.Usuario.findOne({
+                    where:{
+                        email: req.body.email
+                    }
+                });
+                req.session.usuarioLogeado = user;
+                res.redirect('/home');
+            }catch(error){
+                console.log(error);
+            }
+        }
     },
 
     perfil: async (req,res)=>{
         try{
             const perfil = await db.Usuario.findByPk(req.params.id)
             const usuarioLogeado = req.session.usuarioLogeado;
-            const productos = await db.Producto.findAll({Attributes: ['idcategoria'], group: ['idcategoria']},{where:{estado:1}})
-            res.render(path.join(__dirname,'../views/perfil'),{perfil, productos, usuarioLogeado});
+            res.render(path.join(__dirname,'../views/perfil'),{perfil, usuarioLogeado});
         }
         catch(error){
             console.log(error);
@@ -84,32 +71,34 @@ const usersController = {
             email,
             contrasenia,
             img,
+            id,
         } = req.body;
     
         try {
+            const hashedPassword = await bcrypt.hash(contrasenia, 10);
             await db.Usuario.update(
                 {
                     nombre,
                     apellido,
                     email,
-                    contrasenia,
+                    contrasenia: hashedPassword,
                     img,
                     estado:1
                 },
                 {
                     where: {
-                        id: req.body.id,
+                        id: id,
                     }
                 }
             );
             if(req.session.usuarioLogeado==null){
                 req.session.usuarioLogeado = await db.Usuario.findOne({
                     where:{
-                        email: req.body.email
+                        email: email
                     }
                 });
             }
-            res.redirect('/edit/'+ req.body.id);
+            res.redirect('/edit/'+ id);
         } catch (error) {
             console.log(error);
         }
@@ -134,75 +123,73 @@ const usersController = {
     },
 
     processLogin: async (req,res) =>{
-        try{
-            
+        try{  
             const usuario = await db.Usuario.findOne({
                 where:{
                     email: req.body.email,
-                    contrasenia: req.body.password
                 }
              });
 
-            const productos = await db.Producto.findAll({
-                where: {
-                    estado: 1,
-                }
-            })
-
-             if(usuario != null){
-                if(usuario.estado == 1){
-                    req.session.usuarioLogeado = usuario;
-                    res.redirect("/home");
-                }else{
-                    const usuario = 1;
-                    res.render("login.ejs", {usuario, productos});
-                }
-             }else{
-                 const usuario = 2
-                 res.render("login.ejs", {usuario, productos});
-             }
-           
-        }catch(error){
-            console.log(error);
-        }
-    },
-
-    updateUserParticular: async (req,res) => {
-        const {
-            nombre,
-            apellido,
-            email,
-            contrasenia,
-            img,
-        } = req.body;
-    
-        try {
-            await db.Usuario.update(
-                {
-                    nombre,
-                    apellido,
-                    email,
-                    contrasenia,
-                    img,
-                    estado:1
-                },
-                {
-                    where: {
-                        id: req.body.id,
+            if(usuario != null){
+                const passwordMatch = await bcrypt.compare(req.body.password, usuario.contrasenia);
+                if (passwordMatch) {
+                    if (usuario.estado == 1) {
+                        req.session.usuarioLogeado = usuario;
+                        res.redirect("/home");
+                    } else {
+                        const usuario = 1;
+                        res.render("login.ejs", { usuario });
                     }
+                } else {
+                    const usuario = 2;
+                    res.render("login.ejs", { usuario });
                 }
-            );
-            req.session.usuarioLogeado = await db.Usuario.findOne({
-                where:{
-                    email: req.body.email
-                }
-            });
-            res.redirect('/perfil/'+ req.body.id);
+            } else {
+                const usuario = 2;
+                res.render("login.ejs", { usuario });
+            }
         } catch (error) {
             console.log(error);
         }
     },
 
+    updateUserParticular: async (req,res) => {
+        const  {
+            nombre,
+            apellido,
+            email,
+            contrasenia,
+            img,
+            id,
+        } = req.body;
+        try {
+            const hashedPassword = await bcrypt.hash(contrasenia, 10);
+            await db.Usuario.update(
+                {
+                    nombre,
+                    apellido,
+                    email,
+                    contrasenia: hashedPassword,
+                    img,
+                    estado:1
+                },
+                {
+                    where: {
+                        id: id,
+                    }
+                }
+            );
+            req.session.usuarioLogeado = await db.Usuario.findOne({
+                where:{
+                    email: email
+                }
+            });
+            res.redirect('/perfil/'+ id);
+        } catch (error) {
+            console.log(error);
+            res.status(500).send("Ocurrio un error al actualizar usuario");
+        }
+    },
 }
 
 module.exports = usersController;

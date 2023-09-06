@@ -16,16 +16,16 @@
           <li>
             <% if(usuarioLogeado != null) { %>
               <a href="/perfil/<%=usuarioLogeado.id%>">Hola <%=usuarioLogeado.nombre%></a>
-            <% } else { %>
+            <%}else{%>
               <a href="/login">ACCEDER <i class="fa-solid fa-user"></i></a>
-            <% } %>
+            <%}%>
           </li>
-        </ul>
-        <% if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
-          <li type="none" style="margin-left: 5%;">
+          <% if(usuarioLogeado !=null && usuarioLogeado.admin == true){%>
+            <li type="none" style="margin-left: 5%;">
               <a href="/admin">Panel de administrador</a>
-          </li>
-        <%}%>
+            </li>
+          <%}%>
+        </ul>
       </div>
     </div>
     <nav class="headerNav">
@@ -38,12 +38,10 @@
             <a href="/nuestrasPelis">Nuestras Pelis</a>
           </li>
           <li>
-            <% if(usuarioLogeado != null) { %>
-              <a href="/aboutUs">Favoritas</a>
-            <% } %>
+            <a href="/aboutUs">Nosotros</a>
           </li>
-            <li>
-          <a href="/contact">Contacto</a>
+          <li>
+            <a href="/contact">Contacto</a>
           </li>
         </ul>
       </div>
@@ -51,23 +49,25 @@
   </header>
   <main>
     <br>
-    <div>
-        <div class="titulos">
-          <h2 class="text-center">Peliculas de omdb API</h2>
-        </div>
-    </div>  
+    <div class="titulos">
+      <h2>Peliculas en nuestra DataBase</h2>
+    </div>
     <section class="store">
       <div class="pelicula-grid">
-        <% peliculas.forEach((pelicula) => { %>
-          <a href="/pelicula/<%=pelicula.imdbID%>">
+        <%buscarPeliculas.forEach((pelicula) => { %>
+          <a href="/nuestrasPelis/<%=pelicula.id%>">
             <div class="pelicula">
-              <img src="<%= pelicula.Poster %>" alt="<%= pelicula.Title %>">
-              <h3><%= pelicula.Title %></h3>
+              <%if(pelicula.img.startsWith("http")){%>
+                <img src="<%=pelicula.img%>" alt="<%=pelicula.nombre%>">
+              <%}else{%>
+                <img src="\images\peliculas\<%=pelicula.img%>" alt="<%=pelicula.nombre%>">
+              <%}%>
+              <h3><%= pelicula.nombre %></h3>
             </div>
           </a>
         <%});%>
       </div>
     </section>
   </main>
-<%- include("./partials/footer.ejs")%>
+  <%- include("./partials/footer.ejs")%>
 </body>

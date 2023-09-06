@@ -1,33 +1,24 @@
 <%- include("./partials/head.ejs")%>
 <body>
-    <header class="header">
-        <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
-            <a href="/home">
-                <img src="\images\logo.png" alt="sayi" width="70%">
-            </a>
-            <a href="/admin" style="color: black;">
-                <h4 style="margin-top: 17px;">PANEL DE ADMINISTRADOR</h4>
-            </a>
-        </div>
-    </header>
-    
-<main>
-    <br>
-    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
+  <header class="header">
+    <div class="headerMain">
+      <div class="headerLogo">
+        <a href="/home"><img src="\images\logo.png" alt="FedeFlix" width="65%"></a>
+      </div>
+      <div class="headerSearch">
+      </div>
+      <div class="PanelAdminText">
+        <h3>Panel de administrador</h3>
+      </div>
+    </div>
+  </header>
+  <main>
     <form class="formulario" style="text-align: center;">
-    
-        <h1 style="margin-bottom: 15px;">Panel de control</h1>
-             
-        <a href="/adminProducts"><input type="button" href="/adminProducts" value="Productos" class="button" style="margin-bottom: 10px; width: 95%;"></a>
-        <a href="/users2"><input type="button" value="Usuarios" class="button" style="margin-bottom: 10px; width: 95%;"></a>
-        <a href="http://localhost:3000/"><input type="button" value="Estadisticas" class="button" style="margin-bottom: 10px; width: 95%;"><a>
-        <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/home">Salir</a></p>
+      <h1 style="margin-bottom: 15px;">Panel de control</h1>
+      <a href="/adminPeliculas"><input type="button" href="/adminPeliculas" value="Peliculas" class="button" style="margin-bottom: 10px; width: 95%;"></a>
+      <a href="/users2"><input type="button" value="Usuarios" class="button" style="margin-bottom: 10px; width: 95%;"></a>
+      <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/home">Salir</a></p>
     </form>
-    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
-    <br>
-
-</main>
+  </main>
 <%- include("./partials/footer.ejs")%>
-
 </body>
-</html>

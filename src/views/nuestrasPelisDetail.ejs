@@ -48,29 +48,34 @@
     </nav>
   </header>
   <main>
-    <form class="formulario" action="/addContact" method="POST">
-      <h1>Envianos tu mensaje</h1>
-      <div class="contenedor">
-        <div class="input-contenedor">
-          <i class="fas fa-user icon"></i>
-          <input type="text" placeholder="Nombre Completo" name="nombre" id="nombre" required>
+    <div class="contenedorProduct">
+      <div class="contenedorProduct2">
+          <div class="imagen">
+            <% if (buscarPelicula.img.startsWith("http")) { %>
+            <img src="<%= buscarPelicula.img %>" alt="imagen">
+            <% } else { %>
+            <img src="\images\peliculas\<%= buscarPelicula.img %>" alt="imagen">
+            <% } %>
+          </div>
+        <div class="contenidoProduct">
+          <div>
+            <h2><%= buscarPelicula.nombre %></h2>
+          </div>
+          <div>
+            <h5>Genero: <span><%= buscarPelicula.genero %></span></h5>
+          </div>
+          <div>
+            <h5>Duracion: <span><%= buscarPelicula.duracion %> min</span></h5>
+          </div>
+          <div>
+            <h5>Rating: <span><%= buscarPelicula.rating %> ★</span></h5>
+          </div>
+          <div>
+            <h5>Descripcion: <span><%=buscarPelicula.descripcion%></span></h5>
+          </div>
         </div>
-        <div class="input-contenedor">
-          <i class="fas fa-envelope icon"></i>
-          <input type="text" placeholder="Correo Electronico" name="email" id="email" required>
-        </div>
-        <div class="input-contenedor">
-          <i class="fa-solid fa-pencil" style="color: gray; margin-left: 20px;"></i>
-            <input type="text" placeholder="Asunto" name="asunto" id="asunto" style="margin-left: 20px;">
-        </div>
-        <div class="input-contenedor">
-          <i class="fa-regular fa-message" style="color: gray; margin-left: 20px;"></i>
-            <input type="text" name="consulta" id="consulta" placeholder="Tu mensaje..." required style="margin-left: 20px;"></input>
-        </div>
-        <input type="submit" value="Enviar" class="button">
-        <p style="font-size: small; margin: 2%;">Envianos tu mensaje y nos pondremos en contacto con vos a la brevedad.</p>
       </div>
-    </form>
+    </div>
   </main>
 <%- include("./partials/footer.ejs")%>
 </body>

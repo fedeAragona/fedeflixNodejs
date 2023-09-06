@@ -1,46 +1,40 @@
 <%- include("./partials/head.ejs")%>
-
 <body>
     <header class="header">
-        <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
-            <a href="/home">
-                <img src="\images\logo.png" alt="sayi" width="70%">
-            </a>
-            <a href="/admin">
-                <h2 style="margin-top: 17px;">PANEL DE ADMINISTRADOR</h2>
-            </a>
+        <div class="headerMain">
+          <div class="headerLogo">
+            <a href="/home"><img src="\images\logo.png" alt="FedeFlix" width="65%"></a>
+          </div>
+          <div class="headerSearch">
+          </div>
+          <div class="PanelAdminText">
+            <h3>Panel de administrador</h3>
+          </div>
         </div>
     </header>
-
-<main>
-    <br>
-    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
-    <div class="formulario">
-    
-        <h1 style="margin-bottom: 15px;">Todos los usuarios</h1>
-             
-        <ul type="none">
-            <% for(let i = 0; i < usuarios.length; i++) {%>
-                <% if(usuarios[i].estado == 1) {%>
-                    <li>
-                        <div style="margin: 10px; text-align: center; display: flex; flex-direction: row;">
-                            <input style="width: 80%;" type="text" value="<%= usuarios[i].id%>     <%= usuarios[i].nombre%>" readonly>
-                            <a class="buttonEditar" style="width: auto; padding: 8px; margin-left: 10px;" href="/edit/<%= usuarios[i].id%>">Editar</a>
-                        
-                            <div>
-                                <form action="/delete/<%= usuarios[i].id%>?_method=DELETE" method="POST">
-                                    <button class="buttonEditar" style="width: auto;background-color: rgb(122, 7, 7); margin-left: 10px;" type="submit">Eliminar</button>
-                                </form>
-                            </div>
-                        </div>  
-                    </li>
+    <main>
+        <div class="formulario">
+            <h1 style="margin-bottom: 15px;">Todos los usuarios</h1>
+            <ul type="none">
+                <% for(let i = 0; i < usuarios.length; i++) {%>
+                    <% if(usuarios[i].estado == 1) {%>
+                        <li>
+                            <div style="margin: 10px; text-align: center; display: flex; flex-direction: row;">
+                                <input style="width: 80%;" type="text" value="<%= usuarios[i].id%>     <%= usuarios[i].nombre%>" readonly>
+                                <a class="buttonEditar" style="width: auto; padding: 8px; margin-left: 10px;" href="/edit/<%= usuarios[i].id%>">Editar</a>
+                                <div>
+                                    <form action="/delete/<%= usuarios[i].id%>?_method=DELETE" method="POST">
+                                        <button class="buttonEditar" style="width: auto;background-color: rgb(122, 7, 7); margin-left: 10px;" type="submit">Eliminar</button>
+                                    </form>
+                                </div>
+                            </div>  
+                        </li>
+                    <%}%>
                 <%}%>
-            <%}%>
-        </ul>
-        <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/admin">Volver atras</a></p>
-    </div>
-    <b style="height: 2px; background-color: rgb(196, 196, 196); display: block; margin-bottom: 10px;"></b>
-</main>
-    <%- include("./partials/footer.ejs")%>
+            </ul>
+            <p style="margin-top: 15px; margin-bottom: 15px;"><a class="link" href="/admin">Volver atras</a></p>
+        </div>
+    </main>
+<%- include("./partials/footer.ejs")%>
 </body>
-</html>
+
